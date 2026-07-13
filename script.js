@@ -522,9 +522,7 @@ function(e){
         setTimeout(()=>{
 
 
-            window.location.href =
-            "dashboard.html";
-
+            window.location.href = "home.html";
 
         },1500);
 
