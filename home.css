@@ -198,3 +198,154 @@ body.dark-mode .hello{
 body.dark-mode .balance-card{
     background:linear-gradient(135deg,#5A2ED8,#7B4DFF);
 }
+/* ===========================
+   PREMIUM BOTTOM NAVIGATION
+=========================== */
+
+.bottom-nav{
+
+    position:fixed;
+
+    bottom:20px;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    width:92%;
+
+    max-width:420px;
+
+    height:75px;
+
+    background:rgba(255,255,255,.75);
+
+    backdrop-filter:blur(20px);
+
+    border-radius:28px;
+
+    display:flex;
+
+    justify-content:space-around;
+
+    align-items:center;
+
+    box-shadow:
+    0 15px 35px rgba(0,0,0,.12);
+
+    z-index:999;
+
+}
+
+
+
+.nav-item{
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    gap:4px;
+
+    text-decoration:none;
+
+    color:#777;
+
+    font-size:13px;
+
+    transition:.3s;
+
+}
+
+
+
+.nav-item span{
+
+    font-size:22px;
+
+}
+
+
+
+.nav-item.active{
+
+    color:#7B2CFF;
+
+    font-weight:700;
+
+}
+
+
+
+.nav-item:hover{
+
+    color:#7B2CFF;
+
+}
+
+
+
+.fab{
+
+    width:65px;
+
+    height:65px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:linear-gradient(
+    135deg,
+    #7B2CFF,
+    #B56CFF
+    );
+
+    color:white;
+
+    font-size:34px;
+
+    cursor:pointer;
+
+    margin-top:-45px;
+
+    box-shadow:
+    0 15px 30px rgba(123,44,255,.45);
+
+    transition:.3s;
+
+}
+
+
+
+.fab:hover{
+
+    transform:scale(1.08);
+
+}
+
+
+
+body.dark-mode .bottom-nav{
+
+    background:rgba(25,25,40,.85);
+
+}
+
+
+
+body.dark-mode .nav-item{
+
+    color:#bbbbbb;
+
+}
+
+
+
+body.dark-mode .nav-item.active{
+
+    color:#B56CFF;
+
+}
