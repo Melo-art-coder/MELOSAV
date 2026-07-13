@@ -1,15 +1,15 @@
 const CACHE_NAME = "melosave-cache-v1";
 const assets = [
-  "/",
-  "/index.html",
-  "/dashboard.html",
-  "/login.html",
-  "/signup.html",
-  "/profile.html",
-  "/style.css",
-  "/script.js",
-  "/icon-192.png",
-  "/icon-512.png"
+  "/MELOSAV/",
+  "/MELOSAV/index.html",
+  "/MELOSAV/dashboard.html",
+  "/MELOSAV/login.html",
+  "/MELOSAV/signup.html",
+  "/MELOSAV/profile.html",
+  "/MELOSAV/style.css",
+  "/MELOSAV/script.js",
+  "/MELOSAV/icon-192.png",
+  "/MELOSAV/icon-512.png"
 ];
 
 // Install Service Worker and cache assets
