@@ -119,3 +119,57 @@ body{
 .header-btn:hover{
     transform:translateY(-3px);
 }
+/* ==========================
+   PREMIUM BALANCE CARD
+========================== */
+
+.balance-card{
+    margin-bottom:30px;
+    padding:28px;
+    border-radius:28px;
+    background:linear-gradient(135deg,#6C3EF4,#9D6BFF);
+    color:#fff;
+    box-shadow:0 20px 40px rgba(108,62,244,.25);
+}
+
+.balance-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.balance-label{
+    font-size:15px;
+    opacity:.9;
+}
+
+.currency{
+    background:rgba(255,255,255,.2);
+    padding:8px 14px;
+    border-radius:20px;
+    font-size:13px;
+    font-weight:600;
+}
+
+#balance{
+    font-size:42px;
+    margin:25px 0;
+    font-weight:800;
+}
+
+.balance-bottom{
+    display:flex;
+    justify-content:space-between;
+    margin-top:10px;
+}
+
+.balance-bottom small{
+    display:block;
+    opacity:.8;
+    margin-bottom:6px;
+}
+
+.balance-bottom h3{
+    font-size:22px;
+    font-weight:700;
+}
