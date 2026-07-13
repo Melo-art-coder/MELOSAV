@@ -2,7 +2,7 @@ const CACHE_NAME = "melosave-cache-v1";
 const assets = [
   "/MELOSAV/",
   "/MELOSAV/index.html",
-  "/MELOSAV/dashboard.html",
+  "/MELOSAV/home.html",
   "/MELOSAV/login.html",
   "/MELOSAV/signup.html",
   "/MELOSAV/profile.html",
