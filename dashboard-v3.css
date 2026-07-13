@@ -1,1 +1,77 @@
+/* RESET */
 
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Poppins",sans-serif;
+}
+
+body{
+    background:#F5F2FF;
+    padding:24px;
+    color:#222;
+}
+
+/* HEADER */
+
+.top-bar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:30px;
+}
+
+.greeting{
+    color:#777;
+    font-size:15px;
+}
+
+.username{
+    font-size:30px;
+    font-weight:700;
+    color:#4A24B8;
+    margin-top:5px;
+}
+
+.top-actions{
+    display:flex;
+    gap:12px;
+}
+
+.icon-btn{
+    width:50px;
+    height:50px;
+    border:none;
+    border-radius:16px;
+    background:rgba(255,255,255,.7);
+    backdrop-filter:blur(15px);
+    box-shadow:0 10px 25px rgba(123,44,255,.12);
+    font-size:22px;
+    cursor:pointer;
+}
+
+/* BALANCE CARD */
+
+.balance-card{
+    background:linear-gradient(135deg,#6C3EF4,#9D6BFF);
+    border-radius:28px;
+    padding:28px;
+    color:#fff;
+    box-shadow:0 20px 40px rgba(108,62,244,.25);
+}
+
+.balance-title{
+    opacity:.9;
+    font-size:15px;
+}
+
+.balance-amount{
+    font-size:42px;
+    margin:15px 0;
+    font-weight:800;
+}
+
+.balance-change{
+    opacity:.9;
+}
