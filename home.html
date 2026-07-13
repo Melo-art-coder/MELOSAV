@@ -5,39 +5,54 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard | MeloSave V3</title>
     <link rel="stylesheet" href="home.css">
-
     <link rel="stylesheet" href="dashboard-v3.css">
 </head>
-
 <body>
     <header class="home-header">
-
     <div class="welcome">
-
         <p class="hello">
             Welcome back 👋
         </p>
-
         <h1 id="welcomeMessage">
             Good Morning
         </h1>
-
     </div>
-
     <div class="header-buttons">
-
         <button class="header-btn" id="themeToggle">
             🌙
         </button>
-
         <button class="header-btn">
             🔔
         </button>
-
     </div>
-
     </header>
+<section class="balance-card">
+    <div class="balance-top">
+        <p class="balance-label">
+            Total Balance
+        </p>
+        <span class="currency">
+            NGN
+        </span>
+    </div>
+    <h2 id="balance">
+        ₦0
+    </h2>
+    <div class="balance-bottom">
+        <div>
+            <small>Income</small>
+            <h3 id="incomeAmount">
+                ₦0
+            </h3>
+        </div>
+        <div>
+            <small>Savings</small>
+            <h3 id="savingAmount">
+                ₦0
+            </h3>
+        </div>
+    </div>
+</section>
 </body>
-
 <script src="script.js"></script>
 </html>
