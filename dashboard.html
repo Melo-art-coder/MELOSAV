@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dashboard | MeloSave</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+
+
+<!-- NAVBAR -->
+
+<header>
+
+    <nav class="navbar">
+
+
+        <h2 class="logo">
+            MeloSave 💜
+        </h2>
+
+
+
+        <div>
+
+            <button id="themeToggle">
+                🌙
+            </button>
+
+
+            <button id="logoutBtn">
+                Logout
+            </button>
+
+
+        </div>
+
+
+    </nav>
+
+</header>
+
+
+
+
+
+
+
+<!-- DASHBOARD -->
+
+
+<section class="dashboard">
+
+
+
+    <!-- GREETING -->
+
+
+    <div class="welcome-card">
+
+
+        <h1 id="welcomeMessage">
+            Welcome Back 💜
+        </h1>
+
+
+        <p>
+            Manage your money smarter today.
+        </p>
+
+
+    </div>
+
+
+
+
+
+
+
+    <!-- BALANCE -->
+
+
+    <div class="balance-card">
+
+
+        <p>
+            Total Balance
+        </p>
+
+
+        <h2 id="balance">
+
+            ₦0
+
+        </h2>
+
+
+    </div>
+
+
+
+
+
+
+
+
+    <!-- MONEY ACTIONS -->
+
+
+    <div class="money-grid">
+
+
+
+        <div class="money-box">
+
+
+            <h3>
+                💰 Income
+            </h3>
+
+
+            <h2 id="incomeAmount">
+                ₦0
+            </h2>
+
+
+
+            <form id="incomeForm">
+
+
+                <input
+                type="number"
+                id="incomeInput"
+                placeholder="Add income">
+
+
+                <button class="btn">
+                    Add
+                </button>
+
+
+            </form>
+
+
+        </div>
+
+
+
+
+
+
+
+
+
+        <div class="money-box">
+
+
+            <h3>
+                💸 Expenses
+            </h3>
+
+
+            <h2 id="expenseAmount">
+                ₦0
+            </h2>
+
+
+
+            <form id="expenseForm">
+
+
+                <input
+                type="number"
+                id="expenseInput"
+                placeholder="Add expense">
+
+
+                <button class="btn">
+                    Add
+                </button>
+
+
+            </form>
+
+
+        </div>
+
+
+
+
+
+
+
+
+
+        <div class="money-box">
+
+
+            <h3>
+                💜 Savings
+            </h3>
+
+
+            <h2 id="savingAmount">
+                ₦0
+            </h2>
+
+
+
+
+            <form id="savingForm">
+
+
+                <input
+                type="number"
+                id="savingInput"
+                placeholder="Add savings">
+
+
+                <button class="btn">
+                    Add
+                </button>
+
+
+            </form>
+
+
+        </div>
+
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+    <!-- DAILY BUDGET -->
+
+
+    <div class="budget-card">
+
+
+        <h2>
+            Daily Budget 🎯
+        </h2>
+
+
+
+        <p>
+            Set your spending limit for today.
+        </p>
+
+
+
+        <form id="budgetForm">
+
+
+            <input
+            type="number"
+            id="budgetInput"
+            placeholder="Enter daily budget">
+
+
+
+            <button class="btn">
+                Save Budget
+            </button>
+
+
+
+        </form>
+
+
+
+
+        <h3 id="budgetStatus">
+
+            Budget: ₦0
+
+        </h3>
+
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+    <!-- TRANSACTIONS -->
+
+
+    <div class="transaction-card">
+
+
+        <h2>
+            Recent Transactions
+        </h2>
+
+
+        <ul id="transactionList">
+
+            <li>
+                No transactions yet
+            </li>
+
+
+        </ul>
+
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+    <!-- PROFILE -->
+
+
+    <a href="profile.html" class="profile-btn">
+
+        👤 View Profile
+
+    </a>
+
+
+
+</section>
+
+
+
+
+
+
+
+
+<!-- FOOTER -->
+
+
+<footer>
+
+
+    <h3>
+        MeloSave 💜
+    </h3>
+
+
+    <p>
+        Save smarter. Live better.
+    </p>
+
+
+    <p>
+        © 2026 MeloSave. All rights reserved.
+    </p>
+
+
+</footer>
+
+
+
+
+
+
+
+
+<script src="script.js"></script>
+
+
+</body>
+
+</html>
