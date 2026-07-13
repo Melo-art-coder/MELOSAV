@@ -693,17 +693,12 @@ function(e){
 
     if(loggedIn){
 
+    setTimeout(()=>{
 
+        window.location.href =
+        "home.html";
 
-        setTimeout(()=>{
-
-
-            window.location.href =
-            "dashboard.html";
-
-
-        },1500);
-
+    },1500);
 
     }
 
