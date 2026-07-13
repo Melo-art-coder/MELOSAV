@@ -75,3 +75,47 @@ body{
 .balance-change{
     opacity:.9;
 }
+/* ==========================
+   HOME HEADER
+========================== */
+
+.home-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:30px;
+}
+
+.hello{
+    color:#8c8c8c;
+    font-size:14px;
+    margin-bottom:6px;
+}
+
+#welcomeMessage{
+    font-size:28px;
+    font-weight:700;
+    color:#4A24B8;
+}
+
+.header-buttons{
+    display:flex;
+    gap:12px;
+}
+
+.header-btn{
+    width:48px;
+    height:48px;
+    border:none;
+    border-radius:16px;
+    background:rgba(255,255,255,.75);
+    backdrop-filter:blur(15px);
+    box-shadow:0 8px 20px rgba(108,62,244,.12);
+    font-size:20px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.header-btn:hover{
+    transform:translateY(-3px);
+}
