@@ -173,3 +173,28 @@ body{
     font-size:22px;
     font-weight:700;
 }
+/* ==========================
+   DARK MODE
+========================== */
+
+body.dark-mode{
+    background:#0F0B1F;
+    color:#ffffff;
+}
+
+body.dark-mode .header-btn{
+    background:rgba(255,255,255,.08);
+    color:#ffffff;
+}
+
+body.dark-mode #welcomeMessage{
+    color:#ffffff;
+}
+
+body.dark-mode .hello{
+    color:#c8c8c8;
+}
+
+body.dark-mode .balance-card{
+    background:linear-gradient(135deg,#5A2ED8,#7B4DFF);
+}
