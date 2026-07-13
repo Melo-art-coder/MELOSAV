@@ -1,0 +1,462 @@
+/* =====================================
+   MELOSAVE V2
+   MAIN STYLE SHEET
+===================================== */
+
+
+/* RESET */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", Arial, sans-serif;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+
+    background: #ffffff;
+    color: #222;
+
+    min-height: 100vh;
+
+    transition: 0.3s;
+
+}
+
+
+
+
+/* =====================================
+   NAVBAR
+===================================== */
+
+
+header {
+
+    width: 100%;
+    padding: 20px 8%;
+
+}
+
+
+.navbar {
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+
+.logo {
+
+    color: #7b2cff;
+    font-size: 28px;
+    font-weight: 800;
+
+}
+
+
+
+#themeToggle {
+
+    border: none;
+
+    background: #7b2cff;
+
+    color: white;
+
+    padding: 10px 15px;
+
+    border-radius: 50%;
+
+    cursor: pointer;
+
+    font-size: 18px;
+
+}
+
+
+
+
+
+
+/* =====================================
+   HERO SECTION
+===================================== */
+
+
+.hero {
+
+    min-height: 85vh;
+
+    padding: 50px 8%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 40px;
+
+}
+
+
+
+.hero-content {
+
+    max-width: 600px;
+
+}
+
+
+
+.hero h1 {
+
+    font-size: 55px;
+
+    line-height: 1.2;
+
+    margin-bottom: 20px;
+
+}
+
+
+
+.hero h1 span {
+
+    color: #7b2cff;
+
+}
+
+
+
+.hero p {
+
+    color: #666;
+
+    font-size: 18px;
+
+    line-height: 1.6;
+
+    margin-bottom: 30px;
+
+}
+
+
+
+
+
+/* BUTTONS */
+
+
+.hero-buttons {
+
+    display: flex;
+
+    gap: 15px;
+
+}
+
+
+
+.btn {
+
+    text-decoration: none;
+
+    background: #7b2cff;
+
+    color: white;
+
+    padding: 14px 30px;
+
+    border-radius: 30px;
+
+    font-weight: bold;
+
+    transition: 0.3s;
+
+}
+
+
+
+.btn:hover {
+
+    transform: translateY(-3px);
+
+}
+
+
+
+.secondary {
+
+    background: transparent;
+
+    color: #7b2cff;
+
+    border: 2px solid #7b2cff;
+
+}
+
+
+
+
+
+
+
+/* =====================================
+   MONEY CARD
+===================================== */
+
+
+.hero-card {
+
+    display: flex;
+
+    justify-content: center;
+
+}
+
+
+
+.money-card {
+
+    width: 300px;
+
+    height: 200px;
+
+    background: linear-gradient(
+        135deg,
+        #7b2cff,
+        #b57cff
+    );
+
+    color: white;
+
+    border-radius: 25px;
+
+    padding: 30px;
+
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+
+}
+
+
+
+
+
+/* =====================================
+   FEATURES
+===================================== */
+
+
+.features {
+
+    padding: 60px 8%;
+
+    text-align: center;
+
+}
+
+
+
+.features h2 {
+
+    font-size: 35px;
+
+    margin-bottom: 40px;
+
+}
+
+
+
+.feature-container {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 25px;
+
+    flex-wrap: wrap;
+
+}
+
+
+
+
+.feature-card {
+
+    width: 280px;
+
+    padding: 30px;
+
+    background: #fafafa;
+
+    border-radius: 20px;
+
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+
+}
+
+
+
+.feature-card h3 {
+
+    color: #7b2cff;
+
+    margin-bottom: 15px;
+
+}
+
+
+
+.feature-card p {
+
+    color: #666;
+
+    line-height: 1.5;
+
+}
+
+
+
+
+
+/* =====================================
+   FOOTER
+===================================== */
+
+
+footer {
+
+    text-align: center;
+
+    padding: 40px 20px;
+
+    margin-top: 50px;
+
+    background: #f7f7f7;
+
+}
+
+
+
+footer h3 {
+
+    color: #7b2cff;
+
+    margin-bottom: 10px;
+
+}
+
+
+
+footer p {
+
+    color: #666;
+
+    margin: 5px;
+
+}
+
+
+
+
+
+
+/* =====================================
+   DARK MODE
+===================================== */
+
+
+body.dark-mode {
+
+    background: #121212;
+
+    color: white;
+
+}
+
+
+
+body.dark-mode p {
+
+    color: #cccccc;
+
+}
+
+
+
+body.dark-mode .feature-card {
+
+    background: #1e1e1e;
+
+}
+
+
+
+body.dark-mode footer {
+
+    background: #1a1a1a;
+
+}
+
+
+
+
+
+
+
+/* =====================================
+   MOBILE DESIGN
+===================================== */
+
+
+@media(max-width:768px){
+
+
+.hero {
+
+    flex-direction: column;
+
+    text-align: center;
+
+}
+
+
+
+.hero h1 {
+
+    font-size: 40px;
+
+}
+
+
+
+.hero-buttons {
+
+    justify-content: center;
+
+}
+
+
+
+.feature-container {
+
+    flex-direction: column;
+
+    align-items: center;
+
+}
+
+
+}
