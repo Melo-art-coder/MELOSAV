@@ -159,7 +159,7 @@ function loadTheme(){
     document.body.classList.add("dark-mode");
 }
         if(modeIcon){
-            modeIcon.textContent = "🌙";
+            themeButton.textContent = "🌙";
         }
 
     }else{
@@ -167,7 +167,7 @@ function loadTheme(){
         document.body.classList.remove("dark-mode");
 
         if(modeIcon){
-            modeIcon.textContent = "☀️";
+            themeButton.textContent = "☀️";
         }
 
     }
