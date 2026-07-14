@@ -228,3 +228,12 @@ const closeReceiptBtn = document.getElementById("closeReceipt");
 
 
 });
+if (closeReceiptBtn && successModal) {
+
+    closeReceiptBtn.addEventListener("click", () => {
+
+        successModal.style.display = "none";
+
+    });
+
+}
