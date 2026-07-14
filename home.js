@@ -95,3 +95,38 @@ document.addEventListener("DOMContentLoaded", () => {
     updateDashboard();
 
 });
+// ================================
+// ADD TRANSACTION POPUP
+// ================================
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const addBtn = document.getElementById("addBtn");
+    const modal = document.getElementById("transactionModal");
+    const saveBtn = document.getElementById("saveTransaction");
+
+    if (!addBtn || !modal) return;
+
+    addBtn.addEventListener("click", () => {
+        modal.style.display = "flex";
+    });
+
+    modal.addEventListener("click", (e) => {
+        if (e.target === modal) {
+            modal.style.display = "none";
+        }
+    });
+
+    if (saveBtn) {
+        saveBtn.addEventListener("click", () => {
+
+            const type = document.getElementById("transactionType").value;
+            const amount = document.getElementById("amount").value;
+
+            addMoney(type, amount);
+
+            modal.style.display = "none";
+        });
+    }
+
+});
