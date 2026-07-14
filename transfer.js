@@ -1,17 +1,27 @@
 // =====================================
 // MELOSAV - TRANSFER SYSTEM
 // =====================================
+
 console.log("TRANSFER FILE RUNNING 🔥");
-console.log("transfer.js loaded");
+
 
 document.addEventListener("DOMContentLoaded", () => {
+
 
     const transferBtn = document.getElementById("transferBtn");
     const transferModal = document.getElementById("transferModal");
     const continueBtn = document.getElementById("continueTransfer");
 
+    const successModal = document.getElementById("successModal");
+    const receiptDetails = document.getElementById("receiptDetails");
 
-    // Open Transfer Modal
+    const shareBtn = document.getElementById("shareReceipt");
+    const transactionBtn = document.getElementById("viewTransactions");
+
+
+
+    // OPEN TRANSFER
+
     if (transferBtn && transferModal) {
 
         transferBtn.addEventListener("click", () => {
@@ -23,7 +33,9 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
-    // Close Modal
+
+    // CLOSE TRANSFER
+
     if (transferModal) {
 
         transferModal.addEventListener("click", (e) => {
@@ -39,25 +51,38 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
-    // Continue Transfer
+
+
+    // CONTINUE BUTTON
+
     if (continueBtn) {
 
+
         continueBtn.addEventListener("click", () => {
-console.log("CONTINUE BUTTON CLICKED");
+
+
+            console.log("CONTINUE CLICKED 🔥");
+
+
+
             const bank =
             document.getElementById("transferBank").value;
+
 
             const account =
             document.getElementById("accountNumber").value.trim();
 
+
             const recipient =
             document.getElementById("recipientName").value.trim();
+
 
             const amount =
             Number(document.getElementById("transferAmount").value);
 
 
-            if (account === "") {
+
+            if(account === ""){
 
                 showMessage(
                     "Enter account number",
@@ -69,7 +94,8 @@ console.log("CONTINUE BUTTON CLICKED");
             }
 
 
-            if (recipient === "") {
+
+            if(recipient === ""){
 
                 showMessage(
                     "Enter recipient name",
@@ -81,7 +107,8 @@ console.log("CONTINUE BUTTON CLICKED");
             }
 
 
-            if (amount <= 0) {
+
+            if(amount <= 0){
 
                 showMessage(
                     "Enter a valid amount",
@@ -93,21 +120,55 @@ console.log("CONTINUE BUTTON CLICKED");
             }
 
 
+
             showMessage(
                 "Processing transfer 💜"
             );
 
 
+
             setTimeout(() => {
 
-
-                showMessage(
-                    `₦${amount.toLocaleString()} sent to ${recipient} via ${bank} ✅`
-                );
 
 
                 transferModal.style.display = "none";
 
+
+
+                if(successModal && receiptDetails){
+
+
+                    receiptDetails.innerHTML = `
+
+                    <strong>Transfer Successful ✅</strong>
+                    <br><br>
+
+                    Amount: ₦${amount.toLocaleString()}
+                    <br><br>
+
+                    Recipient: ${recipient}
+                    <br><br>
+
+                    Bank: ${bank}
+                    <br><br>
+
+                    Account: ${account}
+                    <br><br>
+
+                    Date: ${new Date().toLocaleString()}
+
+                    `;
+
+
+
+                    successModal.style.display = "flex";
+
+
+                }
+
+
+
+                // Clear form
 
                 document.getElementById("accountNumber").value = "";
 
@@ -118,12 +179,52 @@ console.log("CONTINUE BUTTON CLICKED");
                 document.getElementById("transferNarration").value = "";
 
 
-            }, 1500);
+
+            },1500);
+
 
 
         });
 
+
     }
+
+
+
+
+
+    // SHARE RECEIPT
+
+    if(shareBtn){
+
+        shareBtn.addEventListener("click",()=>{
+
+            showMessage(
+                "Receipt sharing coming soon 💜"
+            );
+
+        });
+
+    }
+
+
+
+
+
+    // RECENT TRANSACTIONS
+
+    if(transactionBtn){
+
+        transactionBtn.addEventListener("click",()=>{
+
+            showMessage(
+                "Recent transactions coming soon 📄"
+            );
+
+        });
+
+    }
+
 
 
 });
