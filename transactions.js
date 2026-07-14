@@ -199,3 +199,50 @@ function makeTransfer(amount, recipient, bank, account) {
     return true;
 
 }
+// Buy Airtime / Data
+function buyAirtimeData(service, network, phone, amount) {
+
+    const user = getCurrentUser();
+
+    if (!user) return false;
+
+    amount = Number(amount);
+
+    const income = user.data.income.reduce((sum, item) => sum + item.amount, 0);
+    const savings = user.data.savings.reduce((sum, item) => sum + item.amount, 0);
+    const expenses = user.data.expenses.reduce((sum, item) => sum + item.amount, 0);
+
+    const balance = income - savings - expenses;
+
+    if (amount > balance) {
+
+        showMessage("Insufficient balance ❌", "error");
+
+        return false;
+    }
+
+    user.data.expenses.push({
+
+        amount,
+        description: `${service} - ${network}`,
+        date: new Date().toLocaleString()
+
+    });
+
+    user.data.transactions.unshift({
+
+        type: service,
+        network,
+        phone,
+        amount,
+        date: new Date().toLocaleString()
+
+    });
+
+    updateUser(user);
+
+    updateDashboard();
+
+    return true;
+
+}
