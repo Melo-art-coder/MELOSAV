@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Recent Transactions</title>
+
+<link rel="stylesheet" href="home.css">
+
+</head>
+
+<body>
+
+<header class="home-header">
+
+<div class="welcome">
+
+<p class="hello">
+History
+</p>
+
+<h1>
+Recent Transactions
+</h1>
+
+</div>
+
+</header>
+
+
+<section class="quick-actions">
+
+<ul id="transactionList">
+
+<li>Loading...</li>
+
+</ul>
+
+</section>
+
+
+<script src="storage.js"></script>
+<script src="notifications.js"></script>
+<script src="auth.js"></script>
+<script src="transactions.js"></script>
+
+<script>
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    loadTransactions();
+
+});
+
+</script>
+
+</body>
+
+</html>
