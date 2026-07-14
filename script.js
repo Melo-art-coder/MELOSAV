@@ -143,6 +143,14 @@ function showMessage(message,type="success"){
 
 const themeButton =
 document.getElementById("themeToggle"){
+if(themeButton){
+
+    themeButton.addEventListener(
+        "click",
+        toggleTheme
+    );
+
+}
 
 function loadTheme(){
 
