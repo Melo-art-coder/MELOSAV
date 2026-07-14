@@ -201,6 +201,7 @@ if(modeIcon){
     modeIcon.textContent =
         mode === "dark" ? "🌙" : "☀️";
 }
+showMessage(`${mode} mode enabled`);
 
 
 }
