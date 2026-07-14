@@ -1,7 +1,8 @@
+
 // =====================================
 // MELOSAV - TRANSFER SYSTEM
 // =====================================
-
+console.log("transfer.js loaded");
 document.addEventListener("DOMContentLoaded", () => {
 
     const transferBtn = document.getElementById("transferBtn");
