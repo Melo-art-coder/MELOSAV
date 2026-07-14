@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const transferBtn = document.getElementById("transferBtn");
     const transferModal = document.getElementById("transferModal");
     const continueBtn = document.getElementById("continueTransfer");
+console.log(continueBtn);
 
     // Open Transfer Modal
     if (transferBtn && transferModal) {
