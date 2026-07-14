@@ -240,65 +240,112 @@ Data
 
 <script>
 
-document.addEventListener("DOMContentLoaded",()=>{
+document.addEventListener("DOMContentLoaded", () => {
 
-const list=document.getElementById("transactionList");
+    const list = document.getElementById("transactionList");
+    const search = document.getElementById("searchTransaction");
+    const buttons = document.querySelectorAll(".filter-btn");
 
-const user=getCurrentUser();
+    const user = getCurrentUser();
 
-if(!user) return;
+    if (!user) return;
 
-list.innerHTML="";
+    let currentFilter = "all";
 
-if(user.data.transactions.length===0){
+    function renderTransactions() {
 
-list.innerHTML="<h3>No transactions yet 💜</h3>";
+        list.innerHTML = "";
 
-return;
+        let transactions = [...user.data.transactions];
 
-}
+        // Filter
+        if (currentFilter !== "all") {
+            transactions = transactions.filter(
+                item => item.type === currentFilter
+            );
+        }
 
-user.data.transactions.forEach(item=>{
+        // Search
+        const keyword = search.value.toLowerCase();
 
-let icon="💜";
+        if (keyword !== "") {
 
-if(item.type==="income") icon="💰";
-if(item.type==="saving") icon="🏦";
-if(item.type==="transfer") icon="💸";
-if(item.type==="airtime") icon="📱";
-if(item.type==="data") icon="📶";
+            transactions = transactions.filter(item => {
 
-list.innerHTML+=`
+                return (
+                    (item.type || "").toLowerCase().includes(keyword) ||
+                    (item.recipient || "").toLowerCase().includes(keyword) ||
+                    (item.network || "").toLowerCase().includes(keyword) ||
+                    (item.phone || "").toLowerCase().includes(keyword)
+                );
 
-<li class="transaction-card">
+            });
 
-<div class="transaction-top">
+        }
 
-<div class="transaction-title">
+        if (transactions.length === 0) {
 
-${icon} ${item.type.toUpperCase()}
+            list.innerHTML = "<h3>No transactions found 💜</h3>";
 
-</div>
+            return;
 
-<div class="transaction-date">
+        }
 
-${item.date}
+        transactions.forEach(item => {
 
-</div>
+            let icon = "💜";
 
-</div>
+            if (item.type === "income") icon = "💰";
+            if (item.type === "saving") icon = "🏦";
+            if (item.type === "transfer") icon = "💸";
+            if (item.type === "airtime") icon = "📱";
+            if (item.type === "data") icon = "📶";
 
-<div class="transaction-amount">
+            list.innerHTML += `
+                <li class="transaction-card">
 
-₦${item.amount.toLocaleString()}
+                    <div class="transaction-top">
 
-</div>
+                        <div class="transaction-title">
+                            ${icon} ${item.type.toUpperCase()}
+                        </div>
 
-</li>
+                        <div class="transaction-date">
+                            ${item.date}
+                        </div>
 
-`;
+                    </div>
 
-});
+                    <div class="transaction-amount">
+                        ₦${Number(item.amount).toLocaleString()}
+                    </div>
+
+                </li>
+            `;
+
+        });
+
+    }
+
+    renderTransactions();
+
+    search.addEventListener("input", renderTransactions);
+
+    buttons.forEach(btn => {
+
+        btn.addEventListener("click", () => {
+
+            buttons.forEach(b => b.classList.remove("active"));
+
+            btn.classList.add("active");
+
+            currentFilter = btn.dataset.filter;
+
+            renderTransactions();
+
+        });
+
+    });
 
 });
 
