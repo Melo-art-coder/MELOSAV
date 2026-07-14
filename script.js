@@ -191,11 +191,6 @@ function toggleTheme(){
     );
 
 
-    showMessage(
-        `${mode} mode enabled`
-    );
-
-
 }
 
 
