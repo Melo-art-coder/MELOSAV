@@ -130,12 +130,6 @@ function showMessage(message,type="success"){
 
 }
 
-
-
-
-
-
-
 // ================================
 // THEME SYSTEM
 // ================================
@@ -148,17 +142,11 @@ function loadTheme(){
     const theme =
     localStorage.getItem("meloTheme");
 
-    const modeIcon =
-    document.getElementById("modeIcon");
-
     if(theme === "dark"){
 
-        if(document.body.classList.contains("dark-mode")){
-    document.body.classList.remove("dark-mode");
-}else{
-    document.body.classList.add("dark-mode");
-}
-        if(modeIcon){
+        document.body.classList.add("dark-mode");
+
+        if(themeButton){
             themeButton.textContent = "🌙";
         }
 
@@ -166,7 +154,7 @@ function loadTheme(){
 
         document.body.classList.remove("dark-mode");
 
-        if(modeIcon){
+        if(themeButton){
             themeButton.textContent = "☀️";
         }
 
@@ -174,25 +162,25 @@ function loadTheme(){
 
 }
 
-
 function toggleTheme(){
 
     document.body.classList.toggle("dark-mode");
-
-    const themeButton =
-    document.getElementById("themeToggle");
 
     if(document.body.classList.contains("dark-mode")){
 
         localStorage.setItem("meloTheme","dark");
 
-        themeButton.textContent = "🌙";
+        if(themeButton){
+            themeButton.textContent = "🌙";
+        }
 
     }else{
 
         localStorage.setItem("meloTheme","light");
 
-        themeButton.textContent = "☀️";
+        if(themeButton){
+            themeButton.textContent = "☀️";
+        }
 
     }
 
