@@ -697,3 +697,43 @@ body.dark-mode .modal-content{
     }
 
 }
+/* Transfer Continue Button Fix */
+
+#continueTransfer {
+
+    width:100%;
+
+    margin-top:20px;
+
+    padding:15px;
+
+    border:none;
+
+    border-radius:16px;
+
+    background:linear-gradient(
+        135deg,
+        #7B2CFF,
+        #B56CFF
+    );
+
+    color:white;
+
+    font-size:16px;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    display:block;
+
+}
+
+
+#continueTransfer:hover {
+
+    transform:translateY(-2px);
+
+    box-shadow:0 10px 25px rgba(123,44,255,.35);
+
+}
