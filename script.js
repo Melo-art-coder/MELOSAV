@@ -189,6 +189,12 @@ function toggleTheme(){
         "meloTheme",
         mode
     );
+const modeIcon = document.getElementById("modeIcon");
+
+if(modeIcon){
+    modeIcon.textContent =
+        mode === "dark" ? "🌙" : "☀️";
+}
 
 
 }
