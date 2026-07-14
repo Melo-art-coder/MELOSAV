@@ -1,4 +1,4 @@
-const CACHE_NAME = "melosave-cache-v1";
+const CACHE_NAME = "melosave-cache-v2";
 const assets = [
   "/MELOSAV/",
   "/MELOSAV/index.html",
