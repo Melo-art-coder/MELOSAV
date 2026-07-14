@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const shareBtn = document.getElementById("shareReceipt");
     const transactionBtn = document.getElementById("viewTransactions");
-
+const closeReceiptBtn = document.getElementById("closeReceipt");
 
 
     // OPEN TRANSFER
