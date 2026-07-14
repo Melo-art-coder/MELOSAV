@@ -737,3 +737,76 @@ body.dark-mode .modal-content{
     box-shadow:0 10px 25px rgba(123,44,255,.35);
 
 }
+/* Receipt Card */
+
+.receipt-card{
+
+    background:#fff;
+
+    border-radius:20px;
+
+    padding:20px;
+
+    margin-bottom:20px;
+
+}
+
+body.dark-mode .receipt-card{
+
+    background:#2b2148;
+
+}
+
+.receipt-icon{
+
+    width:70px;
+
+    height:70px;
+
+    margin:auto;
+
+    border-radius:50%;
+
+    background:#7b2cff;
+
+    color:#fff;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:32px;
+
+    margin-bottom:18px;
+
+}
+
+.receipt-card h2{
+
+    text-align:center;
+
+    color:#7b2cff;
+
+    margin-bottom:20px;
+
+}
+
+.receipt-row{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    padding:12px 0;
+
+    border-bottom:1px solid rgba(0,0,0,.08);
+
+}
+
+body.dark-mode .receipt-row{
+
+    border-bottom:1px solid rgba(255,255,255,.08);
+
+}
