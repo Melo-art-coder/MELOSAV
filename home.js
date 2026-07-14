@@ -118,9 +118,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
             }
 
-            addMoney(type, amount);
+            console.log("SAVE CLICKED");
+console.log("TYPE:", type);
+console.log("AMOUNT:", amount);
+console.log("USER:", getCurrentUser());
 
-            updateDashboard();
+addMoney(type, amount);
+
+updateDashboard();
 
             document.getElementById("amount").value = "";
             document.getElementById("description").value = "";
