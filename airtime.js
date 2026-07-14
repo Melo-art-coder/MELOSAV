@@ -46,12 +46,12 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         // Deduct balance using your existing transfer function
-        const success = makeTransfer(
-            amount,
-            phone,
-            network,
-            phone
-        );
+        const success = buyAirtimeData(
+    service,
+    network,
+    phone,
+    amount
+);
 
         if (!success) return;
 
