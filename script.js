@@ -140,17 +140,8 @@ function showMessage(message,type="success"){
 // THEME SYSTEM
 // ================================
 
-
 const themeButton =
-document.getElementById("themeToggle"){
-if(themeButton){
-
-    themeButton.addEventListener(
-        "click",
-        toggleTheme
-    );
-
-}
+document.getElementById("themeToggle");
 
 function loadTheme(){
 
@@ -170,6 +161,8 @@ function loadTheme(){
 
     }else{
 
+        document.body.classList.remove("dark-mode");
+
         if(modeIcon){
             modeIcon.textContent = "☀️";
         }
@@ -178,43 +171,26 @@ function loadTheme(){
 
 }
 
-
-
-
 function toggleTheme(){
 
-
-    document.body.classList.toggle(
-        "dark-mode"
-    );
-
-
+    document.body.classList.toggle("dark-mode");
 
     const mode =
-    document.body.classList.contains(
-        "dark-mode"
-    )
+    document.body.classList.contains("dark-mode")
     ? "dark"
     : "light";
 
+    localStorage.setItem("meloTheme", mode);
 
+    const modeIcon =
+    document.getElementById("modeIcon");
 
-    localStorage.setItem(
-        "meloTheme",
-        mode
-    );
-const modeIcon = document.getElementById("modeIcon");
-
-if(modeIcon){
-    modeIcon.textContent =
+    if(modeIcon){
+        modeIcon.textContent =
         mode === "dark" ? "🌙" : "☀️";
-}
-showMessage(`${mode} mode enabled`);
-
+    }
 
 }
-
-
 
 if(themeButton){
 
@@ -225,15 +201,7 @@ if(themeButton){
 
 }
 
-
-
 loadTheme();
-
-
-
-
-
-
 
 
 // ================================
