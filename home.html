@@ -87,9 +87,9 @@
     <small>Goals</small>
 </a>
 
-    <button class="fab">
-        ＋
-    </button>
+    <button class="fab" id="addBtn">
+    ＋
+</button>
 
     <a href="#" class="nav-item">
     <span>📊</span>
@@ -102,6 +102,34 @@
     </a>
 
 </nav>
+<div id="transactionModal" class="modal">
+
+    <div class="modal-content">
+
+        <h2>Add Transaction</h2>
+
+        <select id="transactionType">
+            <option value="income">Income</option>
+            <option value="savings">Savings</option>
+        </select>
+
+        <input
+            type="number"
+            id="amount"
+            placeholder="Enter amount">
+
+        <input
+            type="text"
+            id="description"
+            placeholder="Description (Optional)">
+
+        <button id="saveTransaction">
+            Save
+        </button>
+
+    </div>
+
+</div>
 
 <script src="script.js"></script>
 
