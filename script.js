@@ -142,23 +142,29 @@ function showMessage(message,type="success"){
 
 
 const themeButton =
-document.getElementById("themeToggle");
-
-
+document.getElementById("themeToggle"){
 
 function loadTheme(){
-
 
     const theme =
     localStorage.getItem("meloTheme");
 
-
+    const modeIcon =
+    document.getElementById("modeIcon");
 
     if(theme === "dark"){
 
-        document.body.classList.add(
-            "dark-mode"
-        );
+        document.body.classList.add("dark-mode");
+
+        if(modeIcon){
+            modeIcon.textContent = "🌙";
+        }
+
+    }else{
+
+        if(modeIcon){
+            modeIcon.textContent = "☀️";
+        }
 
     }
 
