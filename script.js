@@ -2182,3 +2182,62 @@ document.addEventListener(
 
 
 });
+// ================================
+// FAB TRANSACTION POPUP
+// ================================
+
+const addBtn = document.getElementById("addBtn");
+const modal = document.getElementById("transactionModal");
+const saveBtn = document.getElementById("saveTransaction");
+
+if(addBtn && modal){
+
+    addBtn.addEventListener("click",()=>{
+
+        modal.style.display="flex";
+
+    });
+
+    modal.addEventListener("click",(e)=>{
+
+        if(e.target===modal){
+
+            modal.style.display="none";
+
+        }
+
+    });
+
+}
+
+if(saveBtn){
+
+    saveBtn.addEventListener("click",()=>{
+
+        const type =
+        document.getElementById("transactionType").value;
+
+        const amount =
+        document.getElementById("amount").value;
+
+        if(amount===""){
+
+            showMessage(
+                "Enter an amount",
+                "error"
+            );
+
+            return;
+
+        }
+
+        addMoney(type,amount);
+
+        document.getElementById("amount").value="";
+        document.getElementById("description").value="";
+
+        modal.style.display="none";
+
+    });
+
+}
