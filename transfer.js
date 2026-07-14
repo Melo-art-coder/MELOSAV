@@ -34,32 +34,23 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (continueBtn) {
 
-        continueBtn.addEventListener("click", () => {
+    continueBtn.addEventListener("click", () => {
 
-            const bank = document.getElementById("transferBank").value;
-            const account = document.getElementById("accountNumber").value.trim();
-            const amount = Number(document.getElementById("transferAmount").value);
+        console.log("Continue clicked");
 
-            if (account.length !== 10) {
-                showMessage("Enter a valid 10-digit account number", "error");
-                return;
-            }
+        const bank = document.getElementById("transferBank");
+        const account = document.getElementById("accountNumber");
+        const amount = document.getElementById("transferAmount");
 
-            if (amount <= 0) {
-                showMessage("Enter a valid amount", "error");
-                return;
-            }
+        if (!bank || !account || !amount) {
 
-            showMessage("Checking account...");
+            showMessage("Transfer form not found ❌", "error");
+            return;
 
-            setTimeout(() => {
+        }
 
-                showMessage(`Account verified at ${bank} 💜`);
+        showMessage("Continue button clicked 💜");
 
-            }, 1500);
+    });
 
-        });
-
-    }
-
-});
+}
