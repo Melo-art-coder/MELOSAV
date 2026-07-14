@@ -2,7 +2,7 @@
   "name": "MELOSAVE",
   "short_name": "MELOSAVE",
   "description": "Save Smarter. Manage Better. Your Money. Your Future.",
-  "start_url": "/MELOSAV/index.html",
+  "start_url": "./index.html",
   "scope": "/MELOSAV/",
   "display": "standalone",
   "background_color": "#f8f5ff",
@@ -10,12 +10,12 @@
   "orientation": "portrait",
   "icons": [
     {
-      "src": "/MELOSAV/icon-192.png",
+      "src": "./icon-192.png"
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "/MELOSAV/icon-512.png",
+      "src": "./icon-512.png"
       "sizes": "512x512",
       "type": "image/png"
     }
