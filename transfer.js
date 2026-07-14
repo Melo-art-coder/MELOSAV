@@ -4,37 +4,62 @@
 
 document.addEventListener("DOMContentLoaded", () => {
 
-    console.log("TRANSFER.JS LOADED 🔥");
-
     const transferBtn = document.getElementById("transferBtn");
     const transferModal = document.getElementById("transferModal");
+    const continueBtn = document.getElementById("continueTransfer");
 
-    if (!transferBtn) {
-        alert("❌ transferBtn not found");
-        return;
+    if (transferBtn) {
+
+        transferBtn.addEventListener("click", () => {
+
+            transferModal.style.display = "flex";
+
+        });
+
     }
 
-    if (!transferModal) {
-        alert("❌ transferModal not found");
-        return;
+    if (transferModal) {
+
+        transferModal.addEventListener("click", (e) => {
+
+            if (e.target === transferModal) {
+
+                transferModal.style.display = "none";
+
+            }
+
+        });
+
     }
 
-    transferBtn.addEventListener("click", () => {
+    if (continueBtn) {
 
-        alert("✅ Transfer button clicked");
+        continueBtn.addEventListener("click", () => {
 
-        transferModal.style.display = "flex";
+            const bank = document.getElementById("transferBank").value;
+            const account = document.getElementById("accountNumber").value.trim();
+            const amount = Number(document.getElementById("transferAmount").value);
 
-    });
+            if (account.length !== 10) {
+                showMessage("Enter a valid 10-digit account number", "error");
+                return;
+            }
 
-    transferModal.addEventListener("click", (e) => {
+            if (amount <= 0) {
+                showMessage("Enter a valid amount", "error");
+                return;
+            }
 
-        if (e.target === transferModal) {
+            showMessage("Checking account...");
 
-            transferModal.style.display = "none";
+            setTimeout(() => {
 
-        }
+                showMessage(`Account verified at ${bank} 💜`);
 
-    });
+            }, 1500);
+
+        });
+
+    }
 
 });
