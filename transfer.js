@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (continueBtn) {
 
         continueBtn.addEventListener("click", () => {
-
+console.log("CONTINUE BUTTON CLICKED");
             const bank =
             document.getElementById("transferBank").value;
 
