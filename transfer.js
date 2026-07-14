@@ -39,6 +39,8 @@ console.log(continueBtn);
     if (continueBtn) {
 
         continueBtn.addEventListener("click", () => {
+    alert("Continue button clicked!");
+});
 
             const bank =
             document.getElementById("transferBank").value;
