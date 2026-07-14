@@ -171,7 +171,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         transactionBtn.addEventListener("click", () => {
 
-            showMessage("Recent Transactions page coming soon 📄");
+            window.location.href = "transactions.html";
 
         });
 
