@@ -126,3 +126,100 @@ function loadTransactions() {
     });
 
 }
+// Transfer Money
+
+function makeTransfer(amount, recipient, bank, account) {
+
+    const user = getCurrentUser();
+
+    if (!user) return;
+
+
+    amount = Number(amount);
+
+
+    const income =
+    user.data.income.reduce(
+        (sum,item)=> sum + item.amount,
+        0
+    );
+
+
+    const savings =
+    user.data.savings.reduce(
+        (sum,item)=> sum + item.amount,
+        0
+    );
+
+
+    const expenses =
+    user.data.expenses.reduce(
+        (sum,item)=> sum + item.amount,
+        0
+    );
+
+
+    const balance = income - savings - expenses;
+
+
+
+    if(amount > balance){
+
+        showMessage(
+            "Insufficient balance ❌",
+            "error"
+        );
+
+        return false;
+
+    }
+
+
+
+    const transferRecord = {
+
+        amount: amount,
+
+        recipient: recipient,
+
+        bank: bank,
+
+        account: account,
+
+        date: new Date().toLocaleString()
+
+    };
+
+
+
+    user.data.expenses.push(transferRecord);
+
+
+
+    user.data.transactions.unshift({
+
+        type: "transfer",
+
+        amount: amount,
+
+        recipient: recipient,
+
+        bank: bank,
+
+        date: transferRecord.date
+
+    });
+
+
+
+    updateUser(user);
+
+
+    showMessage(
+        "Transfer successful 💜"
+    );
+
+
+    return true;
+
+}
