@@ -8,41 +8,129 @@
 <meta name="viewport"
 content="width=device-width, initial-scale=1.0">
 
-<title>Recent Transactions</title>
+<title>Recent Transactions | MeloSave</title>
 
 <link rel="stylesheet" href="home.css">
+
+<style>
+
+body{
+
+    background:#F5F2FF;
+
+    padding:20px;
+
+}
+
+.transactions-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:25px;
+
+}
+
+.back-btn{
+
+    text-decoration:none;
+
+    background:#7B2CFF;
+
+    color:#fff;
+
+    padding:10px 18px;
+
+    border-radius:12px;
+
+    font-weight:600;
+
+}
+
+#transactionList{
+
+    list-style:none;
+
+    padding:0;
+
+}
+
+.transaction-card{
+
+    background:#fff;
+
+    border-radius:20px;
+
+    padding:18px;
+
+    margin-bottom:15px;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+}
+
+.transaction-top{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:8px;
+
+}
+
+.transaction-title{
+
+    font-size:17px;
+
+    font-weight:700;
+
+}
+
+.transaction-date{
+
+    color:#888;
+
+    font-size:13px;
+
+}
+
+.transaction-amount{
+
+    color:#7B2CFF;
+
+    font-size:20px;
+
+    font-weight:700;
+
+}
+
+</style>
 
 </head>
 
 <body>
 
-<header class="home-header">
+<div class="transactions-header">
 
-<div class="welcome">
+<h1>📄 Recent Transactions</h1>
 
-<p class="hello">
-History
-</p>
+<a href="home.html" class="back-btn">
 
-<h1>
-Recent Transactions
-</h1>
+← Home
+
+</a>
 
 </div>
 
-</header>
-
-
-<section class="quick-actions">
-
 <ul id="transactionList">
 
-<li>Loading...</li>
-
 </ul>
-
-</section>
-
 
 <script src="storage.js"></script>
 <script src="notifications.js"></script>
@@ -51,9 +139,65 @@ Recent Transactions
 
 <script>
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded",()=>{
 
-    loadTransactions();
+const list=document.getElementById("transactionList");
+
+const user=getCurrentUser();
+
+if(!user) return;
+
+list.innerHTML="";
+
+if(user.data.transactions.length===0){
+
+list.innerHTML="<h3>No transactions yet 💜</h3>";
+
+return;
+
+}
+
+user.data.transactions.forEach(item=>{
+
+let icon="💜";
+
+if(item.type==="income") icon="💰";
+if(item.type==="saving") icon="🏦";
+if(item.type==="transfer") icon="💸";
+if(item.type==="airtime") icon="📱";
+if(item.type==="data") icon="📶";
+
+list.innerHTML+=`
+
+<li class="transaction-card">
+
+<div class="transaction-top">
+
+<div class="transaction-title">
+
+${icon} ${item.type.toUpperCase()}
+
+</div>
+
+<div class="transaction-date">
+
+${item.date}
+
+</div>
+
+</div>
+
+<div class="transaction-amount">
+
+₦${item.amount.toLocaleString()}
+
+</div>
+
+</li>
+
+`;
+
+});
 
 });
 
