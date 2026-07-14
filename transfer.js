@@ -8,49 +8,56 @@ document.addEventListener("DOMContentLoaded", () => {
     const transferModal = document.getElementById("transferModal");
     const continueBtn = document.getElementById("continueTransfer");
 
-    if (transferBtn) {
+    transferBtn?.addEventListener("click", () => {
+        transferModal.style.display = "flex";
+    });
 
-        transferBtn.addEventListener("click", () => {
+    transferModal?.addEventListener("click", (e) => {
+        if (e.target === transferModal) {
+            transferModal.style.display = "none";
+        }
+    });
 
-            transferModal.style.display = "flex";
+    continueBtn?.addEventListener("click", () => {
 
-        });
+        const bank = document.getElementById("transferBank").value;
+        const account = document.getElementById("accountNumber").value.trim();
+        const recipient = document.getElementById("recipientName").value.trim();
+        const amount = Number(document.getElementById("transferAmount").value);
+        const narration = document.getElementById("transferNarration").value.trim();
 
-    }
-
-    if (transferModal) {
-
-        transferModal.addEventListener("click", (e) => {
-
-            if (e.target === transferModal) {
-
-                transferModal.style.display = "none";
-
-            }
-
-        });
-
-    }
-
-    if (continueBtn) {
-
-    continueBtn.addEventListener("click", () => {
-
-        console.log("Continue clicked");
-
-        const bank = document.getElementById("transferBank");
-        const account = document.getElementById("accountNumber");
-        const amount = document.getElementById("transferAmount");
-
-        if (!bank || !account || !amount) {
-
-            showMessage("Transfer form not found ❌", "error");
+        if (account.length !== 10) {
+            showMessage("Enter a valid 10-digit account number", "error");
             return;
-
         }
 
-        showMessage("Continue button clicked 💜");
+        if (recipient === "") {
+            showMessage("Enter recipient name", "error");
+            return;
+        }
+
+        if (amount <= 0) {
+            showMessage("Enter a valid amount", "error");
+            return;
+        }
+
+        showMessage("Preparing transfer...");
+
+        setTimeout(() => {
+
+            showMessage(
+                `₦${amount.toLocaleString()} sent to ${recipient} (${bank}) 💜`
+            );
+
+            transferModal.style.display = "none";
+
+            document.getElementById("accountNumber").value = "";
+            document.getElementById("recipientName").value = "";
+            document.getElementById("transferAmount").value = "";
+            document.getElementById("transferNarration").value = "";
+
+        }, 1200);
 
     });
 
-}
+});
