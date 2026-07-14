@@ -21,6 +21,7 @@ const assets = [
   "/MELOSAV/home.js",
   "/MELOSAV/transactions.js",
   "/MELOSAV/budget.js",
+  "/MELOSAV/transfer.js",
 
   "/MELOSAV/icon-192.png",
   "/MELOSAV/icon-512.png"
