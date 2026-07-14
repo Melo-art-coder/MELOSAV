@@ -1,7 +1,7 @@
 // =====================================
 // MELOSAV - TRANSFER SYSTEM
 // =====================================
-
+console.log("TRANSFER FILE RUNNING 🔥");
 console.log("transfer.js loaded");
 
 document.addEventListener("DOMContentLoaded", () => {
