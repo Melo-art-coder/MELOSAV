@@ -21,13 +21,17 @@ function addMoney(type, amount) {
         return;
     }
 
-    const record = {
+    const description = document.getElementById("description")?.value || "";
 
-        amount: amount,
+const record = {
 
-        date: new Date().toLocaleString()
+    amount: amount,
 
-    };
+    description: description,
+
+    date: new Date().toLocaleString()
+
+};
 
     if (type === "income") {
 
