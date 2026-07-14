@@ -181,6 +181,59 @@
     </div>
 
 </div>
+<!-- Transfer Modal -->
+<div id="transferModal" class="modal">
+
+    <div class="modal-content">
+
+        <h2>💸 Transfer Money</h2>
+
+        <label>Bank</label>
+
+        <select id="transferBank">
+
+            <option>Access Bank</option>
+            <option>GTBank</option>
+            <option>First Bank</option>
+            <option>UBA</option>
+            <option>Zenith Bank</option>
+            <option>Opay</option>
+            <option>Moniepoint</option>
+            <option>Palmpay</option>
+
+        </select>
+
+        <label>Account Number</label>
+
+        <input
+            type="number"
+            id="accountNumber"
+            maxlength="10"
+            placeholder="Enter 10-digit account number">
+
+        <label>Amount</label>
+
+        <input
+            type="number"
+            id="transferAmount"
+            placeholder="₦0">
+
+        <label>Narration</label>
+
+        <input
+            type="text"
+            id="transferNarration"
+            placeholder="Optional">
+
+        <button id="continueTransfer">
+
+            Continue
+
+        </button>
+
+    </div>
+
+</div>
 
 <script src="storage.js"></script>
 <script src="notifications.js"></script>
