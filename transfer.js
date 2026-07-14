@@ -21,6 +21,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     continueBtn?.addEventListener("click", () => {
 
+    alert("Continue clicked!");
+
+    const bank = document.getElementById("transferBank").value;
+
         const bank = document.getElementById("transferBank").value;
         const account = document.getElementById("accountNumber").value.trim();
         const recipient = document.getElementById("recipientName").value.trim();
