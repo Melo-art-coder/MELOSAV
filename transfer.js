@@ -4,9 +4,7 @@
 
 console.log("TRANSFER FILE RUNNING 🔥");
 
-
 document.addEventListener("DOMContentLoaded", () => {
-
 
     const transferBtn = document.getElementById("transferBtn");
     const transferModal = document.getElementById("transferModal");
@@ -17,12 +15,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const shareBtn = document.getElementById("shareReceipt");
     const transactionBtn = document.getElementById("viewTransactions");
-const closeReceiptBtn = document.getElementById("closeReceipt");
+    const closeReceiptBtn = document.getElementById("closeReceipt");
 
-
-    // OPEN TRANSFER
-
-    if (transferBtn && transferModal) {
+    // Open Transfer
+    if (transferBtn) {
 
         transferBtn.addEventListener("click", () => {
 
@@ -32,10 +28,7 @@ const closeReceiptBtn = document.getElementById("closeReceipt");
 
     }
 
-
-
-    // CLOSE TRANSFER
-
+    // Close Transfer Modal
     if (transferModal) {
 
         transferModal.addEventListener("click", (e) => {
@@ -50,190 +43,149 @@ const closeReceiptBtn = document.getElementById("closeReceipt");
 
     }
 
-
-
-
-    // CONTINUE BUTTON
-
+    // Continue Transfer
     if (continueBtn) {
-
 
         continueBtn.addEventListener("click", () => {
 
+            const bank = document.getElementById("transferBank").value;
 
-            console.log("CONTINUE CLICKED 🔥");
+            const account = document.getElementById("accountNumber").value.trim();
 
+            const recipient = document.getElementById("recipientName").value.trim();
 
+            const amount = Number(document.getElementById("transferAmount").value);
 
-            const bank =
-            document.getElementById("transferBank").value;
+            const narration = document.getElementById("transferNarration").value.trim();
 
+            if (account === "") {
 
-            const account =
-            document.getElementById("accountNumber").value.trim();
-
-
-            const recipient =
-            document.getElementById("recipientName").value.trim();
-
-
-            const amount =
-            Number(document.getElementById("transferAmount").value);
-
-
-
-            if(account === ""){
-
-                showMessage(
-                    "Enter account number",
-                    "error"
-                );
-
+                showMessage("Enter account number", "error");
                 return;
 
             }
 
+            if (recipient === "") {
 
-
-            if(recipient === ""){
-
-                showMessage(
-                    "Enter recipient name",
-                    "error"
-                );
-
+                showMessage("Enter recipient name", "error");
                 return;
 
             }
 
+            if (amount <= 0) {
 
-
-            if(amount <= 0){
-
-                showMessage(
-                    "Enter a valid amount",
-                    "error"
-                );
-
+                showMessage("Enter a valid amount", "error");
                 return;
 
             }
 
-
-
-            showMessage(
-                "Processing transfer 💜"
+            // Save transfer
+            const success = makeTransfer(
+                amount,
+                recipient,
+                bank,
+                account
             );
 
+            if (!success) return;
 
+            showMessage("Processing transfer 💜");
 
             setTimeout(() => {
 
-
-
                 transferModal.style.display = "none";
 
+                receiptDetails.innerHTML = `
 
+<div class="receipt-card">
 
-                if(successModal && receiptDetails){
+<div class="receipt-icon">✅</div>
 
+<h2>Transfer Successful</h2>
 
-                    receiptDetails.innerHTML = `
+<div class="receipt-row">
+<span>Amount</span>
+<strong>₦${amount.toLocaleString()}</strong>
+</div>
 
-                    <strong>Transfer Successful ✅</strong>
-                    <br><br>
+<div class="receipt-row">
+<span>Recipient</span>
+<strong>${recipient}</strong>
+</div>
 
-                    Amount: ₦${amount.toLocaleString()}
-                    <br><br>
+<div class="receipt-row">
+<span>Bank</span>
+<strong>${bank}</strong>
+</div>
 
-                    Recipient: ${recipient}
-                    <br><br>
+<div class="receipt-row">
+<span>Account</span>
+<strong>${account}</strong>
+</div>
 
-                    Bank: ${bank}
-                    <br><br>
+<div class="receipt-row">
+<span>Narration</span>
+<strong>${narration || "None"}</strong>
+</div>
 
-                    Account: ${account}
-                    <br><br>
+<div class="receipt-row">
+<span>Reference</span>
+<strong>MLSV${Date.now()}</strong>
+</div>
 
-                    Date: ${new Date().toLocaleString()}
+<div class="receipt-row">
+<span>Date</span>
+<strong>${new Date().toLocaleString()}</strong>
+</div>
 
-                    `;
+</div>
 
+`;
 
-
-                    successModal.style.display = "flex";
-
-
-                }
-
-
-
-                // Clear form
+                successModal.style.display = "flex";
 
                 document.getElementById("accountNumber").value = "";
-
                 document.getElementById("recipientName").value = "";
-
                 document.getElementById("transferAmount").value = "";
-
                 document.getElementById("transferNarration").value = "";
 
-
-
-            },1500);
-
-
-
-        });
-
-
-    }
-
-
-
-
-
-    // SHARE RECEIPT
-
-    if(shareBtn){
-
-        shareBtn.addEventListener("click",()=>{
-
-            showMessage(
-                "Receipt sharing coming soon 💜"
-            );
+            }, 1200);
 
         });
 
     }
 
+    // Share Receipt
+    if (shareBtn) {
 
+        shareBtn.addEventListener("click", () => {
 
-
-
-    // RECENT TRANSACTIONS
-
-    if(transactionBtn){
-
-        transactionBtn.addEventListener("click",()=>{
-
-            showMessage(
-                "Recent transactions coming soon 📄"
-            );
+            showMessage("Receipt sharing coming soon 💜");
 
         });
 
     }
 
+    // Recent Transactions
+    if (transactionBtn) {
 
+        transactionBtn.addEventListener("click", () => {
+
+            showMessage("Recent Transactions page coming soon 📄");
+
+        });
+
+    }
+
+    // Close Receipt
+    if (closeReceiptBtn) {
+
+        closeReceiptBtn.addEventListener("click", () => {
+
+            successModal.style.display = "none";
+
+        });
+
+    }
 
 });
-if (closeReceiptBtn && successModal) {
-
-    closeReceiptBtn.addEventListener("click", () => {
-
-        successModal.style.display = "none";
-
-    });
-
-}
