@@ -1,93 +1,40 @@
-alert("transfer.js loaded");
 // =====================================
 // MELOSAV - TRANSFER SYSTEM
 // =====================================
 
 document.addEventListener("DOMContentLoaded", () => {
 
+    console.log("TRANSFER.JS LOADED 🔥");
+
     const transferBtn = document.getElementById("transferBtn");
     const transferModal = document.getElementById("transferModal");
-    const continueBtn = document.getElementById("continueTransfer");
-console.log(continueBtn);
 
-    // Open Transfer Modal
-    if (transferBtn && transferModal) {
-
-        transferBtn.addEventListener("click", () => {
-
-            transferModal.style.display = "flex";
-
-        });
-
+    if (!transferBtn) {
+        alert("❌ transferBtn not found");
+        return;
     }
 
-    // Close Modal
-    if (transferModal) {
-
-        transferModal.addEventListener("click", (e) => {
-
-            if (e.target === transferModal) {
-
-                transferModal.style.display = "none";
-
-            }
-
-        });
-
+    if (!transferModal) {
+        alert("❌ transferModal not found");
+        return;
     }
 
-    // Continue Button
-    if (continueBtn) {
+    transferBtn.addEventListener("click", () => {
 
-        continueBtn.addEventListener("click", () => {
-    alert("Continue button clicked!");
-});
+        alert("✅ Transfer button clicked");
 
-            const bank =
-            document.getElementById("transferBank").value;
+        transferModal.style.display = "flex";
 
-            const account =
-            document.getElementById("accountNumber").value;
+    });
 
-            const amount =
-            document.getElementById("transferAmount").value;
+    transferModal.addEventListener("click", (e) => {
 
-            if(account.length !== 10){
+        if (e.target === transferModal) {
 
-                showMessage(
-                    "Enter a valid 10-digit account number",
-                    "error"
-                );
+            transferModal.style.display = "none";
 
-                return;
+        }
 
-            }
-
-            if(amount <= 0){
-
-                showMessage(
-                    "Enter a valid amount",
-                    "error"
-                );
-
-                return;
-
-            }
-
-            showMessage(
-                "Checking account..."
-            );
-
-            setTimeout(()=>{
-
-                showMessage(
-                    `Account verified at ${bank} 💜`
-                );
-
-            },2000);
-
-        });
-
-    }
+    });
 
 });
