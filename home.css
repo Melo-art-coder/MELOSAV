@@ -383,3 +383,78 @@ body.dark-mode .nav-item.active{
 .bottom-nav a:hover{
     text-decoration: none;
 }
+/* ==========================
+   ADD TRANSACTION POPUP
+========================== */
+
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    backdrop-filter: blur(8px);
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+
+.modal-content {
+    width: 85%;
+    max-width: 380px;
+    background: rgba(255,255,255,0.95);
+    border-radius: 25px;
+    padding: 25px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+
+.modal-content h2 {
+    text-align: center;
+    color: #7b2cff;
+    margin-bottom: 10px;
+}
+
+
+.modal-content input,
+.modal-content select {
+    padding: 15px;
+    border-radius: 15px;
+    border: 1px solid #ddd;
+    outline: none;
+    font-size: 15px;
+}
+
+
+.modal-content button {
+    padding: 15px;
+    border-radius: 15px;
+    border: none;
+    background: #7b2cff;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+
+/* Dark Mode */
+
+.dark .modal-content {
+    background: rgba(35,25,60,0.95);
+}
+
+
+.dark .modal-content h2 {
+    color: #c7a7ff;
+}
+
+
+.dark .modal-content input,
+.dark .modal-content select {
+    background: #21183a;
+    color: white;
+    border-color: transparent;
+}
