@@ -126,99 +126,75 @@ function loadTransactions() {
     });
 
 }
+// =====================================
 // Transfer Money
+// =====================================
 
 function makeTransfer(amount, recipient, bank, account) {
 
     const user = getCurrentUser();
 
-    if (!user) return;
-
+    if (!user) return false;
 
     amount = Number(amount);
 
-
-    const income =
-    user.data.income.reduce(
-        (sum,item)=> sum + item.amount,
+    const income = user.data.income.reduce(
+        (sum, item) => sum + item.amount,
         0
     );
 
-
-    const savings =
-    user.data.savings.reduce(
-        (sum,item)=> sum + item.amount,
+    const savings = user.data.savings.reduce(
+        (sum, item) => sum + item.amount,
         0
     );
 
-
-    const expenses =
-    user.data.expenses.reduce(
-        (sum,item)=> sum + item.amount,
+    const expenses = user.data.expenses.reduce(
+        (sum, item) => sum + item.amount,
         0
     );
-
 
     const balance = income - savings - expenses;
 
+    if (amount > balance) {
 
-
-    if(amount > balance){
-
-        showMessage(
-            "Insufficient balance ❌",
-            "error"
-        );
+        showMessage("Insufficient balance ❌", "error");
 
         return false;
 
     }
 
-
-
     const transferRecord = {
 
         amount: amount,
-
         recipient: recipient,
-
         bank: bank,
-
         account: account,
-
+        description: `Transfer to ${recipient}`,
         date: new Date().toLocaleString()
 
     };
 
-
-
+    // Deduct money by recording it as an expense
     user.data.expenses.push(transferRecord);
 
-
-
+    // Save to transaction history
     user.data.transactions.unshift({
 
         type: "transfer",
-
         amount: amount,
-
         recipient: recipient,
-
         bank: bank,
-
+        account: account,
         date: transferRecord.date
 
     });
 
-
-
     updateUser(user);
 
-
-    showMessage(
-        "Transfer successful 💜"
-    );
-
+    // Refresh the dashboard immediately
+    if (typeof updateDashboard === "function") {
+        updateDashboard();
+    }
 
     return true;
 
