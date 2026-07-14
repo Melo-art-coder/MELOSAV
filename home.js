@@ -105,6 +105,14 @@ document.addEventListener(
 "DOMContentLoaded",
 function () {
 
+    console.log("home.js loaded");
+
+    const addBtn = document.getElementById("addBtn");
+    console.log("Add button:", addBtn);
+
+    const modal = document.getElementById("transactionModal");
+    console.log("Modal:", modal);
+
     loadDashboardUser();
 
     updateDashboard();
