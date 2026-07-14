@@ -131,6 +131,7 @@ updateDashboard();
             document.getElementById("description").value = "";
 
             modal.style.display = "none";
+console.log("NEW HOME JS LOADED 🔥");
 
         });
 
