@@ -174,23 +174,26 @@ function loadTheme(){
 
 }
 
+
 function toggleTheme(){
 
     document.body.classList.toggle("dark-mode");
 
-    const mode =
-    document.body.classList.contains("dark-mode")
-    ? "dark"
-    : "light";
+    const themeButton =
+    document.getElementById("themeToggle");
 
-    localStorage.setItem("meloTheme", mode);
+    if(document.body.classList.contains("dark-mode")){
 
-    const modeIcon =
-    document.getElementById("modeIcon");
+        localStorage.setItem("meloTheme","dark");
 
-    if(modeIcon){
-        modeIcon.textContent =
-        mode === "dark" ? "🌙" : "☀️";
+        themeButton.textContent = "🌙";
+
+    }else{
+
+        localStorage.setItem("meloTheme","light");
+
+        themeButton.textContent = "☀️";
+
     }
 
 }
@@ -205,7 +208,6 @@ if(themeButton){
 }
 
 loadTheme();
-
 
 // ================================
 // GREETING SYSTEM
