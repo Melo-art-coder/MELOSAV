@@ -4,7 +4,7 @@
 // =====================================
 
 document.addEventListener("DOMContentLoaded", () => {
-
+console.log("GOALS JS LOADED");
 const user = getCurrentUser();
 
 if (!user) {
