@@ -86,7 +86,6 @@ return Math.min((saved / target) * 100, 100);
 
 }
 
-
 // ===============================
 // Render Goals
 // ===============================
@@ -131,19 +130,35 @@ goalsList.innerHTML += `
 
 <div class="goal-progress">
 
-<div class="goal-fill" style="width:${percent}%"></div>
+<div class="goal-fill"
+
+style="width:${percent}%">
+
+</div>
 
 </div>
 
 <div class="goal-stats">
 
-<span>₦${goal.saved.toLocaleString()}</span>
+<span>
 
-<span>₦${goal.target.toLocaleString()}</span>
+₦${goal.saved.toLocaleString()}
+
+</span>
+
+<span>
+
+₦${goal.target.toLocaleString()}
+
+</span>
 
 </div>
 
-<button class="add-money-btn" data-index="${index}">
+<button
+
+class="add-money-btn"
+
+data-index="${index}">
 
 ➕ Add Money
 
@@ -154,6 +169,30 @@ goalsList.innerHTML += `
 `;
 
 });
+
+// Open Add Money button
+
+document.querySelectorAll(".add-money-btn")
+
+.forEach(button=>{
+
+button.addEventListener("click",()=>{
+
+selectedGoal = Number(
+
+button.dataset.index
+
+);
+
+goalAmountInput.value="";
+
+addMoneyModal.style.display="flex";
+
+});
+
+});
+
+}
 // ===============================
 // Open / Close Modals
 // ===============================
@@ -192,42 +231,33 @@ addMoneyModal.style.display = "none";
 saveGoalBtn.addEventListener("click", () => {
 
 const goalName = goalNameInput.value.trim();
-
 const targetAmount = Number(goalTargetInput.value);
 
-if (goalName === "") {
+if (!goalName) {
 
 assistantMessage(
-
 "Let's name your goal 💜",
-
 "What are we saving for today?",
-
 "error"
-
 );
 
 return;
 
 }
 
-if (targetAmount <= 0) {
+if (targetAmount <= 0 || isNaN(targetAmount)) {
 
 assistantMessage(
-
 "Almost there 💜",
-
-"Please enter a target amount greater than ₦0.",
-
+"Please enter a valid target amount.",
 "error"
-
 );
 
 return;
 
 }
 
-goals.unshift({
+const newGoal = {
 
 id: Date.now(),
 
@@ -237,9 +267,13 @@ target: targetAmount,
 
 saved: 0,
 
+completed: false,
+
 createdAt: new Date().toLocaleString()
 
-});
+};
+
+goals.unshift(newGoal);
 
 saveGoals();
 
@@ -251,13 +285,15 @@ goalNameInput.value = "";
 
 goalTargetInput.value = "";
 
-const firstName = (user.fullName || user.name || "Friend").split(" ")[0];
+const firstName =
+(user.fullName || user.name || "Friend")
+.split(" ")[0];
 
 assistantMessage(
 
 "Goal Created 🎯",
 
-`Awesome ${firstName}! Your "${goalName}" goal has been created. Let's start saving! 🌱`
+`Yayy ${firstName}! Your "${goalName}" savings goal has been created successfully. Let's start saving! 💜`
 
 );
 
