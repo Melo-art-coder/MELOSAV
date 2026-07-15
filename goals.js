@@ -22,6 +22,40 @@ document.getElementById("addMoneyModal");
 
 let selectedGoal = null;
 
+// ===============================
+// Get Current User Goals
+// ===============================
+
+function getGoals() {
+
+    const user = getCurrentUser();
+
+    if (!user) return [];
+
+    if (!user.data.goals) {
+
+        user.data.goals = [];
+
+        updateUser(user);
+
+    }
+
+    return user.data.goals;
+
+}
+
+function saveGoals(goals) {
+
+    const user = getCurrentUser();
+
+    if (!user) return;
+
+    user.data.goals = goals;
+
+    updateUser(user);
+
+}
+
 
 // ===============================
 // Open Create Goal
@@ -63,30 +97,9 @@ addMoneyModal.style.display="none";
 // Load Goals
 // ===============================
 
-let goals=
-
-JSON.parse(
-
-localStorage.getItem("melosavGoals")
-
-)||[];
+let goals = getGoals();
 
 
-// ===============================
-// Save Goals
-// ===============================
-
-function saveGoals(){
-
-localStorage.setItem(
-
-"melosavGoals",
-
-JSON.stringify(goals)
-
-);
-
-}
 
 
 // ===============================
@@ -296,5 +309,49 @@ document.getElementById(
 // ===============================
 
 renderGoals();
+
+});
+// ===============================
+// Add Money To Goal
+// ===============================
+
+document
+.getElementById("confirmAddMoney")
+.addEventListener("click", () => {
+
+    const amount = Number(
+
+        document
+        .getElementById("goalAmount")
+        .value
+
+    );
+
+    if (amount <= 0) {
+
+        showMessage(
+            "Enter a valid amount 💜",
+            "error"
+        );
+
+        return;
+
+    }
+
+    goals[selectedGoal].saved += amount;
+
+    saveGoals(goals);
+
+    renderGoals();
+
+    addMoneyModal.style.display = "none";
+
+    document
+    .getElementById("goalAmount")
+    .value = "";
+
+    showMessage(
+        "Money added successfully 🎉"
+    );
 
 });
