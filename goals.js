@@ -169,7 +169,6 @@ data-index="${index}">
 `;
 
 });
-});
 
 document.querySelectorAll(".add-money-btn").forEach(button => {
 
