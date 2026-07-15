@@ -184,22 +184,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (!goalName) {
 
-            assistantMessage(
-                "Let's name your goal 💜",
-                "What are we saving for today?",
-                "error"
-            );
+            meloToast(
+    "error",
+    "Let's name your goal 💜",
+    "What are we saving for today?"
+);
 
             return;
         }
 
         if (isNaN(targetAmount) || targetAmount <= 0) {
 
-            assistantMessage(
-                "Almost there 💜",
-                "Please enter a valid target amount.",
-                "error"
-            );
+            meloToast(
+    "error",
+    "Almost there 💜",
+    "Please enter a valid target amount."
+);
 
             return;
         }
@@ -231,10 +231,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const firstName = (user.fullName || user.name || "Friend").split(" ")[0];
 
-        assistantMessage(
-            "🎯 Goal Created",
-            `Yayy ${firstName}! Your "${goalName}" goal is ready. Let's start saving! 💜`
-        );
+        meloToast(
+    "success",
+    "🎯 Goal Created",
+    `Yayy ${firstName}! Your "${goalName}" goal is ready. Let's start saving! 💜`
+);
 
     });
     // ===============================
