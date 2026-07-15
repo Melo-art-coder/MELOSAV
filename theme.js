@@ -1,62 +1,61 @@
-
 // =====================================
-// MELOSAV - THEME SYSTEM
+// MELOSAV - THEME SYSTEM V2
 // =====================================
 
 const themeButton = document.getElementById("themeToggle");
 
-function loadTheme() {
+function applyTheme(theme){
 
-    const theme = localStorage.getItem("meloTheme");
-
-    if (theme === "dark") {
+    if(theme==="dark"){
 
         document.body.classList.add("dark-mode");
 
-        if (themeButton) {
-            themeButton.textContent = "🌙";
+        if(themeButton){
+
+            themeButton.textContent="🌙";
+
         }
 
-    } else {
+    }else{
 
         document.body.classList.remove("dark-mode");
 
-        if (themeButton) {
-            themeButton.textContent = "☀️";
+        if(themeButton){
+
+            themeButton.textContent="☀️";
+
         }
 
     }
 
 }
 
-function toggleTheme() {
+function loadTheme(){
 
-    document.body.classList.toggle("dark-mode");
+    const savedTheme=localStorage.getItem("meloTheme") || "light";
 
-    if (document.body.classList.contains("dark-mode")) {
-
-        localStorage.setItem("meloTheme", "dark");
-
-        if (themeButton) {
-            themeButton.textContent = "🌙";
-        }
-
-    } else {
-
-        localStorage.setItem("meloTheme", "light");
-
-        if (themeButton) {
-            themeButton.textContent = "☀️";
-        }
-
-    }
+    applyTheme(savedTheme);
 
 }
 
-if (themeButton) {
+function toggleTheme(){
 
-    themeButton.addEventListener("click", toggleTheme);
+    const newTheme=document.body.classList.contains("dark-mode")
+
+        ? "light"
+
+        : "dark";
+
+    localStorage.setItem("meloTheme",newTheme);
+
+    applyTheme(newTheme);
 
 }
 
-loadTheme();
+if(themeButton){
+
+    themeButton.addEventListener("click",toggleTheme);
+
+}
+
+document.addEventListener("DOMContentLoaded",loadTheme);
