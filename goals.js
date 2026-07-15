@@ -166,7 +166,6 @@ data-index="${index}">
 
 </div>
 
-`;
 
 });
 
@@ -186,29 +185,7 @@ addMoneyModal.style.display = "flex";
 
 }
 
-// Open Add Money button
 
-document.querySelectorAll(".add-money-btn")
-
-.forEach(button=>{
-
-button.addEventListener("click",()=>{
-
-selectedGoal = Number(
-
-button.dataset.index
-
-);
-
-goalAmountInput.value="";
-
-addMoneyModal.style.display="flex";
-
-});
-
-});
-
-}
 // ===============================
 // Open / Close Modals
 // ===============================
@@ -501,20 +478,3 @@ renderGoals();
 
 });
 
-// ===============================
-// Open Add Money Modal
-// ===============================
-
-document.addEventListener("click", (e) => {
-
-if (e.target.classList.contains("add-money-btn")) {
-
-selectedGoal = Number(e.target.dataset.index);
-
-goalAmountInput.value = "";
-
-addMoneyModal.style.display = "flex";
-
-}
-
-});
