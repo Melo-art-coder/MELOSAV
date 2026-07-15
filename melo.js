@@ -78,7 +78,7 @@ function meloToast(type, title, message) {
 
     toast.innerHTML = `
         <div class="melo-logo">
-            <img src="logo.png" alt="MELOSAV">
+            <img src="icon-192.png" alt="MELOSAV">
         </div>
 
         <div class="melo-content">
