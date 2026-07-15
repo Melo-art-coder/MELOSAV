@@ -4,35 +4,30 @@
 
 function showMessage(message, type = "success") {
 
-    const old = document.querySelector(".message");
+    // Extract title if HTML is passed
+    let title = "MELOSAV 💜";
+    let text = message;
 
-    if (old) old.remove();
+    if (message.includes("assistant-title")) {
 
-    const notification = document.createElement("div");
+        const temp = document.createElement("div");
+        temp.innerHTML = message;
 
-    notification.className = `message ${type}`;
+        title =
+            temp.querySelector(".assistant-title")?.textContent.trim() ||
+            title;
 
-    notification.innerHTML = message;
+        text =
+            temp.querySelector(".assistant-text")?.textContent.trim() ||
+            "";
 
-    document.body.appendChild(notification);
+    }
 
-    setTimeout(() => {
+    if (typeof meloToast === "function") {
 
-        notification.classList.add("show");
+        meloToast(type, title, text);
 
-    }, 100);
-
-    setTimeout(() => {
-
-        notification.classList.remove("show");
-
-        setTimeout(() => {
-
-            notification.remove();
-
-        },300);
-
-    },3500);
+    }
 
 }
 
