@@ -1,26 +1,45 @@
 // =====================================
-// MELOSAV CELEBRATIONS
+// MELOSAV CELEBRATIONS 🎉
+// Phase 2
 // =====================================
+
 
 function celebrateGoal(title, message) {
 
-    // Vibrate (supported devices only)
+
+    // Phone vibration
 
     if ("vibrate" in navigator) {
-        navigator.vibrate([200, 100, 200]);
+
+        navigator.vibrate([
+            200,
+            100,
+            200
+        ]);
+
     }
 
-    // Confetti
+
+
+    // Confetti celebration
 
     if (typeof confetti === "function") {
 
         confetti({
+
             particleCount: 180,
+
             spread: 120,
-            origin: { y: 0.6 }
+
+            origin:{
+                y:0.6
+            }
+
         });
 
     }
+
+
 
     // Melo Toast
 
@@ -30,6 +49,41 @@ function celebrateGoal(title, message) {
             "success",
             title,
             message
+        );
+
+    }
+
+
+
+    // Celebration sound (optional)
+
+    playCelebrationSound();
+
+}
+
+
+
+// =====================================
+// CELEBRATION SOUND 🔔
+// =====================================
+
+function playCelebrationSound(){
+
+    try{
+
+        const audio =
+        new Audio(
+        "sounds/success.mp3"
+        );
+
+        audio.play();
+
+    }
+
+    catch(error){
+
+        console.log(
+        "Celebration sound unavailable"
         );
 
     }
