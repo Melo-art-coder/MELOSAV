@@ -169,3 +169,22 @@
     }
 
 }
+/* ===========================
+   TOAST TYPES
+=========================== */
+
+.melo-toast.success{
+    background:linear-gradient(135deg,#7b2cff,#9d4dff);
+}
+
+.melo-toast.error{
+    background:linear-gradient(135deg,#e53935,#ff6b6b);
+}
+
+.melo-toast.info{
+    background:linear-gradient(135deg,#2196f3,#64b5f6);
+}
+
+.melo-toast.celebration{
+    background:linear-gradient(135deg,#6a1b9a,#b388ff);
+}
