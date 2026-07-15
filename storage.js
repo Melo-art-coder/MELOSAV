@@ -32,14 +32,27 @@ function saveCurrentUser(user) {
 
 // Create default data for a new user
 function createDefaultData() {
+
     return {
+
         balance: 0,
+
         income: [],
+
         expenses: [],
+
         savings: [],
+
         transactions: [],
+
+        goals: [],
+
+        notifications: [],
+
         dailyBudget: 0
+
     };
+
 }
 
 // Update user data
