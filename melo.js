@@ -69,39 +69,42 @@ function getNickname(user) {
 
 function meloToast(type, title, message) {
 
-    // Remove any existing toast
     const oldToast = document.querySelector(".melo-toast");
 
-    if (oldToast) {
-        oldToast.remove();
-    }
+    if (oldToast) oldToast.remove();
 
-    // Create toast
     const toast = document.createElement("div");
-    toast.className = "melo-toast";
+    toast.className = `melo-toast ${type}`;
 
     toast.innerHTML = `
-        <div class="melo-title">${title}</div>
-        <div class="melo-message">${message}</div>
+        <div class="melo-logo">
+            <img src="logo.png" alt="MELOSAV">
+        </div>
+
+        <div class="melo-content">
+            <div class="melo-title">${title}</div>
+            <div class="melo-message">${message}</div>
+        </div>
+
         <div class="melo-progress"></div>
     `;
 
     document.body.appendChild(toast);
 
-    // Animate in
     requestAnimationFrame(() => {
         toast.classList.add("show");
     });
 
-    // Remove after 4 seconds
     setTimeout(() => {
 
         toast.classList.remove("show");
 
         setTimeout(() => {
-            toast.remove();
-        }, 450);
 
-    }, 4000);
+            toast.remove();
+
+        },450);
+
+    },4000);
 
 }
