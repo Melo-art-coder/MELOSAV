@@ -169,6 +169,23 @@ data-index="${index}">
 `;
 
 });
+});
+
+document.querySelectorAll(".add-money-btn").forEach(button => {
+
+button.addEventListener("click", () => {
+
+selectedGoal = Number(button.dataset.index);
+
+goalAmountInput.value = "";
+
+addMoneyModal.style.display = "flex";
+
+});
+
+});
+
+}
 
 // Open Add Money button
 
