@@ -45,11 +45,13 @@ function assistantMessage(title,message,type="success"){
 
     const user=getCurrentUser();
 
-    const name=user?.fullName||
+    const fullName =
+    user?.fullName ||
+    user?.name ||
+    user?.username ||
+    "Friend";
 
-               user?.name||
-
-               "there";
+const firstName = fullName.split(" ")[0];
 
     showMessage(
 
@@ -57,7 +59,7 @@ function assistantMessage(title,message,type="success"){
 
 <div class="assistant-title">
 
-💜 ${title}, ${name.split(" ")[0]}!
+💜 ${title}, ${firstName}!
 
 </div>
 
