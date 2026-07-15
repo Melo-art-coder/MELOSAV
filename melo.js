@@ -63,6 +63,29 @@ function getNickname(user) {
     );
 
 }
+function meloEncouragement(user) {
+
+    const name = getNickname(user);
+
+    const messages = [
+
+        `${name}, every little bit counts. Keep going! 💜`,
+
+        `${name}, your future self will thank you for this. 🌱`,
+
+        `${name}, one more step closer to your dreams. ✨`,
+
+        `${name}, I believe in you. Keep saving! 💰`,
+
+        `${name}, today's progress becomes tomorrow's success. 🚀`,
+
+        `${name}, you're building something amazing. 💜`
+
+    ];
+
+    return randomItem(messages);
+
+}
 // =====================================
 // MELO TOAST
 // =====================================
