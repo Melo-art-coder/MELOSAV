@@ -221,6 +221,10 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
         saveGoals();
+celebrateGoal(
+    "Goal Created 🎯",
+    "Your savings journey has officially started 💜"
+);
 
         renderGoals();
 
