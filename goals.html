@@ -1,1 +1,115 @@
-h
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Savings Goals | MELOSAV</title>
+
+<link rel="stylesheet" href="home.css">
+<link rel="stylesheet" href="goals.css">
+
+</head>
+
+<body>
+
+<div class="goals-container">
+
+<div class="goals-header">
+
+<a href="home.html" class="back-btn">
+← Home
+</a>
+
+<h1>🎯 Savings Goals</h1>
+
+</div>
+
+<div class="goal-summary">
+
+<h2>Your Goals</h2>
+
+<p>
+Stay consistent. Every little saving counts 💜
+</p>
+
+<button id="createGoalBtn">
+
+＋ Create Goal
+
+</button>
+
+</div>
+
+<div id="goalsList">
+
+<!-- Goals will appear here -->
+
+</div>
+
+</div>
+
+<!-- Create Goal Modal -->
+
+<div id="goalModal" class="modal">
+
+<div class="modal-content">
+
+<h2>Create Savings Goal</h2>
+
+<input
+type="text"
+id="goalName"
+placeholder="Goal Name (Laptop, Rent...)">
+
+<input
+type="number"
+id="goalTarget"
+placeholder="Target Amount">
+
+<button id="saveGoal">
+
+Create Goal
+
+</button>
+
+</div>
+
+</div>
+
+<!-- Add Money Modal -->
+
+<div id="addMoneyModal" class="modal">
+
+<div class="modal-content">
+
+<h2>Add Money</h2>
+
+<input
+type="number"
+id="goalAmount"
+placeholder="Amount">
+
+<button id="confirmAddMoney">
+
+Save
+
+</button>
+
+</div>
+
+</div>
+
+<script src="storage.js"></script>
+<script src="notifications.js"></script>
+<script src="auth.js"></script>
+<script src="transactions.js"></script>
+<script src="goals.js"></script>
+
+</body>
+
+</html>
