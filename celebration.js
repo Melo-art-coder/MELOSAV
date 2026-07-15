@@ -23,21 +23,17 @@ function celebrateGoal(title, message) {
 
     // Confetti celebration
 
-    if (typeof confetti === "function") {
+    console.log("CONFETTI CHECK:", typeof confetti);
 
-        confetti({
+if (typeof confetti === "function") {
 
-            particleCount: 180,
+    confetti({
+        particleCount: 180,
+        spread: 120,
+        origin: { y: 0.6 }
+    });
 
-            spread: 120,
-
-            origin:{
-                y:0.6
-            }
-
-        });
-
-    }
+}
 
 
 
