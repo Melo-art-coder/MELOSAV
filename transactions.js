@@ -246,3 +246,113 @@ function buyAirtimeData(service, network, phone, amount) {
     return true;
 
 }
+// =====================================
+// Add Money To Savings Goal
+// =====================================
+
+function addGoalContribution(goalName, amount) {
+
+    const user = getCurrentUser();
+
+    if (!user) return false;
+
+
+    amount = Number(amount);
+
+
+    const income = user.data.income.reduce(
+        (sum,item)=>sum + item.amount,
+        0
+    );
+
+
+    const savings = user.data.savings.reduce(
+        (sum,item)=>sum + item.amount,
+        0
+    );
+
+
+    const expenses = user.data.expenses.reduce(
+        (sum,item)=>sum + item.amount,
+        0
+    );
+
+
+    const balance = income - savings - expenses;
+
+
+    if(amount > balance){
+
+        assistantMessage(
+
+            "Melo 💜",
+
+            `You don't have enough available balance to save ₦${amount.toLocaleString()} right now.
+
+Your available balance is ₦${balance.toLocaleString()}.
+
+Try a smaller amount and keep building your savings habit 🌱`,
+
+            "error"
+
+        );
+
+        return false;
+
+    }
+
+
+    const date = new Date().toLocaleString();
+
+
+    // Deduct from balance
+    user.data.savings.push({
+
+        amount: amount,
+
+        description:`Contribution to ${goalName}`,
+
+        date: date
+
+    });
+
+
+    // Add transaction history
+
+    user.data.transactions.unshift({
+
+        type:"goal",
+
+        goal:goalName,
+
+        amount:amount,
+
+        date:date
+
+    });
+
+
+    updateUser(user);
+
+
+    assistantMessage(
+
+        "Amazing 💜",
+
+        `You added ₦${amount.toLocaleString()} to your ${goalName} goal.
+
+Small steps create big results 🌱`
+
+    );
+
+
+    if(typeof updateDashboard === "function"){
+
+        updateDashboard();
+
+    }
+
+
+    return true;
+
+}
