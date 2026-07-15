@@ -1,480 +1,378 @@
 // =====================================
-// MELOSAV GOALS V2
-// PART 1
+// MELOSAV GOALS V3
+// PART 1 - Setup & Storage
 // =====================================
 
 document.addEventListener("DOMContentLoaded", () => {
-console.log("GOALS JS LOADED");
-const user = getCurrentUser();
 
-if (!user) {
+    console.log("✅ GOALS V3 LOADED");
 
-window.location.href = "index.html";
+    const user = getCurrentUser();
 
-return;
+    if (!user) {
+        window.location.href = "index.html";
+        return;
+    }
 
-}
+    // ===============================
+    // Create Safe User Data
+    // ===============================
 
-// ===============================
-// Create Goals Storage
-// ===============================
+    if (!user.data) user.data = {};
 
-if (!user.data) {
+    user.data.income ??= [];
+    user.data.expenses ??= [];
+    user.data.savings ??= [];
+    user.data.transactions ??= [];
+    user.data.goals ??= [];
+    user.data.notifications ??= [];
 
-user.data = {};
+    let goals = user.data.goals;
+    let selectedGoal = null;
 
-}
+    // ===============================
+    // Elements
+    // ===============================
 
-if (!user.data.goals) {
+    const goalsList = document.getElementById("goalsList");
+    const createGoalBtn = document.getElementById("createGoalBtn");
 
-user.data.goals = [];
+    const goalModal = document.getElementById("goalModal");
+    const addMoneyModal = document.getElementById("addMoneyModal");
 
-updateUser(user);
+    const saveGoalBtn = document.getElementById("saveGoal");
+    const confirmAddMoney = document.getElementById("confirmAddMoney");
 
-}
+    const goalNameInput = document.getElementById("goalName");
+    const goalTargetInput = document.getElementById("goalTarget");
+    const goalAmountInput = document.getElementById("goalAmount");
 
-let goals = user.data.goals;
+    // ===============================
+    // Save Goals
+    // ===============================
 
-let selectedGoal = null;
+    function saveGoals() {
+        user.data.goals = goals;
+        updateUser(user);
+    }
 
+    // ===============================
+    // Percentage
+    // ===============================
 
-// ===============================
-// Elements
-// ===============================
+    function getPercent(saved, target) {
 
-const goalsList = document.getElementById("goalsList");
+        if (!target || target <= 0) {
+            return 0;
+        }
 
-const createGoalBtn = document.getElementById("createGoalBtn");
+        return Math.min(
+            (saved / target) * 100,
+            100
+        );
+    }
+    // ===============================
+    // Render Goals
+    // ===============================
 
-const goalModal = document.getElementById("goalModal");
+    function renderGoals() {
 
-const addMoneyModal = document.getElementById("addMoneyModal");
+        if (!goalsList) return;
 
-const saveGoalBtn = document.getElementById("saveGoal");
+        goalsList.innerHTML = "";
 
-const confirmAddMoney = document.getElementById("confirmAddMoney");
+        if (goals.length === 0) {
 
-const goalNameInput = document.getElementById("goalName");
+            goalsList.innerHTML = `
+                <div class="goal-card empty-goal">
+                    <h2>🎯 No Goals Yet</h2>
+                    <p>Create your first savings goal and let Melo help you achieve it 💜</p>
+                </div>
+            `;
 
-const goalTargetInput = document.getElementById("goalTarget");
+            return;
+        }
 
-const goalAmountInput = document.getElementById("goalAmount");
+        goals.forEach((goal, index) => {
 
+            const percent = getPercent(goal.saved, goal.target);
 
-// ===============================
-// Save Goals
-// ===============================
+            goalsList.innerHTML += `
+                <div class="goal-card">
 
-function saveGoals() {
+                    <div class="goal-top">
+                        <h3>${goal.name}</h3>
+                        <strong>${percent.toFixed(0)}%</strong>
+                    </div>
 
-user.data.goals = goals;
+                    <div class="goal-progress">
+                        <div class="goal-fill"
+                             style="width:${percent}%">
+                        </div>
+                    </div>
 
-updateUser(user);
+                    <div class="goal-stats">
+                        <span>₦${goal.saved.toLocaleString()}</span>
+                        <span>₦${goal.target.toLocaleString()}</span>
+                    </div>
 
-}
+                    <button
+                        class="add-money-btn"
+                        data-index="${index}">
+                        ➕ Add Money
+                    </button>
 
+                </div>
+            `;
 
-// ===============================
-// Calculate Percentage
-// ===============================
+        });
 
-function getPercent(saved, target) {
+        document.querySelectorAll(".add-money-btn").forEach(button => {
 
-if (target <= 0) return 0;
+            button.addEventListener("click", () => {
 
-return Math.min((saved / target) * 100, 100);
+                selectedGoal = Number(button.dataset.index);
 
-}
+                goalAmountInput.value = "";
 
-// ===============================
-// Render Goals
-// ===============================
+                addMoneyModal.style.display = "flex";
 
-function renderGoals() {
+            });
 
-goalsList.innerHTML = "";
+        });
 
-if (goals.length === 0) {
+    }
 
-goalsList.innerHTML = `
+    // ===============================
+    // Open / Close Modals
+    // ===============================
 
-<div class="goal-card">
+    createGoalBtn?.addEventListener("click", () => {
 
-<h2>🎯 No Goals Yet</h2>
+        goalModal.style.display = "flex";
 
-<p>Create your first savings goal and let Melo help you achieve it 💜</p>
+    });
 
-</div>
+    goalModal?.addEventListener("click", (e) => {
 
-`;
+        if (e.target === goalModal) {
 
-return;
+            goalModal.style.display = "none";
 
-}
+        }
 
-goals.forEach((goal, index) => {
+    });
 
-const percent = getPercent(goal.saved, goal.target);
+    addMoneyModal?.addEventListener("click", (e) => {
 
-goalsList.innerHTML += `
+        if (e.target === addMoneyModal) {
 
-<div class="goal-card">
+            addMoneyModal.style.display = "none";
 
-<div class="goal-top">
+        }
 
-<h3>${goal.name}</h3>
+    });
 
-<strong>${percent.toFixed(0)}%</strong>
+    // ===============================
+    // Create Goal
+    // ===============================
 
-</div>
+    saveGoalBtn?.addEventListener("click", () => {
 
-<div class="goal-progress">
+        const goalName = goalNameInput.value.trim();
+        const targetAmount = Number(goalTargetInput.value);
 
-<div class="goal-fill"
+        if (!goalName) {
 
-style="width:${percent}%">
+            assistantMessage(
+                "Let's name your goal 💜",
+                "What are we saving for today?",
+                "error"
+            );
 
-</div>
+            return;
+        }
 
-</div>
+        if (isNaN(targetAmount) || targetAmount <= 0) {
 
-<div class="goal-stats">
+            assistantMessage(
+                "Almost there 💜",
+                "Please enter a valid target amount.",
+                "error"
+            );
 
-<span>
+            return;
+        }
 
-₦${goal.saved.toLocaleString()}
+        goals.unshift({
 
-</span>
+            id: Date.now(),
 
-<span>
+            name: goalName,
 
-₦${goal.target.toLocaleString()}
+            target: targetAmount,
 
-</span>
+            saved: 0,
 
-</div>
+            completed: false,
 
-<button
+            createdAt: new Date().toLocaleString()
 
-class="add-money-btn"
+        });
 
-data-index="${index}">
+        saveGoals();
 
-➕ Add Money
+        renderGoals();
 
-</button>
+        goalModal.style.display = "none";
 
-</div>
+        goalNameInput.value = "";
+        goalTargetInput.value = "";
 
+        const firstName = (user.fullName || user.name || "Friend").split(" ")[0];
 
-});
+        assistantMessage(
+            "🎯 Goal Created",
+            `Yayy ${firstName}! Your "${goalName}" goal is ready. Let's start saving! 💜`
+        );
 
-document.querySelectorAll(".add-money-btn").forEach(button => {
+    });
+    // ===============================
+    // Add Money To Goal
+    // ===============================
 
-button.addEventListener("click", () => {
+    confirmAddMoney?.addEventListener("click", () => {
 
-selectedGoal = Number(button.dataset.index);
+        if (selectedGoal === null) return;
 
-goalAmountInput.value = "";
+        const amount = Number(goalAmountInput.value);
 
-addMoneyModal.style.display = "flex";
+        if (isNaN(amount) || amount <= 0) {
 
-});
+            assistantMessage(
+                "Oops 💜",
+                "Enter an amount greater than ₦0.",
+                "error"
+            );
 
-});
+            return;
+        }
 
-}
+        // ===============================
+        // Calculate Available Balance
+        // ===============================
 
+        const income = user.data.income.reduce(
+            (sum, item) => sum + Number(item.amount || 0),
+            0
+        );
 
-// ===============================
-// Open / Close Modals
-// ===============================
+        const expenses = user.data.expenses.reduce(
+            (sum, item) => sum + Number(item.amount || 0),
+            0
+        );
 
-createGoalBtn.addEventListener("click", () => {
+        const savings = user.data.savings.reduce(
+            (sum, item) => sum + Number(item.amount || 0),
+            0
+        );
 
-goalModal.style.display = "flex";
+        const balance = income - expenses - savings;
 
-});
+        // ===============================
+        // Balance Check
+        // ===============================
 
-goalModal.addEventListener("click", (e) => {
+        if (amount > balance) {
 
-if (e.target === goalModal) {
+            const firstName = (user.fullName || user.name || "Friend").split(" ")[0];
 
-goalModal.style.display = "none";
+            assistantMessage(
+                "Not Enough Balance 💜",
+                `Hey ${firstName}, your available balance is only ₦${balance.toLocaleString()}. Try saving a smaller amount 🌱`,
+                "error"
+            );
 
-}
+            return;
+        }
 
-});
+        // ===============================
+        // Update Goal
+        // ===============================
 
-addMoneyModal.addEventListener("click", (e) => {
+        goals[selectedGoal].saved += amount;
 
-if (e.target === addMoneyModal) {
+        // Record Savings
 
-addMoneyModal.style.display = "none";
+        user.data.savings.push({
 
-}
+            amount,
 
-});
+            description: `Savings Goal - ${goals[selectedGoal].name}`,
 
+            date: new Date().toLocaleString()
 
-// ===============================
-// Create Goal
-// ===============================
+        });
 
-saveGoalBtn.addEventListener("click", () => {
+        // Record Transaction
 
-const goalName = goalNameInput.value.trim();
-const targetAmount = Number(goalTargetInput.value);
+        user.data.transactions.unshift({
 
-if (!goalName) {
+            type: "saving",
 
-assistantMessage(
-"Let's name your goal 💜",
-"What are we saving for today?",
-"error"
-);
+            amount,
 
-return;
+            description: `Goal: ${goals[selectedGoal].name}`,
 
-}
+            goalId: goals[selectedGoal].id,
 
-if (targetAmount <= 0 || isNaN(targetAmount)) {
+            date: new Date().toLocaleString()
 
-assistantMessage(
-"Almost there 💜",
-"Please enter a valid target amount.",
-"error"
-);
+        });
 
-return;
+        // ===============================
+        // Goal Completion
+        // ===============================
 
-}
+        const goal = goals[selectedGoal];
 
-const newGoal = {
+        const percent = getPercent(goal.saved, goal.target);
 
-id: Date.now(),
+        if (goal.saved >= goal.target && !goal.completed) {
 
-name: goalName,
+            goal.completed = true;
 
-target: targetAmount,
+            const firstName = (user.fullName || user.name || "Friend").split(" ")[0];
 
-saved: 0,
+            assistantMessage(
+                "🎉 Goal Completed!",
+                `Yayy ${firstName}! You completed your "${goal.name}" savings goal! I'm super proud of you! 🥳💜`
+            );
 
-completed: false,
+        } else {
 
-createdAt: new Date().toLocaleString()
+            const firstName = (user.fullName || user.name || "Friend").split(" ")[0];
 
-};
+            assistantMessage(
+                "Great Job! 🎉",
+                `Amazing ${firstName}! You added ₦${amount.toLocaleString()} to "${goal.name}". You're now ${percent.toFixed(0)}% closer! 💜`
+            );
 
-goals.unshift(newGoal);
+        }
 
-saveGoals();
+        saveGoals();
+        updateUser(user);
+        renderGoals();
 
-renderGoals();
+        addMoneyModal.style.display = "none";
+        goalAmountInput.value = "";
+        selectedGoal = null;
 
-goalModal.style.display = "none";
+    });
+    // ===============================
+    // First Load
+    // ===============================
 
-goalNameInput.value = "";
+    renderGoals();
 
-goalTargetInput.value = "";
-
-const firstName =
-(user.fullName || user.name || "Friend")
-.split(" ")[0];
-
-assistantMessage(
-
-"Goal Created 🎯",
-
-`Yayy ${firstName}! Your "${goalName}" savings goal has been created successfully. Let's start saving! 💜`
-
-);
-
-});
-// ===============================
-// Add Money To Goal
-// ===============================
-
-confirmAddMoney.addEventListener("click", () => {
-
-if(selectedGoal===null) return;
-
-const amount=Number(goalAmountInput.value);
-
-if(amount<=0){
-
-assistantMessage(
-
-"Oops 💜",
-
-"Enter an amount greater than ₦0.",
-
-"error"
-
-);
-
-return;
-
-}
-
-
-// Calculate Available Balance
-
-const income=user.data.income.reduce(
-
-(sum,item)=>sum+Number(item.amount),
-
-0
-
-);
-
-const expenses=user.data.expenses.reduce(
-
-(sum,item)=>sum+Number(item.amount),
-
-0
-
-);
-
-const savings=user.data.savings.reduce(
-
-(sum,item)=>sum+Number(item.amount),
-
-0
-
-);
-
-const balance=income-expenses-savings;
-
-
-// Check Balance
-
-if(amount>balance){
-
-const firstName=(user.fullName||user.name||"Friend").split(" ")[0];
-
-assistantMessage(
-
-"Not Enough Balance 💜",
-
-`Hey ${firstName}, you can't save ₦${amount.toLocaleString()} right now because your available balance is only ₦${balance.toLocaleString()}. Try a smaller amount 🌱`,
-
-"error"
-
-);
-
-return;
-
-}
-
-
-// Update Goal
-
-goals[selectedGoal].saved+=amount;
-
-
-// Record as Saving
-
-user.data.savings.push({
-
-amount:amount,
-
-description:`Savings Goal - ${goals[selectedGoal].name}`,
-
-date:new Date().toLocaleString()
-
-});
-
-
-// Record Transaction
-
-user.data.transactions.unshift({
-
-type:"saving",
-
-amount:amount,
-
-description:goals[selectedGoal].name,
-
-date:new Date().toLocaleString()
-
-});
-
-
-// Save Everything
-
-saveGoals();
-
-updateUser(user);
-
-
-// Refresh Screen
-
-renderGoals();
-
-
-// Close Modal
-
-addMoneyModal.style.display="none";
-
-goalAmountInput.value="";
-
-
-// Melo Message
-
-const firstName=(user.fullName||user.name||"Friend").split(" ")[0];
-
-const percent=Math.min(
-
-(goals[selectedGoal].saved/goals[selectedGoal].target)*100,
-
-100
-
-);
-
-assistantMessage(
-
-"Great Job! 🎉",
-
-`Amazing ${firstName}! You just added ₦${amount.toLocaleString()} to your "${goals[selectedGoal].name}" goal. You're now ${percent.toFixed(0)}% closer! 💜`
-
-);
-
-});
-// ===============================
-// Goal Completed
-// ===============================
-
-goals.forEach(goal=>{
-
-if(goal.saved>=goal.target && !goal.completed){
-
-goal.completed=true;
-
-const firstName=(user.fullName||user.name||"Friend").split(" ")[0];
-
-assistantMessage(
-
-"🎉 Goal Completed!",
-
-`Yayy ${firstName}! You did it! 🥳 Your "${goal.name}" goal is complete. I'm so proud of you! Enjoy this achievement and let's start your next goal 💜`
-
-);
-
-}
-
-});
-
-saveGoals();
-
-}
-
-
-// ===============================
-// First Load
-// ===============================
-
-renderGoals();
-
-});
-
+}); // End DOMContentLoaded
