@@ -1,105 +1,60 @@
 // =====================================
-// MELOSAV - SAVINGS GOALS
-// PART 1
+// MELOSAV GOALS V2
+// Part 1
 // =====================================
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded",()=>{
 
-const createGoalBtn =
-document.getElementById("createGoalBtn");
+const user=getCurrentUser();
 
-const goalModal =
-document.getElementById("goalModal");
+if(!user) return;
 
-const saveGoalBtn =
-document.getElementById("saveGoal");
-
-const goalsList =
-document.getElementById("goalsList");
-
-const addMoneyModal =
-document.getElementById("addMoneyModal");
-
-let selectedGoal = null;
 
 // ===============================
-// Get Current User Goals
+// Create Goals Storage
 // ===============================
 
-function getGoals() {
+if(!user.data.goals){
 
-    const user = getCurrentUser();
+user.data.goals=[];
 
-    if (!user) return [];
-
-    if (!user.data.goals) {
-
-        user.data.goals = [];
-
-        updateUser(user);
-
-    }
-
-    return user.data.goals;
+updateUser(user);
 
 }
 
-function saveGoals(goals) {
+let goals=user.data.goals;
 
-    const user = getCurrentUser();
 
-    if (!user) return;
+// ===============================
+// Elements
+// ===============================
 
-    user.data.goals = goals;
+const goalsList=document.getElementById("goalsList");
 
-    updateUser(user);
+const goalModal=document.getElementById("goalModal");
+
+const addMoneyModal=document.getElementById("addMoneyModal");
+
+const createGoalBtn=document.getElementById("createGoalBtn");
+
+const saveGoalBtn=document.getElementById("saveGoal");
+
+const confirmAddMoney=document.getElementById("confirmAddMoney");
+
+let selectedGoal=null;
+
+
+// ===============================
+// Save Goals
+// ===============================
+
+function saveGoals(){
+
+user.data.goals=goals;
+
+updateUser(user);
 
 }
-
-
-// ===============================
-// Open Create Goal
-// ===============================
-
-createGoalBtn.addEventListener("click",()=>{
-
-goalModal.style.display="flex";
-
-});
-
-
-// ===============================
-// Close Modals
-// ===============================
-
-goalModal.addEventListener("click",(e)=>{
-
-if(e.target===goalModal){
-
-goalModal.style.display="none";
-
-}
-
-});
-
-addMoneyModal.addEventListener("click",(e)=>{
-
-if(e.target===addMoneyModal){
-
-addMoneyModal.style.display="none";
-
-}
-
-});
-
-
-// ===============================
-// Load Goals
-// ===============================
-
-let goals = getGoals();
-
-
 
 
 // ===============================
@@ -116,11 +71,11 @@ goalsList.innerHTML=`
 
 <div class="goal-card">
 
-<h2>No Goals Yet 💜</h2>
+<h2>🎯 No Goals Yet</h2>
 
 <p>
 
-Create your first savings goal.
+Let's create your first savings goal 💜
 
 </p>
 
@@ -132,12 +87,9 @@ return;
 
 }
 
-
 goals.forEach((goal,index)=>{
 
-const percent=
-
-Math.min(
+const percent=Math.min(
 
 (goal.saved/goal.target)*100,
 
@@ -151,17 +103,9 @@ goalsList.innerHTML+=`
 
 <div class="goal-top">
 
-<div class="goal-name">
+<h3>${goal.name}</h3>
 
-🎯 ${goal.name}
-
-</div>
-
-<div>
-
-${percent.toFixed(0)}%
-
-</div>
+<span>${percent.toFixed(0)}%</span>
 
 </div>
 
@@ -210,148 +154,5 @@ data-index="${index}"
 </div>
 
 `;
-
-});
-
-
-document.querySelectorAll(
-
-".add-money-btn"
-
-).forEach(btn=>{
-
-btn.addEventListener("click",()=>{
-
-selectedGoal=
-
-btn.dataset.index;
-
-addMoneyModal.style.display="flex";
-
-});
-
-});
-
-}
-
-
-// ===============================
-// Create Goal
-// ===============================
-
-saveGoalBtn.addEventListener("click",()=>{
-
-const name=
-
-document.getElementById("goalName")
-
-.value.trim();
-
-const target=
-
-Number(
-
-document.getElementById("goalTarget")
-
-.value
-
-);
-
-if(name===""){
-
-alert("Enter goal name");
-
-return;
-
-}
-
-if(target<=0){
-
-alert("Enter target amount");
-
-return;
-
-}
-
-goals.unshift({
-
-name:name,
-
-target:target,
-
-saved:0
-
-});
-
-saveGoals();
-
-renderGoals();
-
-goalModal.style.display="none";
-
-document.getElementById(
-
-"goalName"
-
-).value="";
-
-document.getElementById(
-
-"goalTarget"
-
-).value="";
-
-});
-
-
-// ===============================
-// First Load
-// ===============================
-
-renderGoals();
-
-});
-// ===============================
-// Add Money To Goal
-// ===============================
-
-document
-.getElementById("confirmAddMoney")
-.addEventListener("click", () => {
-
-    const amount = Number(
-
-        document
-        .getElementById("goalAmount")
-        .value
-
-    );
-
-    if (amount <= 0) {
-
-        showMessage(
-            "Enter a valid amount 💜",
-            "error"
-        );
-
-        return;
-
-    }
-
-    goals[selectedGoal].saved += amount;
-
-    saveGoals(goals);
-
-    renderGoals();
-
-    addMoneyModal.style.display = "none";
-
-    document
-    .getElementById("goalAmount")
-    .value = "";
-
-    showMessage(
-        "Money added successfully 🎉"
-    );
 
 });
