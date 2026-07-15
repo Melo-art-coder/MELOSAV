@@ -345,16 +345,25 @@ celebrateGoal(
 
         if (goal.saved >= goal.target && !goal.completed) {
 
-            goal.completed = true;
+    goal.completed = true;
 
-            const firstName = (user.fullName || user.name || "Friend").split(" ")[0];
+    const firstName = (user.fullName || user.name || "Friend").split(" ")[0];
 
-            assistantMessage(
-                "🎉 Goal Completed!",
-                `Yayy ${firstName}! You completed your "${goal.name}" savings goal! I'm super proud of you! 🥳💜`
-            );
+    assistantMessage(
+        "🎉 Goal Completed!",
+        `Yayy ${firstName}! You completed your "${goal.name}" savings goal! I'm super proud of you! 🥳💜`
+    );
 
-        } else {
+
+    // Celebration 🎊
+
+    celebrateGoal(
+        "Goal Completed 🏆",
+        `Amazing ${firstName}! You finished your "${goal.name}" savings goal! 💜`
+    );
+
+}
+ else {
 
             const firstName = (user.fullName || user.name || "Friend").split(" ")[0];
 
