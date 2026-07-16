@@ -1107,3 +1107,81 @@ body.dark-mode select {
 
 
    }
+.avatar-container{
+
+    position:relative;
+
+    width:130px;
+
+    margin:auto;
+
+}
+
+.avatar{
+
+    width:130px;
+
+    height:130px;
+
+    border-radius:50%;
+
+    background:#7b2cff;
+
+    color:white;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:55px;
+
+    overflow:hidden;
+
+}
+
+.profile-image{
+
+    width:130px;
+
+    height:130px;
+
+    border-radius:50%;
+
+    object-fit:cover;
+
+    position:absolute;
+
+    top:0;
+    left:0;
+
+}
+
+.camera-btn{
+
+    position:absolute;
+
+    bottom:0;
+
+    right:0;
+
+    width:42px;
+
+    height:42px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:#7b2cff;
+
+    color:white;
+
+    font-size:18px;
+
+    cursor:pointer;
+
+    box-shadow:0 5px 15px rgba(0,0,0,.25);
+
+}
