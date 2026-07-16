@@ -175,9 +175,71 @@ function updateDailyStreak() {
 // Start Home
 document.addEventListener("DOMContentLoaded", () => {
 
-    const addBtn = document.querySelector("#addBtn");
 
-    console.log(addBtn);
+    loadDashboardUser();
+    updateDashboard();
+    updateDailyStreak();
+
+
+    setTimeout(()=>{
+
+        if(typeof meloWelcomeVoice === "function"){
+            meloWelcomeVoice();
+        }
+
+    },1500);
+
+
+
+    const addBtn = document.querySelector("#addBtn");
+    const modal = document.querySelector("#transactionModal");
+    const saveBtn = document.querySelector("#saveTransaction");
+
+
+    console.log("PLUS BUTTON:", addBtn);
+
+
+
+    if(addBtn && modal){
+
+        addBtn.addEventListener("click",()=>{
+
+            console.log("PLUS BUTTON WORKING 🔥");
+
+            modal.style.display="flex";
+
+        });
+
+    }
+
+
+
+    if(modal){
+
+        modal.addEventListener("click",(e)=>{
+
+            if(e.target === modal){
+
+                modal.style.display="none";
+
+            }
+
+        });
+
+    }
+
+
+
+    if(saveBtn){
+
+        saveBtn.addEventListener("click",()=>{
+
+            // your save code here
+
+        });
+
+    }
+
 
 });
 
