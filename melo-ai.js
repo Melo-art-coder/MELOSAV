@@ -103,7 +103,55 @@ function showMeloMessage(message){
 
 }
 
+// =====================================
+// MELO PERSONAL WELCOME 🎙️💜
+// =====================================
 
+function meloWelcomeVoice(){
+
+    const user = getCurrentUser();
+
+    if(!user) return;
+
+
+    const name = user.name;
+
+    let message;
+
+
+    if(user.data.isNewUser){
+
+        message =
+        `Hey ${name} 👋 Welcome to MeloSave.
+        I'm Melo, your personal savings assistant.
+        Let's start your financial journey together.`;
+
+        user.data.isNewUser = false;
+
+        updateUser(user);
+
+
+    } else {
+
+
+        message =
+        `Welcome back ${name} 💜.
+        It's great to see you again.
+        Keep working towards your goals.`;
+
+    }
+
+
+    showMeloMessage(message);
+
+
+    if(typeof speakMelo === "function"){
+
+        speakMelo(message);
+
+    }
+
+}
 
 
 // Run when dashboard loads
