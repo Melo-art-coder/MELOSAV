@@ -59,3 +59,45 @@ if(themeButton){
 }
 
 document.addEventListener("DOMContentLoaded",loadTheme);
+// ================================
+// COLOR THEMES
+// ================================
+
+const themes = {
+
+purple:"#7b2cff",
+
+emerald:"#16a34a",
+
+ocean:"#2563eb",
+
+midnight:"#111827",
+
+sunset:"#ea580c",
+
+rose:"#e11d48"
+
+};
+
+function applyColorTheme(){
+
+const color =
+localStorage.getItem("meloColor") || "purple";
+
+document.documentElement.style.setProperty(
+
+"--primary",
+
+themes[color]
+
+);
+
+}
+
+document.addEventListener(
+
+"DOMContentLoaded",
+
+applyColorTheme
+
+);
