@@ -160,6 +160,12 @@ document.addEventListener(
 "DOMContentLoaded",
 ()=>{
 
-    meloInsight();
+    meloWelcomeVoice();
+
+    setTimeout(()=>{
+
+        meloInsight();
+
+    },4000);
 
 });
