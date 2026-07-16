@@ -3,7 +3,7 @@
 // MELO VOICE V1
 // =====================================
 
-
+console.log("🎙️ Melo Voice JS Loaded");
 function speakMelo(text){
 
     if(!("speechSynthesis" in window)){
