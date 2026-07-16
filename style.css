@@ -1,43 +1,70 @@
 /* =====================================
-   THEME COLORS
+   MELOSAVE THEME COLORS
 ===================================== */
 
 :root{
 
     --primary:#7b2cff;
     --secondary:#b56cff;
+
     --background:#ffffff;
     --card:#ffffff;
+
     --text:#222222;
+    --border:#dddddd;
+
+    --soft-purple:#f5edff;
 
 }
+
+
 
 /* =====================================
-   MELOSAVE V2 COMPLETE STYLE
+   RESET
 ===================================== */
 
+
 *{
+
     margin:0;
+
     padding:0;
+
     box-sizing:border-box;
+
     font-family:"Poppins", Arial, sans-serif;
+
 }
+
+
+
 body{
 
-    background:#ffffff;
-    color:#222;
+    background:var(--background);
+
+    color:var(--text);
 
     transition:0.3s;
 
 }
 
 
+
 a{
+
     text-decoration:none;
+
 }
 
 
 
+button{
+
+    cursor:pointer;
+
+    border:none;
+
+}
 /* =====================================
    NAVBAR
 ===================================== */
@@ -50,48 +77,45 @@ header{
 }
 
 
+
 .navbar{
 
     display:flex;
+
     justify-content:space-between;
+
     align-items:center;
 
 }
 
 
+
 .logo{
 
     color:var(--primary);
+
     font-size:28px;
+
     font-weight:800;
 
 }
 
-
-button{
-
-    cursor:pointer;
-    border:none;
-
-}
 
 
 #themeToggle,
 #logoutBtn{
 
     padding:10px 15px;
+
     border-radius:20px;
-    background:#7b2cff;
+
+    background:var(--primary);
+
     color:white;
+
     margin-left:10px;
 
 }
-
-
-
-
-
-
 
 /* =====================================
    BUTTONS
@@ -101,7 +125,9 @@ button{
 .btn{
 
     display:inline-block;
-    background:#7b2cff;
+
+    background:var(--primary);
+
     color:white;
 
     padding:13px 25px;
@@ -119,6 +145,7 @@ button{
 }
 
 
+
 .btn:hover{
 
     transform:translateY(-3px);
@@ -127,10 +154,21 @@ button{
 
 
 
+.btn,
+button{
+
+    transition:0.3s;
+
+}
 
 
 
+.btn:active,
+button:active{
 
+    transform:scale(0.95);
+
+}
 /* =====================================
    LANDING PAGE
 ===================================== */
@@ -151,11 +189,13 @@ button{
 }
 
 
+
 .hero h1{
 
     font-size:50px;
 
 }
+
 
 
 .hero h1 span{
@@ -165,20 +205,28 @@ button{
 }
 
 
+
 .hero p{
 
     margin:20px 0;
 
-    color:#666;
+    color:var(--text);
+
+    opacity:.7;
 
     line-height:1.6;
 
 }
 
 
+
 .money-card{
 
-    background:#7b2cff;
+    background:linear-gradient(
+        135deg,
+        var(--primary),
+        var(--secondary)
+    );
 
     color:white;
 
@@ -189,10 +237,6 @@ button{
     width:300px;
 
 }
-
-
-
-
 /* =====================================
    FEATURES
 ===================================== */
@@ -207,35 +251,67 @@ button{
 }
 
 
+
+.features h2{
+
+    font-size:35px;
+
+    margin-bottom:40px;
+
+}
+
+
+
 .feature-container{
 
     display:flex;
 
     justify-content:center;
 
-    gap:20px;
+    gap:25px;
 
     flex-wrap:wrap;
 
 }
 
 
+
 .feature-card{
-
-    background:var(--card);
-
-    padding:25px;
 
     width:280px;
 
+    padding:30px;
+
+    background:var(--card);
+
     border-radius:20px;
+
+    box-shadow:
+    0 10px 25px rgba(0,0,0,0.08);
 
 }
 
 
 
+.feature-card h3{
+
+    color:var(--primary);
+
+    margin-bottom:15px;
+
+}
 
 
+
+.feature-card p{
+
+    color:var(--text);
+
+    opacity:.7;
+
+    line-height:1.5;
+
+}
 /* =====================================
    FORMS
 ===================================== */
@@ -256,6 +332,7 @@ button{
 }
 
 
+
 .form-card{
 
     width:100%;
@@ -268,11 +345,13 @@ button{
 
     border-radius:25px;
 
-    box-shadow:0 15px 35px rgba(0,0,0,0.1);
+    box-shadow:
+    0 15px 35px rgba(0,0,0,0.1);
 
     text-align:center;
 
 }
+
 
 
 .form-card h1{
@@ -300,6 +379,20 @@ button{
 
     outline:none;
 
+    background:transparent;
+
+}
+
+
+
+.form-card input:focus,
+.form-card select:focus{
+
+    border-color:var(--primary);
+
+    box-shadow:
+    0 0 10px rgba(123,44,255,.2);
+
 }
 
 
@@ -319,12 +412,6 @@ button{
     font-weight:bold;
 
 }
-
-
-
-
-
-
 /* =====================================
    DASHBOARD
 ===================================== */
@@ -335,6 +422,7 @@ button{
     padding:30px 8%;
 
 }
+
 
 
 .welcome-card,
@@ -351,21 +439,58 @@ button{
 
     margin-bottom:25px;
 
-    box-shadow:0 10px 25px rgba(0,0,0,0.08);
+    box-shadow:
+    0 10px 25px rgba(0,0,0,0.08);
 
 }
-
+/* =====================================
+   PREMIUM BALANCE CARD
+===================================== */
 
 
 .balance-card{
 
-    background:var(--primary);
+    background:linear-gradient(
+        135deg,
+        var(--primary),
+        var(--secondary)
+    );
 
     color:white;
 
-    text-align:center;
+    padding:35px;
+
+    border-radius:30px;
+
+    box-shadow:
+    0 20px 40px rgba(123,44,255,.25);
+
+    text-align:left;
 
 }
+
+
+
+.balance-card p{
+
+    opacity:.8;
+
+    font-size:16px;
+
+}
+
+
+
+.balance-card h2{
+
+    font-size:42px;
+
+    margin-top:15px;
+
+}
+/* =====================================
+   MONEY CARDS
+===================================== */
 
 
 .money-grid{
@@ -380,9 +505,40 @@ button{
 
 
 
+.money-box{
+
+    border-radius:25px;
+
+    transition:.3s;
+
+}
+
+
+
+.money-box:hover{
+
+    transform:translateY(-5px);
+
+    box-shadow:
+    0 15px 30px rgba(0,0,0,.12);
+
+}
+
+
+
 .money-box h3{
 
     color:var(--primary);
+
+}
+
+
+
+.money-box h2{
+
+    font-size:28px;
+
+    margin:15px 0;
 
 }
 
@@ -401,8 +557,12 @@ button{
 
     border:1px solid var(--border);
 
-}
+    background:transparent;
 
+}
+/* =====================================
+   TRANSACTIONS
+===================================== */
 
 
 .transaction-card li{
@@ -416,6 +576,7 @@ button{
 }
 
 
+
 .profile-btn{
 
     display:inline-block;
@@ -423,11 +584,22 @@ button{
     margin-top:20px;
 
 }
+/* =====================================
+   WELCOME CARD PREMIUM
+===================================== */
 
 
+.welcome-card{
 
+    background:linear-gradient(
+        135deg,
+        var(--card),
+        var(--soft-purple)
+    );
 
+    border-radius:30px;
 
+}
 /* =====================================
    PROFILE
 ===================================== */
@@ -459,631 +631,15 @@ button{
 
     max-width:450px;
 
-    box-shadow:0 15px 35px rgba(0,0,0,0.1);
-
-}
-
-
-
-.avatar{
-
-    width:120px;
-
-    height:120px;
-
-    border-radius:50%;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    margin:auto;
-
-    font-size:50px;
-
-    background:var(--primary);
-
-    color:white;
-
-}
-
-
-
-.avatar.male{
-
-    background:#2196f3;
-
-}
-
-
-
-.avatar.female{
-
-    background:var(--primary);
-
-}
-
-
-
-.profile-summary{
-
-    display:flex;
-
-    justify-content:space-around;
-
-    margin:30px 0;
-
-}
-
-
-
-
-
-/* =====================================
-   FOOTER
-===================================== */
-
-
-footer{
-
-    text-align:center;
-
-    padding:40px 20px;
-
-    background:var(--card);
-
-    margin-top:50px;
-
-}
-
-
-footer h3{
-
-    color:var(--primary);
-
-}
-
-
-
-
-
-
-/* =====================================
-   DARK MODE
-===================================== */
-
-
-body.dark-mode{
-
-    --background:#121212;
-
-    --card:#1e1e1e;
-
-    --text:white;
-
-}
-
-/* =====================================
-   MOBILE
-===================================== */
-
-
-@media(max-width:768px){
-
-
-.hero{
-
-    flex-direction:column;
-
-    text-align:center;
-
-}
-
-
-.money-grid{
-
-    grid-template-columns:1fr;
-
-}
-
-
-
-.profile-summary{
-
-    flex-direction:column;
-
-    gap:20px;
-
-}
-
-
-}
-
-.features h2 {
-
-    font-size: 35px;
-
-    margin-bottom: 40px;
-
-}
-
-
-
-.feature-container {
-
-    display: flex;
-
-    justify-content: center;
-
-    gap: 25px;
-
-    flex-wrap: wrap;
-
-}
-
-
-
-
-.feature-card {
-
-    width: 280px;
-
-    padding: 30px;
-
-    background:var(--card);
-
-    border-radius: 20px;
-
-    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-
-}
-
-
-
-.feature-card h3 {
-
-    color:var(--primary);
-
-    margin-bottom: 15px;
-
-}
-
-
-
-.feature-card p {
-
-    color:var(--text);
-
-    opacity:.7;
-
-    line-height: 1.5;
-
-}
-
-/* =====================================
-   FOOTER
-===================================== */
-
-
-footer {
-
-    text-align: center;
-
-    padding: 40px 20px;
-
-    margin-top: 50px;
-
-    background:var(--card);
-
-}
-
-
-
-footer h3 {
-
-    color:var(--primary);
-
-    margin-bottom: 10px;
-
-}
-
-
-
-footer p {
-
-    color:var(--text);
-
-    opacity:.7;
-
-    margin: 5px;
-
-}
-
-
-
-
-
-/* =====================================
-   DARK MODE
-===================================== */
-
-
-body.dark-mode {
-
-    background:var(--background);
-
-    color:var(--text);
-
-}
-
-
-
-body.dark-mode p {
-
-    color:var(--text);
-
-    opacity:.75;
-
-}
-
-
-
-body.dark-mode .feature-card {
-
-    background:var(--card);
-
-}
-
-
-
-body.dark-mode footer {
-
-    background:var(--card);
-
-}
-
-
-
-
-
-
-/* =====================================
-   MOBILE DESIGN
-===================================== */
-
-
-@media(max-width:768px){
-
-
-.hero {
-
-    flex-direction: column;
-
-    text-align: center;
-
-}
-
-
-
-.hero h1 {
-
-    font-size: 40px;
-
-}
-
-
-
-.hero-buttons {
-
-    justify-content: center;
-
-}
-
-
-
-.feature-container {
-
-    flex-direction: column;
-
-    align-items: center;
-
-}
-
-
-}
-/* =====================================
-   MELOSAVE PRO POLISH PART 1
-   PREMIUM UI UPGRADES
-===================================== */
-
-
-/* PREMIUM BALANCE CARD */
-
-.balance-card {
-
-    background: linear-gradient(
-        135deg,
-        var(--primary),
-        var(--secondary)
-    );
-
-    color:white;
-
-    padding:35px;
-
-    border-radius:30px;
-
     box-shadow:
-    0 20px 40px rgba(123,44,255,0.25);
-
-    text-align:left;
+    0 15px 35px rgba(0,0,0,0.1);
 
 }
+/* =====================================
+   PROFILE AVATAR
+===================================== */
 
 
-.balance-card p {
-
-    opacity: 0.8;
-
-    font-size: 16px;
-
-}
-
-
-.balance-card h2 {
-
-    font-size: 42px;
-
-    margin-top: 15px;
-
-}
-
-
-
-
-
-
-/* MONEY CARDS UPGRADE */
-
-
-.money-box {
-
-    border-radius: 25px;
-
-    transition: 0.3s;
-
-}
-
-
-.money-box:hover {
-
-    transform: translateY(-5px);
-
-    box-shadow:
-    0 15px 30px rgba(0,0,0,0.12);
-
-}
-
-
-.money-box h2 {
-
-    font-size: 28px;
-
-    margin: 15px 0;
-
-}
-
-
-
-
-
-
-/* INPUT UPGRADE */
-
-
-input,
-select {
-
-    background: transparent;
-
-    transition: 0.3s;
-
-}
-
-
-
-input:focus,
-select:focus {
-
-    border-color:var(--primary);
-
-    box-shadow:
-    0 0 10px rgba(123,44,255,0.2);
-
-}
-
-
-
-
-
-
-
-/* BUTTON ANIMATION */
-
-
-.btn,
-button {
-
-    transition: 0.3s;
-
-}
-
-
-.btn:active,
-button:active {
-
-    transform: scale(0.95);
-
-}
-
-
-
-
-
-
-/* PREMIUM WELCOME CARD */
-
-
-.welcome-card {
-
-    background:
-linear-gradient(
-135deg,
-var(--card),
-#f5edff
-);
-
-    border-radius: 30px;
-
-}
-
-
-
-
-
-
-/* NOTIFICATION POPUPS */
-
-
-.message {
-
-    position: fixed;
-
-    top: 25px;
-
-    right: 25px;
-
-    padding: 15px 25px;
-
-    border-radius: 20px;
-
-    color: white;
-
-    font-weight: 600;
-
-    z-index: 9999;
-
-    animation: slideIn 0.4s ease;
-
-    box-shadow:
-    0 10px 25px rgba(0,0,0,0.2);
-
-}
-
-.message.success{
-    background:var(--primary);
-}
-
-
-
-.message.error {
-
-    background: #e53935;
-
-}
-
-
-
-.message.warning {
-
-    background: #ff9800;
-
-}
-
-
-
-@keyframes slideIn {
-
-    from {
-
-        transform: translateX(100px);
-
-        opacity:0;
-
-    }
-
-
-    to {
-
-        transform: translateX(0);
-
-        opacity:1;
-
-    }
-
-}
-
-
-
-
-
-
-/* DARK MODE PREMIUM */
-
-
-body.dark-mode .welcome-card {
-
-    background:
-    linear-gradient(
-        135deg,
-        #1e1e1e,
-        #292929
-    );
-
-}
-
-
-
-body.dark-mode input,
-body.dark-mode select {
-
-    color:white;
-
-    border-color:#444;
-
-}
-
-
-
-
-
-/* MOBILE IMPROVEMENT */
-
-
-@media(max-width:768px){
-
-
-.balance-card h2 {
-
-    font-size:35px;
-
-}
-
-
-.message {
-
-    left:20px;
-
-    right:20px;
-
-    text-align:center;
-
-}
-
-
-   }
 .avatar-container{
 
     position:relative;
@@ -1093,6 +649,8 @@ body.dark-mode select {
     margin:auto;
 
 }
+
+
 
 .avatar{
 
@@ -1118,6 +676,24 @@ body.dark-mode select {
 
 }
 
+
+
+.avatar.male{
+
+    background:#2196f3;
+
+}
+
+
+
+.avatar.female{
+
+    background:var(--primary);
+
+}
+
+
+
 .profile-image{
 
     width:130px;
@@ -1131,9 +707,12 @@ body.dark-mode select {
     position:absolute;
 
     top:0;
+
     left:0;
 
 }
+
+
 
 .camera-btn{
 
@@ -1159,123 +738,408 @@ body.dark-mode select {
 
     cursor:pointer;
 
-    box-shadow:0 5px 15px rgba(0,0,0,.25);
+    box-shadow:
+    0 5px 15px rgba(0,0,0,.25);
 
 }
+/* =====================================
+   PROFILE SUMMARY
+===================================== */
+
+
+.profile-summary{
+
+    display:flex;
+
+    justify-content:space-around;
+
+    margin:30px 0;
+
+}
+/* =====================================
+   FOOTER
+===================================== */
+
+
+footer{
+
+    text-align:center;
+
+    padding:40px 20px;
+
+    margin-top:50px;
+
+    background:var(--card);
+
+}
+
+
+
+footer h3{
+
+    color:var(--primary);
+
+    margin-bottom:10px;
+
+}
+
+
+
+footer p{
+
+    color:var(--text);
+
+    opacity:.7;
+
+    margin:5px;
+
 /* ===================================
    SETTINGS PAGE
 =================================== */
 
+
 .settings-container{
 
-padding:25px;
+    padding:25px;
 
-display:flex;
+    display:flex;
 
-flex-direction:column;
+    flex-direction:column;
 
-gap:20px;
+    gap:20px;
 
-max-width:700px;
+    max-width:700px;
 
-margin:auto;
+    margin:auto;
 
 }
+
 
 
 .settings-card{
 
-background:var(--card);
+    background:var(--card);
 
-backdrop-filter:blur(15px);
+    backdrop-filter:blur(15px);
 
-border-radius:20px;
+    border-radius:20px;
 
-padding:20px;
+    padding:20px;
 
-box-shadow:0 10px 30px rgba(0,0,0,.08);
+    box-shadow:
+    0 10px 30px rgba(0,0,0,.08);
 
-transition:.3s;
+    transition:.3s;
 
 }
+
 
 
 .settings-card:hover{
 
-transform:translateY(-3px);
+    transform:translateY(-3px);
 
 }
+
 
 
 .settings-card h3{
 
-margin-bottom:15px;
+    margin-bottom:15px;
 
-color:var(--primary);
+    color:var(--primary);
 
-font-size:18px;
+    font-size:18px;
 
 }
+
 
 
 .settings-card p{
 
-margin-top:10px;
+    margin-top:10px;
 
-color:var(--text);
+    color:var(--text);
 
-opacity:.7;
+    opacity:.7;
 
 }
+
 
 
 .settings-card select{
 
-width:100%;
+    width:100%;
 
-padding:15px;
+    padding:15px;
 
-border:none;
+    border:none;
 
-border-radius:12px;
+    border-radius:12px;
 
-font-size:16px;
+    font-size:16px;
 
-outline:none;
+    outline:none;
 
-background:#f3efff;
+    background:var(--soft-purple);
 
 }
+
 
 
 .settings-card label{
 
-display:flex;
+    display:flex;
 
-align-items:center;
+    align-items:center;
 
-gap:12px;
+    gap:12px;
 
-font-size:16px;
+    font-size:16px;
 
-cursor:pointer;
+    cursor:pointer;
 
 }
+
 
 
 .settings-card input[type="checkbox"]{
 
-width:20px;
+    width:20px;
 
-height:20px;
+    height:20px;
 
-accent-color:var(--primary);
+    accent-color:var(--primary);
 
 }
 
 
+
 .settings-card select:focus{
 
-box-shadow:0 0 0 3px rgba(123,44,255,.25);
+    box-shadow:
+    0 0 0 3px rgba(123,44,255,.25);
+
+}
+/* =====================================
+   NOTIFICATIONS
+===================================== */
+
+
+.message{
+
+    position:fixed;
+
+    top:25px;
+
+    right:25px;
+
+    padding:15px 25px;
+
+    border-radius:20px;
+
+    color:white;
+
+    font-weight:600;
+
+    z-index:9999;
+
+    animation:slideIn .4s ease;
+
+    box-shadow:
+    0 10px 25px rgba(0,0,0,.2);
+
+}
+
+
+
+.message.success{
+
+    background:var(--primary);
+
+}
+
+
+
+.message.error{
+
+    background:#e53935;
+
+}
+
+
+
+.message.warning{
+
+    background:#ff9800;
+
+}
+@keyframes slideIn{
+
+    from{
+
+        transform:translateX(100px);
+
+        opacity:0;
+
+    }
+
+
+
+    to{
+
+        transform:translateX(0);
+
+        opacity:1;
+
+    }
+
+}
+/* =====================================
+   INPUT POLISH
+===================================== */
+
+
+input,
+select{
+
+    background:transparent;
+
+    transition:.3s;
+
+}
+
+
+
+input:focus,
+select:focus{
+
+    border-color:var(--primary);
+
+    box-shadow:
+    0 0 10px rgba(123,44,255,.2);
+
+}
+body.dark-mode input,
+body.dark-mode select{
+
+    color:var(--text);
+
+    border-color:var(--border);
+
+}
+/* =====================================
+   DARK MODE
+===================================== */
+
+
+body.dark-mode{
+
+    --background:#121212;
+
+    --card:#1e1e1e;
+
+    --text:#ffffff;
+
+    --border:#444444;
+
+    --soft-purple:#292929;
+
+}
+/* =====================================
+   MOBILE DESIGN
+===================================== */
+
+
+@media(max-width:768px){
+
+
+.hero{
+
+    flex-direction:column;
+
+    text-align:center;
+
+}
+
+
+
+.hero h1{
+
+    font-size:40px;
+
+}
+
+
+
+.hero-buttons{
+
+    justify-content:center;
+
+}
+
+
+
+.money-grid{
+
+    grid-template-columns:1fr;
+
+}
+
+
+
+.profile-summary{
+
+    flex-direction:column;
+
+    gap:20px;
+
+}
+
+
+
+.feature-container{
+
+    flex-direction:column;
+
+    align-items:center;
+
+}
+
+
+
+.balance-card h2{
+
+    font-size:35px;
+
+}
+
+
+
+.message{
+
+    left:20px;
+
+    right:20px;
+
+    text-align:center;
+
+}
+
+
+}
+/* =====================================
+   FINAL POLISH
+===================================== */
+
+
+.money-box,
+.feature-card,
+.settings-card,
+.welcome-card,
+.form-card,
+.profile-card{
+
+    transition:.3s;
 
 }
