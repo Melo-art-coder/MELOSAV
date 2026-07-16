@@ -17,100 +17,101 @@ content="width=device-width, initial-scale=1.0">
 
 <body>
 
-<header class="home-header">
 
-<h1>⚙️ Settings</h1>
 
-<a href="home.html" class="btn">
-← Back
-</a>
+<header class="settings-header">
+
+    <a href="home.html" class="back-btn">←</a>
+
+    <h1>Settings</h1>
 
 </header>
 
-<section class="settings-container">
+<div class="settings-container">
 
-<div class="settings-card">
+    <div class="settings-card">
 
-<h3>🎨 Appearance</h3>
+        <h3>👤 Account</h3>
 
-<p>Choose your favorite theme.</p>
+        <p>Edit your profile information.</p>
 
-<select id="themeSelector">
+        <button id="editProfileBtn" class="settings-btn">
+            Edit Profile
+        </button>
 
-<option value="purple">💜 Melo Purple</option>
+    </div>
 
-<option value="emerald">💚 Emerald Money</option>
+    <div class="settings-card">
 
-<option value="ocean">💙 Ocean Blue</option>
+        <h3>🎨 App Theme</h3>
 
-<option value="midnight">🖤 Midnight</option>
+        <select id="themeSelector">
 
-<option value="sunset">🧡 Sunset</option>
+            <option value="purple">💜 Melo Purple</option>
 
-<option value="rose">🩷 Rose Gold</option>
+            <option value="emerald">💚 Emerald Money</option>
 
-</select>
+            <option value="ocean">💙 Ocean Blue</option>
+
+            <option value="midnight">🌑 Midnight</option>
+
+            <option value="rose">🌸 Rose Pink</option>
+
+            <option value="gold">🟨 Royal Gold</option>
+
+        </select>
+
+    </div>
+
+    <div class="settings-card">
+
+        <h3>🔔 Notifications</h3>
+
+        <label>
+
+            <input type="checkbox" id="notificationSwitch">
+
+            Enable Notifications
+
+        </label>
+
+    </div>
+
+    <div class="settings-card">
+
+        <h3>🔐 Security</h3>
+
+        <button class="settings-btn">
+
+            Set PIN
+
+        </button>
+
+    </div>
+
+    <div class="settings-card">
+
+        <h3>🤖 Melo AI</h3>
+
+        <label>
+
+            <input type="checkbox" id="voiceSwitch">
+
+            Voice Assistant
+
+        </label>
+
+    </div>
+
+    <div class="settings-card">
+
+        <h3>ℹ️ About</h3>
+
+        <p>MELOSAV Version 3.0</p>
+
+    </div>
 
 </div>
-
-<div class="settings-card">
-
-<h3>🌙 Dark Mode</h3>
-
-<label>
-
-<input
-type="checkbox"
-id="darkModeSwitch">
-
-Enable Dark Mode
-
-</label>
-
-</div>
-
-<div class="settings-card">
-
-<h3>🔔 Notifications</h3>
-
-<label>
-
-<input
-type="checkbox"
-id="notificationSwitch"
-checked>
-
-Savings Reminders
-
-</label>
-
-</div>
-
-<div class="settings-card">
-
-<h3>🔐 Security</h3>
-
-<button class="btn">
-
-Create App PIN
-
-</button>
-
-</div>
-
-<div class="settings-card">
-
-<h3>ℹ️ About MeloSave</h3>
-
-<p>
-
-Version 3.0 Premium
-
-</p>
-
-</div>
-
-</section>
 
 <script src="storage.js"></script>
 <script src="theme.js"></script>
