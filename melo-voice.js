@@ -8,31 +8,31 @@ function speakMelo(text){
 
     if(!("speechSynthesis" in window)){
 
-        console.log("Voice not supported");
+        alert("Melo voice is not supported on this device");
 
         return;
 
     }
 
 
-    // Stop previous voice
     speechSynthesis.cancel();
 
 
     const voice = new SpeechSynthesisUtterance(text);
 
 
-    voice.rate = 1;
-
+    voice.lang = "en-US";
+    voice.rate = 0.9;
     voice.pitch = 1.1;
-
     voice.volume = 1;
 
 
     speechSynthesis.speak(voice);
 
-}
 
+    console.log("Melo speaking:", text);
+
+}
 
 
 // Welcome message
