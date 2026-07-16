@@ -993,9 +993,23 @@ body.dark-mode .streak-card{
 }
 
 .wallet-card{
-    transition:transform .35s ease;
+
+    transition:
+        transform .35s ease,
+        box-shadow .35s ease;
+
+}
+
+.wallet-card:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:0 25px 45px rgba(0,0,0,.18);
+
 }
 
 .wallet-card:active{
+
     transform:scale(.98);
+
 }
