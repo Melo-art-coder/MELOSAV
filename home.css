@@ -959,3 +959,43 @@ body.dark-mode .streak-card{
     background:#7b2cff;
 
 }
+/* =====================================
+   WALLET CARD COLORS
+===================================== */
+
+.ngn-card{
+    background:linear-gradient(135deg,#6C3EF4,#9D6BFF);
+}
+
+.usd-card{
+    background:linear-gradient(135deg,#0F9D58,#34C759);
+}
+
+.eur-card{
+    background:linear-gradient(135deg,#2563EB,#60A5FA);
+}
+
+.gbp-card{
+    background:linear-gradient(135deg,#1F2937,#111827);
+}
+
+.fcfa-card{
+    background:linear-gradient(135deg,#D4AF37,#F4D03F);
+    color:#222;
+}
+
+.fcfa-card .currency,
+.fcfa-card .balance-label,
+.fcfa-card h2,
+.fcfa-card h3,
+.fcfa-card small{
+    color:#222;
+}
+
+.wallet-card{
+    transition:transform .35s ease;
+}
+
+.wallet-card:active{
+    transform:scale(.98);
+}
