@@ -67,13 +67,77 @@ function updateDashboard() {
     }
 
 }
+// =====================================
+// DAILY STREAK 🔥
+// =====================================
 
+function updateDailyStreak() {
+
+    const user = getCurrentUser();
+
+    if (!user) return;
+
+    // Safety for old accounts
+    if (!user.data.streak) {
+
+        user.data.streak = {
+
+            count: 0,
+
+            lastActive: null
+
+        };
+
+    }
+
+    const today = new Date().toDateString();
+
+    const lastActive = user.data.streak.lastActive;
+
+    // Already opened today
+    if (lastActive === today) return;
+
+    // First visit
+    if (!lastActive) {
+
+        user.data.streak.count = 1;
+
+    } else {
+
+        const yesterday = new Date();
+
+        yesterday.setDate(yesterday.getDate() - 1);
+
+        if (lastActive === yesterday.toDateString()) {
+
+            user.data.streak.count++;
+
+        } else {
+
+            user.data.streak.count = 1;
+
+        }
+
+    }
+
+    user.data.streak.lastActive = today;
+
+    updateUser(user);
+
+    // Melo encouragement
+    assistantMessage(
+        `🔥 Day ${user.data.streak.count} Streak!`,
+        "Welcome back! Keep your savings habit alive 💜"
+    );
+
+}
 
 // Start Home
 document.addEventListener("DOMContentLoaded", () => {
 
     loadDashboardUser();
-    updateDashboard();
+updateDashboard();
+updateDailyStreak();
 
     const addBtn = document.getElementById("addBtn");
     const modal = document.getElementById("transactionModal");
