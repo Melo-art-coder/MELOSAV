@@ -49,7 +49,10 @@ function updateDashboard() {
     const expenses = user.data.expenses.reduce((sum, item) => sum + item.amount, 0);
 
     const balance = income - expenses - savings;
-
+const usdBox = document.getElementById("usdBalance");
+const eurBox = document.getElementById("eurBalance");
+const gbpBox = document.getElementById("gbpBalance");
+const fcfaBox = document.getElementById("fcfaBalance");
     const balanceBox = document.getElementById("balance");
     const incomeBox = document.getElementById("incomeAmount");
     const savingBox = document.getElementById("savingAmount");
@@ -65,6 +68,39 @@ function updateDashboard() {
     if (savingBox) {
         savingBox.textContent = `₦${savings.toLocaleString()}`;
     }
+fetchRates().then(rates => {
+
+    if (!rates) return;
+
+    if (usdBox) {
+
+        usdBox.textContent =
+            "$" + (balance * rates.USD).toFixed(2);
+
+    }
+
+    if (eurBox) {
+
+        eurBox.textContent =
+            "€" + (balance * rates.EUR).toFixed(2);
+
+    }
+
+    if (gbpBox) {
+
+        gbpBox.textContent =
+            "£" + (balance * rates.GBP).toFixed(2);
+
+    }
+
+    if (fcfaBox) {
+
+        fcfaBox.textContent =
+            (balance * rates.XOF).toLocaleString() + " FCFA";
+
+    }
+
+});
 
 }
 // =====================================
