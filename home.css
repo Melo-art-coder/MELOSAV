@@ -1043,3 +1043,35 @@ body.dark-mode .fcfa-card .balance-label,
 body.dark-mode .fcfa-card .currency{
     color:#222;
 }
+/* =====================================
+   FORCE WALLET COLORS IN DARK MODE
+===================================== */
+
+body.dark-mode .wallet-card.ngn-card{
+    background:linear-gradient(135deg,#5A2ED8,#7B4DFF) !important;
+}
+
+body.dark-mode .wallet-card.usd-card{
+    background:linear-gradient(135deg,#0F9D58,#34C759) !important;
+}
+
+body.dark-mode .wallet-card.eur-card{
+    background:linear-gradient(135deg,#2563EB,#60A5FA) !important;
+}
+
+body.dark-mode .wallet-card.gbp-card{
+    background:linear-gradient(135deg,#1F2937,#111827) !important;
+}
+
+body.dark-mode .wallet-card.fcfa-card{
+    background:linear-gradient(135deg,#D4AF37,#F4D03F) !important;
+    color:#222 !important;
+}
+
+body.dark-mode .wallet-card.fcfa-card h2,
+body.dark-mode .wallet-card.fcfa-card h3,
+body.dark-mode .wallet-card.fcfa-card small,
+body.dark-mode .wallet-card.fcfa-card .balance-label,
+body.dark-mode .wallet-card.fcfa-card .currency{
+    color:#222 !important;
+}
