@@ -161,10 +161,14 @@ function updateDailyStreak() {
     updateUser(user);
 
     // Melo encouragement
+    if(typeof assistantMessage === "function"){
+
     assistantMessage(
         `🔥 Day ${user.data.streak.count} Streak!`,
         "Welcome back! Keep your savings habit alive 💜"
     );
+
+}
 
 }
 
@@ -177,7 +181,9 @@ updateDailyStreak();
 
 setTimeout(()=>{
 
-    meloWelcomeVoice();
+    if(typeof meloWelcomeVoice === "function"){
+        meloWelcomeVoice();
+    }
 
 },1500);
 
