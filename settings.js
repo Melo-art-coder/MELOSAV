@@ -1,72 +1,32 @@
-const selector = document.getElementById("themeSelector");
-const darkSwitch = document.getElementById("darkModeSwitch");
+const themeButtons = document.querySelectorAll(".theme-option");
 
-function applyTheme() {
+themeButtons.forEach(button => {
 
-    const color =
-        localStorage.getItem("meloColor") || "purple";
+    button.addEventListener("click", () => {
 
-    const mode =
-        localStorage.getItem("meloTheme") || "light";
+        const theme = button.dataset.theme;
 
-    document.body.classList.remove(
-        "theme-purple",
-        "theme-emerald",
-        "theme-ocean",
-        "theme-midnight",
-        "theme-rose",
-        "theme-gold"
-    );
+        localStorage.setItem("meloColor", theme);
 
-    document.body.classList.add("theme-" + color);
+        document.body.classList.remove(
+            "theme-purple",
+            "theme-emerald",
+            "theme-ocean",
+            "theme-midnight",
+            "theme-rose",
+            "theme-gold"
+        );
 
-    if (mode === "dark") {
-        document.body.classList.add("dark-mode");
-    } else {
-        document.body.classList.remove("dark-mode");
-    }
+        document.body.classList.add("theme-" + theme);
 
-    if (selector) {
-        selector.value = color;
-    }
+    });
 
-    if (darkSwitch) {
-        darkSwitch.checked = mode === "dark";
-    }
-}
+});
 
 document.addEventListener("DOMContentLoaded", () => {
 
-    applyTheme();
+    const saved = localStorage.getItem("meloColor") || "purple";
 
-    if (selector) {
-
-        selector.addEventListener("change", () => {
-
-            localStorage.setItem(
-                "meloColor",
-                selector.value
-            );
-
-            applyTheme();
-
-        });
-
-    }
-
-    if (darkSwitch) {
-
-        darkSwitch.addEventListener("change", () => {
-
-            localStorage.setItem(
-                "meloTheme",
-                darkSwitch.checked ? "dark" : "light"
-            );
-
-            applyTheme();
-
-        });
-
-    }
+    document.body.classList.add("theme-" + saved);
 
 });
