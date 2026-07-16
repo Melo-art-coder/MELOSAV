@@ -1,13 +1,13 @@
-document.addEventListener("DOMContentLoaded", () => {
+const selector = document.getElementById("themeSelector");
 
-const logout = document.getElementById("logoutBtn");
+const saved = localStorage.getItem("meloTheme") || "light";
 
-logout.addEventListener("click", () => {
+selector.value = saved;
 
-localStorage.removeItem("meloCurrentUser");
+selector.addEventListener("change", () => {
 
-window.location.href = "index.html";
+localStorage.setItem("meloTheme", selector.value);
 
-});
+location.reload();
 
 });
