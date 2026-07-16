@@ -1,46 +1,72 @@
-const selector =
-document.getElementById("themeSelector");
+const selector = document.getElementById("themeSelector");
+const darkSwitch = document.getElementById("darkModeSwitch");
 
-const darkSwitch =
-document.getElementById("darkModeSwitch");
+function applyTheme() {
+
+    const color =
+        localStorage.getItem("meloColor") || "purple";
+
+    const mode =
+        localStorage.getItem("meloTheme") || "light";
+
+    document.body.classList.remove(
+        "theme-purple",
+        "theme-emerald",
+        "theme-ocean",
+        "theme-midnight",
+        "theme-rose",
+        "theme-gold"
+    );
+
+    document.body.classList.add("theme-" + color);
+
+    if (mode === "dark") {
+        document.body.classList.add("dark-mode");
+    } else {
+        document.body.classList.remove("dark-mode");
+    }
+
+    if (selector) {
+        selector.value = color;
+    }
+
+    if (darkSwitch) {
+        darkSwitch.checked = mode === "dark";
+    }
+}
 
 document.addEventListener("DOMContentLoaded", () => {
 
-const savedTheme =
-localStorage.getItem("meloColor") || "purple";
+    applyTheme();
 
-selector.value = savedTheme;
+    if (selector) {
 
-const dark =
-localStorage.getItem("meloTheme");
+        selector.addEventListener("change", () => {
 
-darkSwitch.checked = dark === "dark";
+            localStorage.setItem(
+                "meloColor",
+                selector.value
+            );
 
-});
+            applyTheme();
 
-selector.addEventListener("change", () => {
+        });
 
-localStorage.setItem(
-"meloColor",
-selector.value
-);
+    }
 
-location.reload();
+    if (darkSwitch) {
 
-});
+        darkSwitch.addEventListener("change", () => {
 
-darkSwitch.addEventListener("change", () => {
+            localStorage.setItem(
+                "meloTheme",
+                darkSwitch.checked ? "dark" : "light"
+            );
 
-const mode =
-darkSwitch.checked
-? "dark"
-: "light";
+            applyTheme();
 
-localStorage.setItem(
-"meloTheme",
-mode
-);
+        });
 
-location.reload();
+    }
 
 });
