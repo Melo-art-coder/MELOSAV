@@ -49,7 +49,15 @@ function createDefaultData() {
 
         notifications: [],
 
-        dailyBudget: 0
+        dailyBudget: 0,
+
+streak: {
+
+    count: 0,
+
+    lastActive: null
+
+}
 
     };
 
