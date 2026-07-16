@@ -98,3 +98,27 @@ function meloSaved(amount){
     );
 
 }
+document.addEventListener("DOMContentLoaded",()=>{
+
+    const btn = document.getElementById("meloSpeakBtn");
+
+
+    if(btn){
+
+        btn.addEventListener("click",()=>{
+
+
+            const message =
+            document.getElementById("meloMessage")?.textContent
+            ||
+            "Welcome to MELOSAV";
+
+
+            speakMelo(message);
+
+
+        });
+
+    }
+
+});
