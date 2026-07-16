@@ -232,13 +232,42 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if(saveBtn){
 
-        saveBtn.addEventListener("click",()=>{
+    saveBtn.addEventListener("click",()=>{
 
-            // your save code here
+        const type = document.getElementById("transactionType").value;
 
-        });
+        const amount = Number(
+            document.getElementById("amount").value
+        );
 
-    }
+
+        if(!amount || amount <= 0){
+
+            alert("Enter a valid amount");
+            return;
+
+        }
+
+
+        addMoney(type, amount);
+
+
+        updateDashboard();
+
+
+        document.getElementById("amount").value = "";
+
+        document.getElementById("description").value = "";
+
+
+        modal.style.display = "none";
+
+
+        console.log("MONEY ADDED 💜");
+
+    });
+
+}
 
 
 
