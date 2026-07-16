@@ -69,8 +69,8 @@ function meloWelcomeVoice(){
 
 
     speakMelo(
-        `${greeting} ${user.name}. Welcome back to MELOSAV.`
-    );
+    `${greeting} ${user.name}. Welcome back to MeloSave.`
+);
 
 }
 
@@ -82,8 +82,8 @@ function meloWelcomeVoice(){
 function meloMoneyAdded(amount){
 
     speakMelo(
-        `Great job. ${amount.toLocaleString()} naira has been added to your MELOSAV wallet.`
-    );
+    `Great job. ${amount.toLocaleString()} naira has been added to your MeloSave wallet.`
+);
 
 }
 
