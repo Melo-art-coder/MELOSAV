@@ -1,13 +1,17 @@
-const selector = document.getElementById("themeSelector");
+const themeSelect = document.getElementById("themeSelect");
 
-const saved = localStorage.getItem("meloTheme") || "light";
+const savedTheme =
+localStorage.getItem("meloTheme") || "light";
 
-selector.value = saved;
+themeSelect.value = savedTheme;
 
-selector.addEventListener("change", () => {
+themeSelect.addEventListener("change", () => {
 
-localStorage.setItem("meloTheme", selector.value);
+    localStorage.setItem(
+        "meloTheme",
+        themeSelect.value
+    );
 
-location.reload();
+    location.reload();
 
 });
