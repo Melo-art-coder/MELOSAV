@@ -72,11 +72,29 @@
 
         <div class="avatar-container">
 
+   <div class="avatar-container">
+
+    <div id="userAvatar" class="avatar">
+        👤
+    </div>
+
     <img
         id="profileImage"
-        class="avatar-image"
-        src="images/default-avatar.png"
-        alt="Profile Picture">
+        class="profile-image"
+        alt="Profile Picture"
+        style="display:none;">
+
+    <button id="changePhotoBtn" class="camera-btn">
+        📷
+    </button>
+
+    <input
+        type="file"
+        id="photoInput"
+        accept="image/*"
+        hidden>
+
+</div>
 
     <button id="changePhotoBtn">
         📷
