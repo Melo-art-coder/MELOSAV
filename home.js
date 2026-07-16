@@ -241,39 +241,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
+
 });
-
-    loadDashboardUser();
-updateDashboard();
-updateDailyStreak();
-
-setTimeout(()=>{
-
-    if(typeof meloWelcomeVoice === "function"){
-        meloWelcomeVoice();
-    }
-
-},1500);
-
-    const addBtn = document.getElementById("addBtn");
-const modal = document.getElementById("transactionModal");
-const saveBtn = document.getElementById("saveTransaction");
-
-
-console.log("PLUS BUTTON:", addBtn);
-
-
-if (addBtn && modal) {
-
-    addBtn.addEventListener("click", () => {
-
-        console.log("PLUS BUTTON WORKING 🔥");
-
-        modal.style.display = "flex";
-
-    });
-
-}
 
     if (modal) {
 
