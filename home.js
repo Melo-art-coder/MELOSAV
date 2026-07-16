@@ -175,6 +175,12 @@ document.addEventListener("DOMContentLoaded", () => {
 updateDashboard();
 updateDailyStreak();
 
+setTimeout(()=>{
+
+    meloWelcomeVoice();
+
+},1500);
+
     const addBtn = document.getElementById("addBtn");
     const modal = document.getElementById("transactionModal");
     const saveBtn = document.getElementById("saveTransaction");
