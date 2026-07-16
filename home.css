@@ -1,4 +1,4 @@
-/* ==========================================
+I'm/* ==========================================
    MELOSAV V3 - HOME.CSS (PART 1)
    RESET • BODY • HEADER • BALANCE CARD
 ========================================== */
@@ -808,5 +808,81 @@ body.dark-mode .receipt-card{
 body.dark-mode .receipt-row{
 
     border-bottom:1px solid rgba(255,255,255,.08);
+
+}
+
+/* ==========================
+   DAILY STREAK CARD 🔥
+========================== */
+
+.streak-card{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:16px;
+
+    margin:0 20px 25px;
+
+    padding:18px 20px;
+
+    border-radius:22px;
+
+    background:rgba(255,255,255,.75);
+
+    backdrop-filter:blur(14px);
+
+    -webkit-backdrop-filter:blur(14px);
+
+    box-shadow:0 10px 25px rgba(123,44,255,.10);
+
+}
+
+body.dark-mode .streak-card{
+
+    background:rgba(35,25,60,.88);
+
+}
+
+.streak-icon{
+
+    width:58px;
+
+    height:58px;
+
+    border-radius:16px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:30px;
+
+    background:linear-gradient(
+        135deg,
+        #ff8c00,
+        #ff4d4d
+    );
+
+    color:#fff;
+
+}
+
+.streak-card h3{
+
+    font-size:18px;
+
+    margin-bottom:4px;
+
+}
+
+.streak-card p{
+
+    font-size:14px;
+
+    opacity:.75;
 
 }
