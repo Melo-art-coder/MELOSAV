@@ -1,0 +1,50 @@
+/* Default Theme */
+:root{
+    --primary:#7b2cff;
+    --secondary:#b56cff;
+    --background:#ffffff;
+    --card:#ffffff;
+    --text:#222222;
+}
+
+/* Purple */
+body.theme-purple{
+    --primary:#7b2cff;
+    --secondary:#b56cff;
+}
+
+/* Emerald */
+body.theme-emerald{
+    --primary:#10b981;
+    --secondary:#34d399;
+}
+
+/* Ocean */
+body.theme-ocean{
+    --primary:#0ea5e9;
+    --secondary:#38bdf8;
+}
+
+/* Midnight */
+body.theme-midnight{
+    --primary:#1f2937;
+    --secondary:#4b5563;
+}
+
+/* Rose */
+body.theme-rose{
+    --primary:#e11d48;
+    --secondary:#fb7185;
+}
+
+/* Gold */
+body.theme-gold{
+    --primary:#d97706;
+    --secondary:#facc15;
+}
+
+/* Global */
+body{
+    background:var(--background);
+    color:var(--text);
+}
