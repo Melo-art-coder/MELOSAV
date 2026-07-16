@@ -158,9 +158,7 @@ body.dark-mode .header-btn{
     color:#FFFFFF;
 }
 
-body.dark-mode .balance-card{
-    background:linear-gradient(135deg,#5A2ED8,#7B4DFF);
-}
+
 
 /* ==========================
    BOTTOM NAVIGATION
@@ -1012,4 +1010,36 @@ body.dark-mode .streak-card{
 
     transform:scale(.98);
 
+}
+/* =====================================
+   KEEP WALLET COLORS IN DARK MODE
+===================================== */
+
+body.dark-mode .ngn-card{
+    background:linear-gradient(135deg,#5A2ED8,#7B4DFF);
+}
+
+body.dark-mode .usd-card{
+    background:linear-gradient(135deg,#0F9D58,#34C759);
+}
+
+body.dark-mode .eur-card{
+    background:linear-gradient(135deg,#2563EB,#60A5FA);
+}
+
+body.dark-mode .gbp-card{
+    background:linear-gradient(135deg,#1F2937,#111827);
+}
+
+body.dark-mode .fcfa-card{
+    background:linear-gradient(135deg,#D4AF37,#F4D03F);
+    color:#222;
+}
+
+body.dark-mode .fcfa-card h2,
+body.dark-mode .fcfa-card h3,
+body.dark-mode .fcfa-card small,
+body.dark-mode .fcfa-card .balance-label,
+body.dark-mode .fcfa-card .currency{
+    color:#222;
 }
