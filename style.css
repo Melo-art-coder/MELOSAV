@@ -35,20 +35,17 @@
     font-family:"Poppins", Arial, sans-serif;
 
 }
-
-
-
 body{
 
     background:var(--background);
 
     color:var(--text);
 
-    transition:0.3s;
+    transition:
+        background .3s,
+        color .3s;
 
 }
-
-
 
 a{
 
@@ -186,7 +183,10 @@ button:active{
 
     gap:40px;
 
+    flex-wrap:wrap;
+
 }
+
 .hero-content{
 
     flex:1;
@@ -840,6 +840,8 @@ footer p{
 
     margin:5px;
 
+}
+
 /* ===================================
    SETTINGS PAGE
 =================================== */
@@ -1170,6 +1172,29 @@ body.dark-mode{
     right:20px;
 
     text-align:center;
+
+}
+.hero-content{
+
+    width:100%;
+
+}
+
+.hero-card{
+
+    width:100%;
+
+    display:flex;
+
+    justify-content:center;
+
+}
+
+.money-card{
+
+    width:100%;
+
+    max-width:320px;
 
 }
 
