@@ -101,3 +101,52 @@ document.addEventListener(
 applyColorTheme
 
 );
+// ===========================
+// Premium Theme Selector
+// ===========================
+
+const themeSelector = document.getElementById("themeSelector");
+
+function loadPremiumTheme(){
+
+    const savedTheme =
+        localStorage.getItem("meloPremiumTheme") || "purple";
+
+    document.body.classList.remove(
+        "theme-purple",
+        "theme-emerald",
+        "theme-ocean",
+        "theme-midnight",
+        "theme-rose",
+        "theme-gold"
+    );
+
+    document.body.classList.add("theme-" + savedTheme);
+
+    if(themeSelector){
+        themeSelector.value = savedTheme;
+    }
+
+}
+
+if(themeSelector){
+
+    themeSelector.addEventListener("change",()=>{
+
+        const selected = themeSelector.value;
+
+        localStorage.setItem(
+            "meloPremiumTheme",
+            selected
+        );
+
+        loadPremiumTheme();
+
+    });
+
+}
+
+document.addEventListener(
+    "DOMContentLoaded",
+    loadPremiumTheme
+);
