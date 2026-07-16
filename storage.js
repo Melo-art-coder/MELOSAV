@@ -51,7 +51,7 @@ function createDefaultData() {
 
         dailyBudget: 0,
 
-isNewUser: true
+isNewUser: true,
 
 streak: {
 
