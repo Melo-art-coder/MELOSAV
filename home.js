@@ -233,6 +233,20 @@ addMoney(type, amount);
 
 updateDashboard();
 
+
+if(type === "income"){
+
+    meloMoneyAdded(amount);
+
+}
+
+
+if(type === "saving"){
+
+    meloSaved(amount);
+
+}
+
             document.getElementById("amount").value = "";
             document.getElementById("description").value = "";
 
