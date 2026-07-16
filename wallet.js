@@ -1,39 +1,44 @@
 // =====================================
 // MELOSAV SMART WALLET 💜
-// Version 2
 // =====================================
 
 let currentWallet = 0;
 
-function initWallet() {
+async function updateWalletBalances() {
 
-    const slider = document.querySelector(".wallet-slider");
+    const user = getCurrentUser();
 
-    if (!slider) return;
+    if (!user) return;
 
-    const dots = document.querySelectorAll(".wallet-dots span");
+    const income = user.data.income.reduce(
+        (sum, item) => sum + Number(item.amount || 0), 0
+    );
 
-    slider.addEventListener("scroll", () => {
+    const expenses = user.data.expenses.reduce(
+        (sum, item) => sum + Number(item.amount || 0), 0
+    );
 
-        const index = Math.round(
-            slider.scrollLeft / slider.clientWidth
-        );
+    const savings = user.data.savings.reduce(
+        (sum, item) => sum + Number(item.amount || 0), 0
+    );
 
-        if (index !== currentWallet) {
+    const balance = income - expenses - savings;
 
-            currentWallet = index;
+    const rates = await fetchRates();
 
-            updateWalletDots();
+    if (!rates) return;
 
-            if ("vibrate" in navigator) {
+    document.getElementById("usdBalance").textContent =
+        "$" + (balance * rates.USD).toFixed(2);
 
-                navigator.vibrate(10);
+    document.getElementById("eurBalance").textContent =
+        "€" + (balance * rates.EUR).toFixed(2);
 
-            }
+    document.getElementById("gbpBalance").textContent =
+        "£" + (balance * rates.GBP).toFixed(2);
 
-        }
-
-    });
+    document.getElementById("fcfaBalance").textContent =
+        (balance * rates.XOF).toLocaleString() + " FCFA";
 
 }
 
@@ -52,8 +57,28 @@ function updateWalletDots() {
 
 }
 
+function initWallet() {
+
+    const slider = document.querySelector(".wallet-slider");
+
+    if (!slider) return;
+
+    slider.addEventListener("scroll", () => {
+
+        currentWallet = Math.round(
+            slider.scrollLeft / slider.clientWidth
+        );
+
+        updateWalletDots();
+
+    });
+
+}
+
 document.addEventListener("DOMContentLoaded", () => {
 
     initWallet();
+
+    updateWalletBalances();
 
 });
