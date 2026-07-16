@@ -273,66 +273,66 @@ document.addEventListener("DOMContentLoaded", () => {
 
 });
 
-    if (modal) {
+    
 
-        modal.addEventListener("click", (e) => {
+    if(saveBtn){
 
-            if (e.target === modal) {
+    saveBtn.addEventListener("click",()=>{
 
-                modal.style.display = "none";
+        const type = document.getElementById("transactionType").value;
 
+        const amount = Number(
+            document.getElementById("amount").value
+        );
+
+
+        if(!amount || amount <= 0){
+
+            showMessage("Please enter a valid amount", "error");
+            return;
+
+        }
+
+
+        console.log("SAVE CLICKED");
+        console.log("TYPE:", type);
+        console.log("AMOUNT:", amount);
+
+
+        addMoney(type, amount);
+
+
+        updateDashboard();
+
+
+        if(type === "income"){
+
+            if(typeof meloMoneyAdded === "function"){
+                meloMoneyAdded(amount);
             }
 
-        });
+        }
 
-    }
 
-    if (saveBtn) {
+        if(type === "saving"){
 
-        saveBtn.addEventListener("click", () => {
-
-            const type = document.getElementById("transactionType").value;
-
-            const amount = Number(document.getElementById("amount").value);
-
-            if (!amount || amount <= 0) {
-
-                showMessage("Please enter a valid amount", "error");
-                return;
-
+            if(typeof meloSaved === "function"){
+                meloSaved(amount);
             }
 
-            console.log("SAVE CLICKED");
-console.log("TYPE:", type);
-console.log("AMOUNT:", amount);
-console.log("USER:", getCurrentUser());
-
-addMoney(type, amount);
-
-updateDashboard();
+        }
 
 
-if(type === "income"){
+        document.getElementById("amount").value = "";
 
-    meloMoneyAdded(amount);
-
-}
+        document.getElementById("description").value = "";
 
 
-if(type === "saving"){
+        modal.style.display = "none";
 
-    meloSaved(amount);
+
+        console.log("MONEY ADDED 💜");
+
+    });
 
 }
-
-            document.getElementById("amount").value = "";
-            document.getElementById("description").value = "";
-
-            modal.style.display = "none";
-console.log("NEW HOME JS LOADED 🔥");
-
-        });
-
-    }
-
-});
