@@ -2,46 +2,70 @@
 <html lang="en">
 
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
 <title>Settings | MeloSave</title>
 
+<link rel="stylesheet" href="home.css">
 <link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
 
-<header class="navbar">
+<header class="home-header">
 
-<h2>⚙️ Settings</h2>
+<h1>⚙️ Settings</h1>
 
 <a href="home.html" class="btn">
-← Home
+← Back
 </a>
 
 </header>
 
-<div class="settings-container">
+<section class="settings-container">
 
 <div class="settings-card">
 
-<h3>🎨 App Theme</h3>
+<h3>🎨 Appearance</h3>
+
+<p>Choose your favorite theme.</p>
 
 <select id="themeSelector">
-
-<option value="light">☀️ Light</option>
-
-<option value="dark">🌙 Dark</option>
 
 <option value="purple">💜 Melo Purple</option>
 
 <option value="emerald">💚 Emerald Money</option>
 
-<option value="blue">💙 Ocean Blue</option>
+<option value="ocean">💙 Ocean Blue</option>
 
 <option value="midnight">🖤 Midnight</option>
 
+<option value="sunset">🧡 Sunset</option>
+
+<option value="rose">🩷 Rose Gold</option>
+
 </select>
+
+</div>
+
+<div class="settings-card">
+
+<h3>🌙 Dark Mode</h3>
+
+<label>
+
+<input
+type="checkbox"
+id="darkModeSwitch">
+
+Enable Dark Mode
+
+</label>
 
 </div>
 
@@ -51,23 +75,12 @@
 
 <label>
 
-<input type="checkbox" id="notificationToggle">
+<input
+type="checkbox"
+id="notificationSwitch"
+checked>
 
-Enable Notifications
-
-</label>
-
-</div>
-
-<div class="settings-card">
-
-<h3>🔊 Melo Voice</h3>
-
-<label>
-
-<input type="checkbox" id="voiceToggle">
-
-Enable Voice Assistant
+Savings Reminders
 
 </label>
 
@@ -75,15 +88,34 @@ Enable Voice Assistant
 
 <div class="settings-card">
 
-<h3>ℹ️ App Version</h3>
+<h3>🔐 Security</h3>
 
-<p>MELOSAV V3</p>
+<button class="btn">
+
+Create App PIN
+
+</button>
 
 </div>
 
+<div class="settings-card">
+
+<h3>ℹ️ About MeloSave</h3>
+
+<p>
+
+Version 3.0 Premium
+
+</p>
+
 </div>
 
+</section>
+
+<script src="storage.js"></script>
+<script src="theme.js"></script>
 <script src="settings.js"></script>
 
 </body>
+
 </html>
