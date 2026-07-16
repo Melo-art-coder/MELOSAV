@@ -1,17 +1,46 @@
-const themeSelect = document.getElementById("themeSelect");
+const selector =
+document.getElementById("themeSelector");
+
+const darkSwitch =
+document.getElementById("darkModeSwitch");
+
+document.addEventListener("DOMContentLoaded", () => {
 
 const savedTheme =
-localStorage.getItem("meloTheme") || "light";
+localStorage.getItem("meloColor") || "purple";
 
-themeSelect.value = savedTheme;
+selector.value = savedTheme;
 
-themeSelect.addEventListener("change", () => {
+const dark =
+localStorage.getItem("meloTheme");
 
-    localStorage.setItem(
-        "meloTheme",
-        themeSelect.value
-    );
+darkSwitch.checked = dark === "dark";
 
-    location.reload();
+});
+
+selector.addEventListener("change", () => {
+
+localStorage.setItem(
+"meloColor",
+selector.value
+);
+
+location.reload();
+
+});
+
+darkSwitch.addEventListener("change", () => {
+
+const mode =
+darkSwitch.checked
+? "dark"
+: "light";
+
+localStorage.setItem(
+"meloTheme",
+mode
+);
+
+location.reload();
 
 });
