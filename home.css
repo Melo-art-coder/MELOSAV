@@ -141,7 +141,8 @@ body{
 ========================== */
 
 body.dark-mode{
-    background:#0F0B1F;
+    background:
+        radial-gradient(circle at top,#2B165E 0%,#120B28 40%,#090611 100%);
     color:#FFFFFF;
 }
 
@@ -156,6 +157,8 @@ body.dark-mode .hello{
 body.dark-mode .header-btn{
     background:rgba(255,255,255,.08);
     color:#FFFFFF;
+    border:1px solid rgba(181,108,255,.25);
+    box-shadow:0 0 18px rgba(123,44,255,.25);
 }
 
 
@@ -263,7 +266,9 @@ body.dark-mode .header-btn{
 ========================== */
 
 body.dark-mode .bottom-nav{
-    background:rgba(25,25,40,.88);
+    background:rgba(18,18,30,.78);
+    border:1px solid rgba(181,108,255,.18);
+    box-shadow:0 0 30px rgba(123,44,255,.22);
 }
 
 body.dark-mode .nav-item{
