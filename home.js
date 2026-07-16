@@ -175,6 +175,12 @@ function updateDailyStreak() {
 // Start Home
 document.addEventListener("DOMContentLoaded", () => {
 
+    const addBtn = document.querySelector("#addBtn");
+
+    console.log(addBtn);
+
+});
+
     loadDashboardUser();
 updateDashboard();
 updateDailyStreak();
@@ -188,18 +194,24 @@ setTimeout(()=>{
 },1500);
 
     const addBtn = document.getElementById("addBtn");
-    const modal = document.getElementById("transactionModal");
-    const saveBtn = document.getElementById("saveTransaction");
+const modal = document.getElementById("transactionModal");
+const saveBtn = document.getElementById("saveTransaction");
 
-    if (addBtn && modal) {
 
-        addBtn.addEventListener("click", () => {
+console.log("PLUS BUTTON:", addBtn);
 
-            modal.style.display = "flex";
 
-        });
+if (addBtn && modal) {
 
-    }
+    addBtn.addEventListener("click", () => {
+
+        console.log("PLUS BUTTON WORKING 🔥");
+
+        modal.style.display = "flex";
+
+    });
+
+}
 
     if (modal) {
 
