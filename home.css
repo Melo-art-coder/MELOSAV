@@ -886,3 +886,76 @@ body.dark-mode .streak-card{
     opacity:.75;
 
 }
+/* =====================================
+   SMART WALLET
+===================================== */
+
+.wallet-slider{
+
+    display:flex;
+
+    overflow-x:auto;
+
+    scroll-snap-type:x mandatory;
+
+    gap:18px;
+
+    scroll-behavior:smooth;
+
+    -ms-overflow-style:none;
+
+    scrollbar-width:none;
+
+}
+
+.wallet-slider::-webkit-scrollbar{
+
+    display:none;
+
+}
+
+.wallet-card{
+
+    min-width:100%;
+
+    scroll-snap-align:center;
+
+}
+
+.wallet-dots{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:10px;
+
+    margin-top:-15px;
+
+    margin-bottom:25px;
+
+}
+
+.wallet-dots span{
+
+    width:10px;
+
+    height:10px;
+
+    border-radius:50%;
+
+    background:#d3c6ff;
+
+    transition:.3s;
+
+}
+
+.wallet-dots span.active{
+
+    width:28px;
+
+    border-radius:30px;
+
+    background:#7b2cff;
+
+}
