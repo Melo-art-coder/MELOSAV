@@ -1,50 +1,93 @@
-/* Default Theme */
+/* =====================================
+   DEFAULT THEME
+===================================== */
+
 :root{
     --primary:#7b2cff;
     --secondary:#b56cff;
-    --background:#ffffff;
+    --background:#f8f5ff;
     --card:#ffffff;
     --text:#222222;
 }
 
-/* Purple */
+/* =====================================
+   PURPLE
+===================================== */
+
 body.theme-purple{
     --primary:#7b2cff;
     --secondary:#b56cff;
+    --background:#f8f5ff;
+    --card:#ffffff;
+    --text:#222222;
 }
 
-/* Emerald */
+/* =====================================
+   EMERALD
+===================================== */
+
 body.theme-emerald{
     --primary:#10b981;
     --secondary:#34d399;
+    --background:#eefcf7;
+    --card:#ffffff;
+    --text:#133b2c;
 }
 
-/* Ocean */
+/* =====================================
+   OCEAN
+===================================== */
+
 body.theme-ocean{
     --primary:#0ea5e9;
     --secondary:#38bdf8;
+    --background:#eef8ff;
+    --card:#ffffff;
+    --text:#09344f;
 }
 
-/* Midnight */
+/* =====================================
+   MIDNIGHT
+===================================== */
+
 body.theme-midnight{
     --primary:#1f2937;
     --secondary:#4b5563;
+    --background:#111827;
+    --card:#1f2937;
+    --text:#ffffff;
 }
 
-/* Rose */
+/* =====================================
+   ROSE
+===================================== */
+
 body.theme-rose{
     --primary:#e11d48;
     --secondary:#fb7185;
+    --background:#fff1f5;
+    --card:#ffffff;
+    --text:#4a1023;
 }
 
-/* Gold */
+/* =====================================
+   GOLD
+===================================== */
+
 body.theme-gold{
     --primary:#d97706;
     --secondary:#facc15;
+    --background:#fff9eb;
+    --card:#ffffff;
+    --text:#4b3200;
 }
 
-/* Global */
+/* =====================================
+   GLOBAL
+===================================== */
+
 body{
     background:var(--background);
     color:var(--text);
+    transition:.35s ease;
 }
