@@ -1,30 +1,37 @@
 // =====================================
-// MELOSAV - THEME SYSTEM V2
+// MELOSAV GLOBAL THEME SYSTEM
 // =====================================
 
 const themeButton = document.getElementById("themeToggle");
 
+const themes = {
+    purple: "theme-purple",
+    emerald: "theme-emerald",
+    ocean: "theme-ocean",
+    rose: "theme-rose",
+    gold: "theme-gold",
+    midnight: "theme-dark"
+};
+
 function applyTheme(theme){
 
-    if(theme==="dark"){
+    document.body.classList.remove(
+        "theme-purple",
+        "theme-emerald",
+        "theme-ocean",
+        "theme-rose",
+        "theme-gold",
+        "theme-dark"
+    );
 
-        document.body.classList.add("dark-mode");
+    document.body.classList.add(themes[theme]);
 
-        if(themeButton){
+    localStorage.setItem("meloTheme", theme);
 
-            themeButton.textContent="🌙";
+    if(themeButton){
 
-        }
-
-    }else{
-
-        document.body.classList.remove("dark-mode");
-
-        if(themeButton){
-
-            themeButton.textContent="☀️";
-
-        }
+        themeButton.textContent =
+            theme === "midnight" ? "🌙" : "☀️";
 
     }
 
@@ -32,121 +39,14 @@ function applyTheme(theme){
 
 function loadTheme(){
 
-    const savedTheme=localStorage.getItem("meloTheme") || "light";
+    const savedTheme =
+        localStorage.getItem("meloTheme") || "purple";
 
     applyTheme(savedTheme);
 
 }
 
-function toggleTheme(){
-
-    const newTheme=document.body.classList.contains("dark-mode")
-
-        ? "light"
-
-        : "dark";
-
-    localStorage.setItem("meloTheme",newTheme);
-
-    applyTheme(newTheme);
-
-}
-
-if(themeButton){
-
-    themeButton.addEventListener("click",toggleTheme);
-
-}
-
-document.addEventListener("DOMContentLoaded",loadTheme);
-// ================================
-// COLOR THEMES
-// ================================
-
-const themes = {
-
-purple:"#7b2cff",
-
-emerald:"#16a34a",
-
-ocean:"#2563eb",
-
-midnight:"#111827",
-
-sunset:"#ea580c",
-
-rose:"#e11d48"
-
-};
-
-function applyColorTheme(){
-
-const color =
-localStorage.getItem("meloColor") || "purple";
-
-document.documentElement.style.setProperty(
-
-"--primary",
-
-themes[color]
-
-);
-
-}
-
-document.addEventListener(
-
-"DOMContentLoaded",
-
-applyColorTheme
-
-);
-// ===========================
-// Premium Theme Selector
-// ===========================
-
-const themeSelector = document.getElementById("themeSelector");
-
-function loadPremiumTheme(){
-
-    const savedTheme =
-        localStorage.getItem("meloPremiumTheme") || "purple";
-
-    document.body.classList.remove(
-        "theme-purple",
-        "theme-emerald",
-        "theme-ocean",
-        "theme-midnight",
-        "theme-rose",
-        "theme-gold"
-    );
-
-    document.body.classList.add("theme-" + savedTheme);
-
-    if(themeSelector){
-        themeSelector.value = savedTheme;
-    }
-
-}
-
-if(themeSelector){
-
-    themeSelector.addEventListener("change",()=>{
-
-        const selected = themeSelector.value;
-
-        localStorage.setItem(
-            "meloPremiumTheme",
-            selected
-        );
-
-        loadPremiumTheme();
-
-    });
-
-}
-
 document.addEventListener(
     "DOMContentLoaded",
-    loadPremiumTheme
+    loadTheme
 );
