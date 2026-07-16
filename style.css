@@ -222,7 +222,7 @@ button{
 
 .feature-card{
 
-    background:#fafafa;
+    background:var(--card);
 
     padding:25px;
 
@@ -262,7 +262,7 @@ button{
 
     max-width:420px;
 
-    background:white;
+    background:var(--card);
 
     padding:35px;
 
@@ -296,7 +296,7 @@ button{
 
     border-radius:15px;
 
-    border:1px solid #ddd;
+    border:1px solid var(--border);
 
     outline:none;
 
@@ -325,7 +325,6 @@ button{
 
 
 
-
 /* =====================================
    DASHBOARD
 ===================================== */
@@ -344,7 +343,7 @@ button{
 .budget-card,
 .transaction-card{
 
-    background:white;
+    background:var(--card);
 
     padding:25px;
 
@@ -360,7 +359,7 @@ button{
 
 .balance-card{
 
-    background:#7b2cff;
+    background:var(--primary);
 
     color:white;
 
@@ -400,7 +399,7 @@ button{
 
     border-radius:15px;
 
-    border:1px solid #ddd;
+    border:1px solid var(--border);
 
 }
 
@@ -412,7 +411,7 @@ button{
 
     padding:10px;
 
-    border-bottom:1px solid #ddd;
+    border-bottom:1px solid var(--border);
 
 }
 
@@ -424,8 +423,6 @@ button{
     margin-top:20px;
 
 }
-
-
 
 
 
@@ -452,7 +449,7 @@ button{
 
     text-align:center;
 
-    background:white;
+    background:var(--card);
 
     padding:40px;
 
@@ -486,7 +483,7 @@ button{
 
     font-size:50px;
 
-    background:#7b2cff;
+    background:var(--primary);
 
     color:white;
 
@@ -504,7 +501,7 @@ button{
 
 .avatar.female{
 
-    background:#7b2cff;
+    background:var(--primary);
 
 }
 
@@ -524,8 +521,6 @@ button{
 
 
 
-
-
 /* =====================================
    FOOTER
 ===================================== */
@@ -537,7 +532,7 @@ footer{
 
     padding:40px 20px;
 
-    background:#f7f7f7;
+    background:var(--card);
 
     margin-top:50px;
 
@@ -562,38 +557,13 @@ footer h3{
 
 body.dark-mode{
 
-    background:#121212;
+    --background:#121212;
 
-    color:white;
+    --card:#1e1e1e;
 
-}
-
-
-body.dark-mode .form-card,
-body.dark-mode .welcome-card,
-body.dark-mode .money-box,
-body.dark-mode .budget-card,
-body.dark-mode .transaction-card,
-body.dark-mode .profile-card,
-body.dark-mode .feature-card{
-
-    background:#1e1e1e;
+    --text:white;
 
 }
-
-
-
-body.dark-mode footer{
-
-    background:#181818;
-
-}
-
-
-
-
-
-
 
 /* =====================================
    MOBILE
@@ -662,7 +632,7 @@ body.dark-mode footer{
 
     padding: 30px;
 
-    background: #fafafa;
+    background:var(--card);
 
     border-radius: 20px;
 
@@ -684,15 +654,13 @@ body.dark-mode footer{
 
 .feature-card p {
 
-    color: #666;
+    color:var(--text);
+
+    opacity:.7;
 
     line-height: 1.5;
 
 }
-
-
-
-
 
 /* =====================================
    FOOTER
@@ -707,7 +675,7 @@ footer {
 
     margin-top: 50px;
 
-    background: #f7f7f7;
+    background:var(--card);
 
 }
 
@@ -725,12 +693,13 @@ footer h3 {
 
 footer p {
 
-    color: #666;
+    color:var(--text);
+
+    opacity:.7;
 
     margin: 5px;
 
 }
-
 
 
 
@@ -743,9 +712,9 @@ footer p {
 
 body.dark-mode {
 
-    background: #121212;
+    background:var(--background);
 
-    color: white;
+    color:var(--text);
 
 }
 
@@ -753,7 +722,9 @@ body.dark-mode {
 
 body.dark-mode p {
 
-    color: #cccccc;
+    color:var(--text);
+
+    opacity:.75;
 
 }
 
@@ -761,7 +732,7 @@ body.dark-mode p {
 
 body.dark-mode .feature-card {
 
-    background: #1e1e1e;
+    background:var(--card);
 
 }
 
@@ -769,10 +740,9 @@ body.dark-mode .feature-card {
 
 body.dark-mode footer {
 
-    background: #1a1a1a;
+    background:var(--card);
 
 }
-
 
 
 
@@ -835,20 +805,20 @@ body.dark-mode footer {
 
     background: linear-gradient(
         135deg,
-        #7b2cff,
-        #b56cff
+        var(--primary),
+        var(--secondary)
     );
 
-    color: white;
+    color:white;
 
-    padding: 35px;
+    padding:35px;
 
-    border-radius: 30px;
+    border-radius:30px;
 
     box-shadow:
     0 20px 40px rgba(123,44,255,0.25);
 
-    text-align: left;
+    text-align:left;
 
 }
 
@@ -927,7 +897,7 @@ select {
 input:focus,
 select:focus {
 
-    border-color: #7b2cff;
+    border-color:var(--primary);
 
     box-shadow:
     0 0 10px rgba(123,44,255,0.2);
@@ -969,11 +939,11 @@ button:active {
 .welcome-card {
 
     background:
-    linear-gradient(
-        135deg,
-        #ffffff,
-        #f5edff
-    );
+linear-gradient(
+135deg,
+var(--card),
+#f5edff
+);
 
     border-radius: 30px;
 
@@ -1012,12 +982,8 @@ button:active {
 
 }
 
-
-
-.message.success {
-
-    background: #7b2cff;
-
+.message.success{
+    background:var(--primary);
 }
 
 
@@ -1136,7 +1102,7 @@ body.dark-mode select {
 
     border-radius:50%;
 
-    background:#7b2cff;
+    background:var(--primary);
 
     color:white;
 
@@ -1185,7 +1151,7 @@ body.dark-mode select {
 
     border-radius:50%;
 
-    background:#7b2cff;
+    background:var(--primary);
 
     color:white;
 
@@ -1216,9 +1182,10 @@ margin:auto;
 
 }
 
+
 .settings-card{
 
-background:rgba(255,255,255,.85);
+background:var(--card);
 
 backdrop-filter:blur(15px);
 
@@ -1232,11 +1199,13 @@ transition:.3s;
 
 }
 
+
 .settings-card:hover{
 
 transform:translateY(-3px);
 
 }
+
 
 .settings-card h3{
 
@@ -1248,13 +1217,17 @@ font-size:18px;
 
 }
 
+
 .settings-card p{
 
 margin-top:10px;
 
-color:#666;
+color:var(--text);
+
+opacity:.7;
 
 }
+
 
 .settings-card select{
 
@@ -1274,6 +1247,7 @@ background:#f3efff;
 
 }
 
+
 .settings-card label{
 
 display:flex;
@@ -1288,15 +1262,17 @@ cursor:pointer;
 
 }
 
+
 .settings-card input[type="checkbox"]{
 
 width:20px;
 
 height:20px;
 
-accent-color:#7b2cff;
+accent-color:var(--primary);
 
 }
+
 
 .settings-card select:focus{
 
