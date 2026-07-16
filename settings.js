@@ -1,32 +1,57 @@
+// =====================================
+// MELOSAV SETTINGS THEME SYSTEM
+// =====================================
+
 const themeButtons = document.querySelectorAll(".theme-option");
 
-themeButtons.forEach(button => {
+const allThemes = [
+    "theme-purple",
+    "theme-emerald",
+    "theme-ocean",
+    "theme-rose",
+    "theme-gold",
+    "theme-dark"
+];
 
-    button.addEventListener("click", () => {
+themeButtons.forEach(button=>{
+
+    button.addEventListener("click",()=>{
 
         const theme = button.dataset.theme;
 
-        localStorage.setItem("meloColor", theme);
+        document.body.classList.remove(...allThemes);
 
-        document.body.classList.remove(
-            "theme-purple",
-            "theme-emerald",
-            "theme-ocean",
-            "theme-midnight",
-            "theme-rose",
-            "theme-gold"
-        );
+        if(theme==="midnight"){
 
-        document.body.classList.add("theme-" + theme);
+            document.body.classList.add("theme-dark");
+
+        }else{
+
+            document.body.classList.add("theme-"+theme);
+
+        }
+
+        localStorage.setItem("meloTheme",theme);
 
     });
 
 });
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded",()=>{
 
-    const saved = localStorage.getItem("meloColor") || "purple";
+    const savedTheme =
+        localStorage.getItem("meloTheme") || "purple";
 
-    document.body.classList.add("theme-" + saved);
+    document.body.classList.remove(...allThemes);
+
+    if(savedTheme==="midnight"){
+
+        document.body.classList.add("theme-dark");
+
+    }else{
+
+        document.body.classList.add("theme-"+savedTheme);
+
+    }
 
 });
