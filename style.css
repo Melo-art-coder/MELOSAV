@@ -16,6 +16,116 @@
     --soft-purple:#f5edff;
 
 }
+/* =====================================
+   DYNAMIC COLOR THEMES
+===================================== */
+
+/* 💜 Purple (Default) */
+
+body.theme-purple{
+
+    --primary:#7b2cff;
+    --secondary:#b56cff;
+
+    --background:#ffffff;
+    --card:#ffffff;
+
+    --text:#222222;
+    --border:#dddddd;
+
+    --soft-purple:#f5edff;
+
+}
+
+
+/* 💚 Emerald */
+
+body.theme-emerald{
+
+    --primary:#00A86B;
+    --secondary:#48D597;
+
+    --background:#F6FFF9;
+    --card:#FFFFFF;
+
+    --text:#1D2B24;
+    --border:#CDECDD;
+
+    --soft-purple:#E8FFF2;
+
+}
+
+
+/* 🌊 Ocean */
+
+body.theme-ocean{
+
+    --primary:#0077FF;
+    --secondary:#4DB8FF;
+
+    --background:#F3FAFF;
+    --card:#FFFFFF;
+
+    --text:#183153;
+    --border:#D8EFFF;
+
+    --soft-purple:#EAF7FF;
+
+}
+
+
+/* 🌹 Rose */
+
+body.theme-rose{
+
+    --primary:#E91E63;
+    --secondary:#FF6FA5;
+
+    --background:#FFF7FA;
+    --card:#FFFFFF;
+
+    --text:#4A2433;
+    --border:#FFD7E4;
+
+    --soft-purple:#FFF0F6;
+
+}
+
+
+/* ✨ Gold */
+
+body.theme-gold{
+
+    --primary:#C89B00;
+    --secondary:#F4C542;
+
+    --background:#FFFDF5;
+    --card:#FFFFFF;
+
+    --text:#3A3200;
+    --border:#F5E8A4;
+
+    --soft-purple:#FFF8DA;
+
+}
+
+
+/* 🌌 Midnight */
+
+body.theme-midnight{
+
+    --primary:#5E5CE6;
+    --secondary:#8E8CFF;
+
+    --background:#111827;
+    --card:#1E293B;
+
+    --text:#FFFFFF;
+    --border:#374151;
+
+    --soft-purple:#273449;
+
+}
 
 
 
@@ -1075,24 +1185,6 @@ body.dark-mode select{
     color:var(--text);
 
     border-color:var(--border);
-
-}
-/* =====================================
-   DARK MODE
-===================================== */
-
-
-body.dark-mode{
-
-    --background:#121212;
-
-    --card:#1e1e1e;
-
-    --text:#ffffff;
-
-    --border:#444444;
-
-    --soft-purple:#292929;
 
 }
 /* =====================================
