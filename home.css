@@ -57,6 +57,16 @@ body{
 
 /* ========= THEMES ========= */
 
+
+body.theme-purple{
+
+    --primary:#7B2CFF;
+    --secondary:#B56CFF;
+
+    --primary-rgb:123,44,255;
+
+}
+
 body.theme-purple{
 
     --primary:#7B2CFF;
