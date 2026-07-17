@@ -1,9 +1,25 @@
 /* ==========================================
-   MELOSAV V3 - HOME.CSS (PART 1)
-   RESET • BODY • HEADER • BALANCE CARD
+   MELOSAV V4
+   DYNAMIC THEME SYSTEM
 ========================================== */
 
-/* RESET */
+:root{
+
+    --primary:#7B2CFF;
+    --secondary:#B56CFF;
+
+    --bg:#F5F2FF;
+    --card:#FFFFFF;
+    --text:#222;
+    --text-light:#777;
+
+    --glass:rgba(255,255,255,.75);
+
+}
+
+/* ==========================================
+   RESET
+========================================== */
 
 *{
     margin:0;
@@ -13,440 +29,206 @@
 }
 
 body{
-    background:#F5F2FF;
-    color:#222;
+
+    background:var(--bg);
+
+    color:var(--text);
+
     padding:24px;
-    transition:background .3s,color .3s;
+
+    transition:.35s;
+
 }
 
-/* ==========================
-   HOME HEADER
-========================== */
+/* ==========================================
+   HEADER
+========================================== */
 
 .home-header{
+
     display:flex;
+
     justify-content:space-between;
+
     align-items:center;
+
     margin-bottom:30px;
+
 }
 
 .welcome{
+
     display:flex;
+
     flex-direction:column;
+
 }
 
 .hello{
+
     font-size:14px;
-    color:#8C8C8C;
+
+    color:var(--text-light);
+
     margin-bottom:6px;
+
 }
 
 #welcomeMessage{
+
     font-size:28px;
+
     font-weight:700;
-    color:#4A24B8;
+
+    color:var(--primary);
+
     line-height:1.2;
+
 }
 
 .header-buttons{
+
     display:flex;
-    align-items:center;
+
     gap:12px;
+
 }
 
 .header-btn{
+
     width:48px;
+
     height:48px;
+
     border:none;
+
     border-radius:16px;
-    background:rgba(255,255,255,.8);
+
+    background:var(--glass);
+
     backdrop-filter:blur(15px);
-    box-shadow:0 8px 20px rgba(108,62,244,.12);
+
+    color:var(--primary);
+
     font-size:20px;
+
     cursor:pointer;
-    transition:.25s ease;
+
+    transition:.3s;
+
 }
 
 .header-btn:hover{
+
     transform:translateY(-3px);
+
 }
 
-/* ==========================
+/* ==========================================
    BALANCE CARD
-========================== */
+========================================== */
 
 .balance-card{
+
     margin-bottom:30px;
+
     padding:28px;
+
     border-radius:28px;
-    background:linear-gradient(135deg,#6C3EF4,#9D6BFF);
-    color:#fff;
-    box-shadow:0 20px 40px rgba(108,62,244,.25);
+
+    background:linear-gradient(
+        135deg,
+        var(--primary),
+        var(--secondary)
+    );
+
+    color:white;
+
+    box-shadow:
+    0 20px 40px rgba(0,0,0,.15);
+
 }
 
 .balance-top{
+
     display:flex;
+
     justify-content:space-between;
+
     align-items:center;
+
 }
 
 .balance-label{
+
     font-size:15px;
+
     opacity:.9;
+
 }
 
 .currency{
+
     padding:8px 14px;
+
     border-radius:20px;
+
     background:rgba(255,255,255,.2);
+
     font-size:13px;
+
     font-weight:600;
+
 }
 
 #balance{
+
     margin:24px 0;
+
     font-size:42px;
+
     font-weight:800;
+
 }
 
 .balance-bottom{
+
     display:flex;
+
     justify-content:space-between;
-    align-items:center;
+
     gap:20px;
+
 }
 
 .balance-bottom div{
+
     flex:1;
+
 }
 
 .balance-bottom small{
+
     display:block;
+
     margin-bottom:6px;
+
     opacity:.8;
+
     font-size:13px;
+
 }
 
 .balance-bottom h3{
+
     font-size:22px;
+
     font-weight:700;
+
 }
 /* ==========================================
-   MELOSAV V3 - HOME.CSS (PART 2)
-   DARK MODE • BOTTOM NAVIGATION • FAB
-========================================== */
-
-/* ==========================
-   DARK MODE
-========================== */
-
-body.dark-mode{
-    background:
-        radial-gradient(circle at top,#2B165E 0%,#120B28 40%,#090611 100%);
-    color:#FFFFFF;
-}
-
-body.dark-mode #welcomeMessage{
-    color:#FFFFFF;
-}
-
-body.dark-mode .hello{
-    color:#C8C8C8;
-}
-
-body.dark-mode .header-btn{
-    background:rgba(255,255,255,.08);
-    color:#FFFFFF;
-    border:1px solid rgba(181,108,255,.25);
-    box-shadow:0 0 18px rgba(123,44,255,.25);
-}
-
-
-
-/* ==========================
-   BOTTOM NAVIGATION
-========================== */
-
-.bottom-nav{
-    position:fixed;
-    left:50%;
-    bottom:20px;
-    transform:translateX(-50%);
-    width:92%;
-    max-width:420px;
-    height:75px;
-
-    display:flex;
-    justify-content:space-around;
-    align-items:center;
-
-    background:rgba(255,255,255,.75);
-    backdrop-filter:blur(20px);
-
-    border-radius:28px;
-
-    box-shadow:0 15px 35px rgba(0,0,0,.12);
-
-    z-index:999;
-}
-
-.nav-item{
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    gap:4px;
-
-    text-decoration:none;
-    color:#777;
-    font-size:13px;
-
-    transition:.25s ease;
-}
-
-.nav-item span{
-    font-size:22px;
-}
-
-.nav-item small{
-    font-size:12px;
-}
-
-.nav-item.active{
-    color:#7B2CFF;
-    font-weight:700;
-}
-
-.nav-item:hover{
-    color:#7B2CFF;
-}
-
-.bottom-nav a,
-.bottom-nav a:visited,
-.bottom-nav a:hover,
-.bottom-nav a:active{
-    text-decoration:none;
-    color:inherit;
-}
-
-/* ==========================
-   FLOATING ACTION BUTTON
-========================== */
-
-.fab{
-    width:65px;
-    height:65px;
-
-    border:none;
-    border-radius:50%;
-
-    background:linear-gradient(
-        135deg,
-        #7B2CFF,
-        #B56CFF
-    );
-
-    color:#FFFFFF;
-    font-size:34px;
-    cursor:pointer;
-
-    margin-top:-45px;
-
-    box-shadow:0 15px 30px rgba(123,44,255,.45);
-
-    transition:transform .25s ease;
-}
-
-.fab:hover{
-    transform:scale(1.08);
-}
-
-/* ==========================
-   DARK MODE NAVIGATION
-========================== */
-
-body.dark-mode .bottom-nav{
-    background:rgba(18,18,30,.78);
-    border:1px solid rgba(181,108,255,.18);
-    box-shadow:0 0 30px rgba(123,44,255,.22);
-}
-
-body.dark-mode .nav-item{
-    color:#BBBBBB;
-}
-
-body.dark-mode .nav-item.active{
-    color:#B56CFF;
-}
-/* ==========================================
-   MELOSAV V3 - HOME.CSS (PART 3)
-   ADD TRANSACTION POPUP
-========================================== */
-
-/* Overlay */
-
-.modal{
-    display:none;
-    position:fixed;
-    inset:0;
-
-    justify-content:center;
-    align-items:center;
-
-    background:rgba(0,0,0,.45);
-    backdrop-filter:blur(8px);
-
-    padding:20px;
-
-    z-index:2000;
-}
-
-/* Popup Card */
-
-.modal-content{
-    width:100%;
-    max-width:380px;
-
-    background:#FFFFFF;
-
-    border-radius:28px;
-
-    padding:25px;
-
-    display:flex;
-    flex-direction:column;
-    gap:16px;
-
-    box-shadow:0 20px 45px rgba(0,0,0,.20);
-
-    animation:popUp .25s ease;
-}
-
-/* Title */
-
-.modal-content h2{
-    text-align:center;
-    color:#7B2CFF;
-    font-size:24px;
-    margin-bottom:5px;
-}
-
-/* Inputs */
-
-.modal-content input,
-.modal-content select{
-
-    width:100%;
-
-    padding:15px;
-
-    border:1px solid #E2E2E2;
-
-    border-radius:16px;
-
-    outline:none;
-
-    font-size:15px;
-
-    background:#FAFAFA;
-
-    transition:.25s;
-}
-
-.modal-content input:focus,
-.modal-content select:focus{
-
-    border-color:#7B2CFF;
-
-    background:#FFFFFF;
-}
-
-/* Save Button */
-
-.modal-content button{
-
-    border:none;
-
-    border-radius:16px;
-
-    padding:15px;
-
-    background:linear-gradient(
-        135deg,
-        #7B2CFF,
-        #B56CFF
-    );
-
-    color:#FFFFFF;
-
-    font-size:16px;
-
-    font-weight:700;
-
-    cursor:pointer;
-
-    transition:.25s;
-}
-
-.modal-content button:hover{
-
-    transform:translateY(-2px);
-
-    box-shadow:0 10px 25px rgba(123,44,255,.35);
-}
-
-/* ==========================
-   DARK MODE POPUP
-========================== */
-
-body.dark-mode .modal-content{
-
-    background:#1A1630;
-}
-
-body.dark-mode .modal-content h2{
-
-    color:#C9AEFF;
-}
-
-body.dark-mode .modal-content input,
-body.dark-mode .modal-content select{
-
-    background:#2A2348;
-
-    border-color:#3D3365;
-
-    color:#FFFFFF;
-}
-
-body.dark-mode .modal-content input::placeholder{
-
-    color:#BBBBBB;
-}
-
-/* ==========================
-   POPUP ANIMATION
-========================== */
-
-@keyframes popUp{
-
-    from{
-
-        opacity:0;
-
-        transform:scale(.9);
-    }
-
-    to{
-
-        opacity:1;
-
-        transform:scale(1);
-    }
-}
-/* ===========================
    QUICK ACTIONS
-=========================== */
+========================================== */
 
 .quick-actions{
 
@@ -460,7 +242,7 @@ body.dark-mode .modal-content input::placeholder{
 
     font-weight:700;
 
-    color:var(--text-color,#222);
+    color:var(--text);
 
     margin-bottom:18px;
 
@@ -472,47 +254,32 @@ body.dark-mode .modal-content input::placeholder{
 
     grid-template-columns:repeat(2,1fr);
 
-    gap:15px;
+    gap:16px;
 
 }
 
 .action-card{
 
-    background:rgba(255,255,255,0.75);
+    background:var(--glass);
 
-    backdrop-filter:blur(14px);
-
-    -webkit-backdrop-filter:blur(14px);
-
-    border:none;
+    backdrop-filter:blur(15px);
 
     border-radius:22px;
 
-    padding:22px 18px;
+    padding:22px;
 
     cursor:pointer;
 
     transition:.35s;
 
-    text-align:left;
-
     box-shadow:
-    0 10px 25px rgba(123,44,255,.10);
-
-}
-
-body.dark-mode .action-card{
-
-    background:rgba(35,25,60,.88);
+        0 10px 25px rgba(0,0,0,.08);
 
 }
 
 .action-card:hover{
 
     transform:translateY(-6px);
-
-    box-shadow:
-    0 18px 35px rgba(123,44,255,.22);
 
 }
 
@@ -522,24 +289,25 @@ body.dark-mode .action-card{
 
     height:58px;
 
-    border-radius:16px;
-
     display:flex;
 
     justify-content:center;
 
     align-items:center;
 
-    font-size:28px;
+    border-radius:18px;
 
     background:linear-gradient(
-    135deg,
-    #7b2cff,
-    #9b5cff);
+        135deg,
+        var(--primary),
+        var(--secondary)
+    );
 
     color:#fff;
 
-    margin-bottom:15px;
+    font-size:28px;
+
+    margin-bottom:16px;
 
 }
 
@@ -555,268 +323,54 @@ body.dark-mode .action-card{
 
     font-size:13px;
 
-    opacity:.7;
-
-}
-/* ===========================
-   TRANSFER MODAL
-=========================== */
-
-.modal{
-
-    position:fixed;
-
-    inset:0;
-
-    display:none;
-
-    justify-content:center;
-
-    align-items:center;
-
-    background:rgba(0,0,0,.45);
-
-    backdrop-filter:blur(8px);
-
-    z-index:999;
+    color:var(--text-light);
 
 }
 
-.modal-content{
+/* ==========================================
+   FLOATING ACTION BUTTON
+========================================== */
 
-    width:90%;
+.fab{
 
-    max-width:420px;
+    width:65px;
 
-    background:#fff;
-
-    border-radius:28px;
-
-    padding:28px 22px;
-
-    box-shadow:0 20px 45px rgba(0,0,0,.15);
-
-    animation:popUp .35s ease;
-
-}
-
-body.dark-mode .modal-content{
-
-    background:#1d1430;
-
-    color:#fff;
-
-}
-
-.modal-content h2{
-
-    margin-bottom:20px;
-
-    text-align:center;
-
-}
-
-.modal-content label{
-
-    display:block;
-
-    margin:14px 0 6px;
-
-    font-size:14px;
-
-    font-weight:600;
-
-}
-
-.modal-content input,
-.modal-content select{
-
-    width:100%;
-
-    padding:14px;
-
-    border-radius:14px;
-
-    border:1px solid rgba(123,44,255,.2);
-
-    outline:none;
-
-    font-size:15px;
-
-    margin-bottom:8px;
-
-}
-
-.modal-content button{
-
-    width:100%;
-
-    margin-top:20px;
-
-    padding:15px;
+    height:65px;
 
     border:none;
 
-    border-radius:16px;
+    border-radius:50%;
 
-    background:#7b2cff;
+    background:linear-gradient(
+        135deg,
+        var(--primary),
+        var(--secondary)
+    );
 
     color:#fff;
 
-    font-size:16px;
-
-    font-weight:600;
+    font-size:34px;
 
     cursor:pointer;
+
+    margin-top:-45px;
+
+    box-shadow:
+        0 15px 30px rgba(0,0,0,.18);
 
     transition:.3s;
 
 }
 
-.modal-content button:hover{
+.fab:hover{
 
-    transform:translateY(-2px);
-
-    box-shadow:0 10px 20px rgba(123,44,255,.25);
+    transform:scale(1.08);
 
 }
 
-@keyframes popUp{
-
-    from{
-
-        transform:scale(.9);
-
-        opacity:0;
-
-    }
-
-    to{
-
-        transform:scale(1);
-
-        opacity:1;
-
-    }
-
-}
-/* Transfer Continue Button Fix */
-
-#continueTransfer {
-
-    width:100%;
-
-    margin-top:20px;
-
-    padding:15px;
-
-    border:none;
-
-    border-radius:16px;
-
-    background:linear-gradient(
-        135deg,
-        #7B2CFF,
-        #B56CFF
-    );
-
-    color:white;
-
-    font-size:16px;
-
-    font-weight:700;
-
-    cursor:pointer;
-
-    display:block;
-
-}
-
-
-#continueTransfer:hover {
-
-    transform:translateY(-2px);
-
-    box-shadow:0 10px 25px rgba(123,44,255,.35);
-
-}
-/* Receipt Card */
-
-.receipt-card{
-
-    background:#fff;
-
-    border-radius:20px;
-
-    padding:20px;
-
-    margin-bottom:20px;
-
-}
-
-body.dark-mode .receipt-card{
-
-    background:#2b2148;
-
-}
-
-.receipt-icon{
-
-    width:70px;
-
-    height:70px;
-
-    margin:auto;
-
-    border-radius:50%;
-
-    background:#7b2cff;
-
-    color:#fff;
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    font-size:32px;
-
-    margin-bottom:18px;
-
-}
-
-.receipt-card h2{
-
-    text-align:center;
-
-    color:#7b2cff;
-
-    margin-bottom:20px;
-
-}
-
-.receipt-row{
-
-    display:flex;
-
-    justify-content:space-between;
-
-    padding:12px 0;
-
-    border-bottom:1px solid rgba(0,0,0,.08);
-
-}
-
-body.dark-mode .receipt-row{
-
-    border-bottom:1px solid rgba(255,255,255,.08);
-
-}
-
-/* ==========================
-   DAILY STREAK CARD 🔥
-========================== */
+/* ==========================================
+   DAILY STREAK
+========================================== */
 
 .streak-card{
 
@@ -828,23 +382,16 @@ body.dark-mode .receipt-row{
 
     margin:0 20px 25px;
 
-    padding:18px 20px;
+    padding:20px;
 
-    border-radius:22px;
+    border-radius:24px;
 
-    background:rgba(255,255,255,.75);
+    background:var(--glass);
 
-    backdrop-filter:blur(14px);
+    backdrop-filter:blur(15px);
 
-    -webkit-backdrop-filter:blur(14px);
-
-    box-shadow:0 10px 25px rgba(123,44,255,.10);
-
-}
-
-body.dark-mode .streak-card{
-
-    background:rgba(35,25,60,.88);
+    box-shadow:
+        0 10px 25px rgba(0,0,0,.08);
 
 }
 
@@ -854,23 +401,23 @@ body.dark-mode .streak-card{
 
     height:58px;
 
-    border-radius:16px;
-
     display:flex;
 
     justify-content:center;
 
     align-items:center;
 
-    font-size:30px;
+    border-radius:18px;
 
     background:linear-gradient(
         135deg,
-        #ff8c00,
-        #ff4d4d
+        #ff9800,
+        #ff5252
     );
 
     color:#fff;
+
+    font-size:30px;
 
 }
 
@@ -886,250 +433,60 @@ body.dark-mode .streak-card{
 
     font-size:14px;
 
-    opacity:.75;
-
-}
-/* =====================================
-   SMART WALLET
-===================================== */
-
-.wallet-slider{
-
-    display:flex;
-
-    overflow-x:auto;
-
-    scroll-snap-type:x mandatory;
-
-    gap:18px;
-
-    scroll-behavior:smooth;
-
-    -ms-overflow-style:none;
-
-    scrollbar-width:none;
+    color:var(--text-light);
 
 }
 
-.wallet-slider::-webkit-scrollbar{
-
-    display:none;
-
-}
-
-.wallet-card{
-
-    min-width:100%;
-
-    scroll-snap-align:center;
-
-}
-
-.wallet-dots{
-
-    display:flex;
-
-    justify-content:center;
-
-    gap:10px;
-
-    margin-top:-15px;
-
-    margin-bottom:25px;
-
-}
-
-.wallet-dots span{
-
-    width:10px;
-
-    height:10px;
-
-    border-radius:50%;
-
-    background:#d3c6ff;
-
-    transition:.3s;
-
-}
-
-.wallet-dots span.active{
-
-    width:28px;
-
-    border-radius:30px;
-
-    background:#7b2cff;
-
-}
-/* =====================================
-   WALLET CARD COLORS
-===================================== */
-
-.ngn-card{
-    background:linear-gradient(135deg,#6C3EF4,#9D6BFF);
-}
-
-.usd-card{
-    background:linear-gradient(135deg,#0F9D58,#34C759);
-}
-
-.eur-card{
-    background:linear-gradient(135deg,#2563EB,#60A5FA);
-}
-
-.gbp-card{
-    background:linear-gradient(135deg,#1F2937,#111827);
-}
-
-.fcfa-card{
-    background:linear-gradient(135deg,#D4AF37,#F4D03F);
-    color:#222;
-}
-
-.fcfa-card .currency,
-.fcfa-card .balance-label,
-.fcfa-card h2,
-.fcfa-card h3,
-.fcfa-card small{
-    color:#222;
-}
-
-.wallet-card{
-
-    transition:
-        transform .35s ease,
-        box-shadow .35s ease;
-
-}
-
-.wallet-card:hover{
-
-    transform:translateY(-4px);
-
-    box-shadow:0 25px 45px rgba(0,0,0,.18);
-
-}
-
-.wallet-card:active{
-
-    transform:scale(.98);
-
-}
-/* =====================================
-   KEEP WALLET COLORS IN DARK MODE
-===================================== */
-
-body.dark-mode .ngn-card{
-    background:linear-gradient(135deg,#5A2ED8,#7B4DFF);
-}
-
-body.dark-mode .usd-card{
-    background:linear-gradient(135deg,#0F9D58,#34C759);
-}
-
-body.dark-mode .eur-card{
-    background:linear-gradient(135deg,#2563EB,#60A5FA);
-}
-
-body.dark-mode .gbp-card{
-    background:linear-gradient(135deg,#1F2937,#111827);
-}
-
-body.dark-mode .fcfa-card{
-    background:linear-gradient(135deg,#D4AF37,#F4D03F);
-    color:#222;
-}
-
-body.dark-mode .fcfa-card h2,
-body.dark-mode .fcfa-card h3,
-body.dark-mode .fcfa-card small,
-body.dark-mode .fcfa-card .balance-label,
-body.dark-mode .fcfa-card .currency{
-    color:#222;
-}
-/* =====================================
-   FORCE WALLET COLORS IN DARK MODE
-===================================== */
-
-body.dark-mode .wallet-card.ngn-card{
-    background:linear-gradient(135deg,#5A2ED8,#7B4DFF) !important;
-}
-
-body.dark-mode .wallet-card.usd-card{
-    background:linear-gradient(135deg,#0F9D58,#34C759) !important;
-}
-
-body.dark-mode .wallet-card.eur-card{
-    background:linear-gradient(135deg,#2563EB,#60A5FA) !important;
-}
-
-body.dark-mode .wallet-card.gbp-card{
-    background:linear-gradient(135deg,#1F2937,#111827) !important;
-}
-
-body.dark-mode .wallet-card.fcfa-card{
-    background:linear-gradient(135deg,#D4AF37,#F4D03F) !important;
-    color:#222 !important;
-}
-
-body.dark-mode .wallet-card.fcfa-card h2,
-body.dark-mode .wallet-card.fcfa-card h3,
-body.dark-mode .wallet-card.fcfa-card small,
-body.dark-mode .wallet-card.fcfa-card .balance-label,
-body.dark-mode .wallet-card.fcfa-card .currency{
-    color:#222 !important;
-}
-/* ==========================
-   MELO AI CARD 🤖💜
-========================== */
-
+/* ==========================================
+   MELO AI
+========================================== */
 
 .melo-card{
 
     display:flex;
+
     align-items:center;
-    gap:15px;
+
+    gap:16px;
 
     margin:0 20px 25px;
 
-    padding:20px;
+    padding:22px;
 
     border-radius:24px;
 
-    background:
-    linear-gradient(
+    background:linear-gradient(
         135deg,
-        #7B2CFF,
-        #B56CFF
+        var(--primary),
+        var(--secondary)
     );
 
-    color:white;
+    color:#fff;
 
     box-shadow:
-    0 15px 30px rgba(123,44,255,.25);
+        0 18px 35px rgba(0,0,0,.15);
 
 }
 
-
 .melo-icon{
 
-    width:55px;
-    height:55px;
+    width:58px;
+
+    height:58px;
 
     border-radius:18px;
 
     display:flex;
+
     justify-content:center;
+
     align-items:center;
+
+    background:rgba(255,255,255,.18);
 
     font-size:30px;
 
-    background:
-    rgba(255,255,255,.2);
-
 }
-
 
 .melo-card h3{
 
@@ -1137,125 +494,127 @@ body.dark-mode .wallet-card.fcfa-card .currency{
 
 }
 
-
 .melo-card p{
-
-    font-size:14px;
 
     opacity:.9;
 
+    font-size:14px;
+
 }
+
 #meloSpeakBtn{
 
     margin-top:12px;
 
-    padding:10px 16px;
+    padding:11px 18px;
 
     border:none;
 
     border-radius:20px;
 
-    background:rgba(255,255,255,.2);
+    background:rgba(255,255,255,.18);
 
-    color:white;
+    color:#fff;
 
     font-weight:600;
 
     cursor:pointer;
 
-    backdrop-filter:blur(10px);
-
     transition:.3s;
 
 }
 
-
 #meloSpeakBtn:hover{
+
+    background:rgba(255,255,255,.30);
 
     transform:translateY(-2px);
 
-    background:rgba(255,255,255,.35);
-
 }
-/* ==========================
-   PREMIUM DARK MODE
-========================== */
+/* =====================================
+   DYNAMIC THEME SUPPORT
+===================================== */
 
-body.dark-mode .balance-card,
-body.dark-mode .action-card,
-body.dark-mode .streak-card,
-body.dark-mode .melo-card,
-body.dark-mode .modal-content{
+body{
 
-    border:1px solid rgba(181,108,255,.18);
+    --primary:#7B2CFF;
+    --secondary:#B56CFF;
 
-    box-shadow:
-        0 10px 30px rgba(0,0,0,.35),
-        0 0 25px rgba(123,44,255,.15);
+    --primary-rgb:123,44,255;
 
-}
-.settings-container{
-
-padding:25px;
-
-display:flex;
-
-flex-direction:column;
-
-gap:15px;
+    --bg:#F5F2FF;
+    --card:#FFFFFF;
+    --text:#222;
+    --glass:rgba(255,255,255,.75);
 
 }
 
-.settings-card{
+/* Emerald */
 
-background:white;
+body.theme-emerald{
 
-border-radius:18px;
+    --primary:#10B981;
+    --secondary:#34D399;
 
-padding:18px;
-
-display:flex;
-
-align-items:center;
-
-gap:15px;
-
-font-size:18px;
-
-font-weight:600;
-
-cursor:pointer;
-
-box-shadow:0 8px 20px rgba(0,0,0,.08);
-
-transition:.3s;
+    --primary-rgb:16,185,129;
 
 }
 
-.settings-card:hover{
+/* Ocean */
 
-transform:translateY(-3px);
+body.theme-ocean{
+
+    --primary:#2563EB;
+    --secondary:#60A5FA;
+
+    --primary-rgb:37,99,235;
 
 }
 
-#logoutBtn{
+/* Rose */
 
-margin-top:25px;
+body.theme-rose{
 
-padding:16px;
+    --primary:#E91E63;
+    --secondary:#F472B6;
 
-border:none;
+    --primary-rgb:233,30,99;
 
-border-radius:15px;
+}
 
-background:#ff4d4d;
+/* Gold */
 
-color:white;
+body.theme-gold{
 
-font-size:16px;
+    --primary:#D4AF37;
+    --secondary:#F4D03F;
 
-font-weight:bold;
+    --primary-rgb:212,175,55;
 
-cursor:pointer;
+}
+
+/* Midnight */
+
+body.theme-dark{
+
+    --primary:#8B5CF6;
+    --secondary:#A78BFA;
+
+    --primary-rgb:139,92,246;
+
+    --bg:#090611;
+    --card:#1B1530;
+    --text:#FFFFFF;
+    --glass:rgba(32,24,54,.88);
+
+}
+
+/* Apply globally */
+
+body{
+
+    background:var(--bg);
+
+    color:var(--text);
 
 }
