@@ -333,3 +333,64 @@ function initSavings(){
     };
 
 }
+// =====================================
+// MELOSAV HOME V5
+// INITIALIZER
+// =====================================
+
+document.addEventListener("DOMContentLoaded", async ()=>{
+
+    // Welcome
+    loadWelcome();
+
+    // Dashboard
+    await updateDashboard();
+
+    // Daily Streak
+    updateDailyStreak();
+
+    // Wallet
+    if(typeof initWallet==="function"){
+
+        initWallet();
+
+    }
+
+    if(typeof updateWalletBalances==="function"){
+
+        updateWalletBalances();
+
+    }
+
+    // Melo AI
+    if(typeof updateMeloMessage==="function"){
+
+        updateMeloMessage();
+
+    }
+
+    // Melo Voice
+    setTimeout(()=>{
+
+        if(typeof meloWelcomeVoice==="function"){
+
+            meloWelcomeVoice();
+
+        }
+
+    },1200);
+
+    // Buttons
+    initTransactionModal();
+
+    initTransfer();
+
+    initAirtime();
+
+    initBetting();
+
+    initSavings();
+
+    console.log("💜 MELOSAV HOME V5 LOADED");
+
+});
