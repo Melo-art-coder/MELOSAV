@@ -1,52 +1,90 @@
 // =====================================
-// MELOSAV GLOBAL THEME SYSTEM
+// MELOSAV V4 GLOBAL THEME ENGINE
 // =====================================
 
-const themeButton = document.getElementById("themeToggle");
+const THEMES = [
+    "purple",
+    "emerald",
+    "ocean",
+    "rose",
+    "gold",
+    "midnight"
+];
 
-const themes = {
+const themeClasses = {
     purple: "theme-purple",
     emerald: "theme-emerald",
     ocean: "theme-ocean",
     rose: "theme-rose",
     gold: "theme-gold",
-    midnight: "theme-dark"
+    midnight: "theme-midnight"
 };
 
-function applyTheme(theme){
+// Apply Theme
+function applyTheme(theme = "purple") {
 
-    document.body.classList.remove(
-        "theme-purple",
-        "theme-emerald",
-        "theme-ocean",
-        "theme-rose",
-        "theme-gold",
-        "theme-dark"
+    // Remove every previous theme
+    Object.values(themeClasses).forEach(cls =>
+        document.body.classList.remove(cls)
     );
 
-    document.body.classList.add(themes[theme]);
-
-    localStorage.setItem("meloTheme", theme);
-
-    if(themeButton){
-
-        themeButton.textContent =
-            theme === "midnight" ? "🌙" : "☀️";
-
+    // Fallback
+    if (!themeClasses[theme]) {
+        theme = "purple";
     }
 
+    // Add new class
+    document.body.classList.add(themeClasses[theme]);
+
+    // Save
+    localStorage.setItem("meloTheme", theme);
+
+    // Update active theme button
+    document.querySelectorAll(".theme-option").forEach(btn => {
+        btn.classList.toggle(
+            "active",
+            btn.dataset.theme === theme
+        );
+    });
+
+    // Update icon if it exists
+    const toggle = document.getElementById("themeToggle");
+
+    if (toggle) {
+        toggle.textContent =
+            theme === "midnight"
+            ? "🌙"
+            : "🎨";
+    }
 }
 
-function loadTheme(){
+// Load Saved Theme
+function loadTheme() {
 
     const savedTheme =
-        localStorage.getItem("meloTheme") || "purple";
+        localStorage.getItem("meloTheme") ||
+        "purple";
 
     applyTheme(savedTheme);
-
 }
 
-document.addEventListener(
-    "DOMContentLoaded",
-    loadTheme
-);
+// Theme Picker
+document.addEventListener("DOMContentLoaded", () => {
+
+    loadTheme();
+
+    document.querySelectorAll(".theme-option").forEach(button => {
+
+        button.addEventListener("click", () => {
+
+            applyTheme(button.dataset.theme);
+
+        });
+
+    });
+
+});
+
+// Allow other JS files to change theme
+window.applyTheme = applyTheme;
+window.loadTheme = loadTheme;
