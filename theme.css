@@ -91,3 +91,50 @@ body{
     color:var(--text);
     transition:.35s ease;
 }
+.theme-option[data-theme="purple"]{
+
+    background:linear-gradient(135deg,#7B2CFF,#B56CFF);
+    color:white;
+
+}
+
+.theme-option[data-theme="emerald"]{
+
+    background:linear-gradient(135deg,#10B981,#34D399);
+    color:white;
+
+}
+
+.theme-option[data-theme="ocean"]{
+
+    background:linear-gradient(135deg,#2563EB,#60A5FA);
+    color:white;
+
+}
+
+.theme-option[data-theme="rose"]{
+
+    background:linear-gradient(135deg,#E91E63,#F472B6);
+    color:white;
+
+}
+
+.theme-option[data-theme="gold"]{
+
+    background:linear-gradient(135deg,#D4AF37,#F4D03F);
+    color:#222;
+
+}
+
+.theme-option[data-theme="midnight"]{
+
+    background:linear-gradient(135deg,#1A1630,#3B2A6F);
+    color:white;
+
+}
+
+.theme-option span{
+
+    color:inherit;
+
+}
