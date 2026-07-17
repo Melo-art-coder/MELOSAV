@@ -1,76 +1,54 @@
 /* ==========================================
-   MELOSAV V4 HOME.CSS
-   PART 1
-   GLOBAL • RESET • THEMES • HEADER • WALLETS
+   MELOSAV V5
+   HOME PAGE
 ========================================== */
-
-/* ========= ROOT VARIABLES ========= */
-
-:root{
-
-    --primary:#7B2CFF;
-    --secondary:#B56CFF;
-
-    --background:#F5F2FF;
-    --card:#FFFFFF;
-
-    --text:#222222;
-    --text-light:#777777;
-
-    --glass:rgba(255,255,255,.75);
-
-    --shadow:0 15px 35px rgba(0,0,0,.10);
-
-}
 
 /* ========= RESET ========= */
 
 *{
-
     margin:0;
     padding:0;
     box-sizing:border-box;
-
     font-family:"Poppins",sans-serif;
-
 }
 
 html{
-
     scroll-behavior:smooth;
-
 }
 
 body{
+
+    --primary:#7B2CFF;
+    --secondary:#B56CFF;
+
+    --background:#F7F4FF;
+    --card:#FFFFFF;
+
+    --text:#222;
+    --text-light:#777;
+
+    --glass:rgba(255,255,255,.75);
+
+    --primary-rgb:123,44,255;
 
     background:var(--background);
 
     color:var(--text);
 
-    transition:.35s;
-
     overflow-x:hidden;
 
-    padding:24px;
+    transition:.35s;
 
+    padding:22px;
 }
 
 /* ========= THEMES ========= */
 
-
 body.theme-purple{
 
     --primary:#7B2CFF;
     --secondary:#B56CFF;
-
     --primary-rgb:123,44,255;
-
-}
-
-body.theme-purple{
-
-    --primary:#7B2CFF;
-    --secondary:#B56CFF;
 
 }
 
@@ -78,6 +56,7 @@ body.theme-emerald{
 
     --primary:#10B981;
     --secondary:#34D399;
+    --primary-rgb:16,185,129;
 
 }
 
@@ -85,6 +64,7 @@ body.theme-ocean{
 
     --primary:#2563EB;
     --secondary:#60A5FA;
+    --primary-rgb:37,99,235;
 
 }
 
@@ -92,6 +72,7 @@ body.theme-rose{
 
     --primary:#E91E63;
     --secondary:#F472B6;
+    --primary-rgb:233,30,99;
 
 }
 
@@ -99,6 +80,7 @@ body.theme-gold{
 
     --primary:#D4AF37;
     --secondary:#F4D03F;
+    --primary-rgb:212,175,55;
 
 }
 
@@ -106,16 +88,17 @@ body.theme-midnight{
 
     --primary:#8B5CF6;
     --secondary:#A78BFA;
+    --primary-rgb:139,92,246;
 
     --background:#090611;
 
-    --card:#1B1530;
+    --card:#1A1530;
 
     --text:#FFFFFF;
 
-    --text-light:#C9C9C9;
+    --text-light:#CFCFCF;
 
-    --glass:rgba(30,22,55,.88);
+    --glass:rgba(27,21,48,.88);
 
 }
 
@@ -129,7 +112,7 @@ body.theme-midnight{
 
     align-items:center;
 
-    margin-bottom:28px;
+    margin-bottom:24px;
 
 }
 
@@ -143,21 +126,43 @@ body.theme-midnight{
 
 .hello{
 
-    font-size:14px;
-
     color:var(--text-light);
+
+    font-size:14px;
 
 }
 
 #welcomeMessage{
 
+    margin-top:5px;
+
+    color:var(--primary);
+
     font-size:30px;
 
     font-weight:700;
 
+}
+
+.header-btn{
+
+    width:48px;
+
+    height:48px;
+
+    border:none;
+
+    border-radius:16px;
+
+    background:var(--glass);
+
     color:var(--primary);
 
-    margin-top:5px;
+    backdrop-filter:blur(15px);
+
+    font-size:20px;
+
+    cursor:pointer;
 
 }
 
@@ -167,19 +172,15 @@ body.theme-midnight{
 
     display:flex;
 
-    gap:18px;
-
     overflow-x:auto;
 
     scroll-snap-type:x mandatory;
 
+    gap:18px;
+
     scroll-behavior:smooth;
 
-    -ms-overflow-style:none;
-
     scrollbar-width:none;
-
-    padding-bottom:10px;
 
 }
 
@@ -188,8 +189,6 @@ body.theme-midnight{
     display:none;
 
 }
-
-/* ========= WALLET CARD ========= */
 
 .wallet-card{
 
@@ -203,15 +202,9 @@ body.theme-midnight{
 
     color:#fff;
 
-    transition:.35s;
+    flex-shrink:0;
 
-    box-shadow:0 20px 40px rgba(0,0,0,.18);
-
-}
-
-.wallet-card:hover{
-
-    transform:translateY(-3px);
+    box-shadow:0 18px 40px rgba(0,0,0,.18);
 
 }
 
@@ -227,33 +220,25 @@ body.theme-midnight{
 
 .balance-label{
 
-    font-size:15px;
-
-    opacity:.92;
+    opacity:.9;
 
 }
 
 .currency{
 
-    padding:8px 15px;
+    padding:8px 14px;
 
-    border-radius:25px;
+    border-radius:20px;
 
-    background:rgba(255,255,255,.18);
-
-    font-size:13px;
-
-    backdrop-filter:blur(12px);
+    background:rgba(255,255,255,.20);
 
 }
 
 .wallet-card h2{
 
-    margin:28px 0;
+    margin:25px 0;
 
     font-size:42px;
-
-    font-weight:800;
 
 }
 
@@ -263,239 +248,71 @@ body.theme-midnight{
 
     justify-content:space-between;
 
-    gap:20px;
-
-}
-
-.balance-bottom small{
-
-    opacity:.8;
-
-}
-
-.balance-bottom h3{
-
-    margin-top:5px;
-
-    font-size:22px;
-
-}
-
-/* ========= WALLET COLORS ========= */
-
-.ngn-card{
-
-    background:linear-gradient(135deg,#6C3EF4,#9D6BFF);
-
-}
-
-.usd-card{
-
-    background:linear-gradient(135deg,#0F9D58,#34C759);
-
-}
-
-.eur-card{
-
-    background:linear-gradient(135deg,#2563EB,#60A5FA);
-
-}
-
-.gbp-card{
-
-    background:linear-gradient(135deg,#1F2937,#111827);
-
-}
-
-.fcfa-card{
-
-    background:linear-gradient(135deg,#D4AF37,#F4D03F);
-
-    color:#222;
-
-}
-
-.fcfa-card h2,
-.fcfa-card h3,
-.fcfa-card small,
-.fcfa-card .currency,
-.fcfa-card .balance-label{
-
-    color:#222;
-
-}
-
-/* Keep wallet colours in every theme */
-
-body.theme-midnight .wallet-card{
-
-    color:#fff;
-
-}
-
-body.theme-midnight .fcfa-card{
-
-    color:#222;
-
-}
-
-/* ========= WALLET DOTS ========= */
-
-.wallet-dots{
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    gap:10px;
-
-    margin:18px 0 28px;
-
-}
-
-.wallet-dots span{
-
-    width:10px;
-
-    height:10px;
-
-    border-radius:50%;
-
-    background:#D8C8FF;
-
-    transition:.35s;
-
-}
-
-.wallet-dots span.active{
-
-    width:30px;
-
-    border-radius:20px;
-
-    background:var(--primary);
-
-}
-
-/* ========= RESPONSIVE ========= */
-
-@media(max-width:768px){
-
-    body{
-
-        padding:18px;
-
-    }
-
-    #welcomeMessage{
-
-        font-size:26px;
-
-    }
-
-    .wallet-card h2{
-
-        font-size:36px;
-
-    }
-
 }
 /* =====================================
-   PREMIUM BOTTOM NAVIGATION
+   DAILY STREAK
 ===================================== */
 
-.bottom-nav{
-
-    position:fixed;
-
-    left:50%;
-    bottom:18px;
-    transform:translateX(-50%);
-
-    width:92%;
-    max-width:430px;
-    height:78px;
+.streak-card{
 
     display:flex;
-    justify-content:space-around;
     align-items:center;
+    gap:16px;
 
     background:var(--glass);
 
-    backdrop-filter:blur(20px);
-    -webkit-backdrop-filter:blur(20px);
+    padding:20px;
 
-    border-radius:28px;
+    border-radius:24px;
 
-    border:1px solid rgba(var(--primary-rgb),.15);
+    backdrop-filter:blur(18px);
 
-    box-shadow:
-        0 15px 35px rgba(0,0,0,.10);
+    box-shadow:var(--shadow);
 
-    z-index:999;
+    margin-bottom:22px;
+
 }
 
-.nav-item{
+.streak-icon{
 
-    flex:1;
+    width:60px;
+    height:60px;
+
+    border-radius:18px;
 
     display:flex;
-    flex-direction:column;
     justify-content:center;
     align-items:center;
 
-    gap:4px;
+    font-size:28px;
 
-    text-decoration:none;
+    background:linear-gradient(
+        135deg,
+        #ff9800,
+        #ff5b5b
+    );
 
-    color:var(--text-light);
+    color:white;
 
-    transition:.3s;
 }
 
-.nav-item span{
+.streak-card h3{
 
-    font-size:22px;
+    margin-bottom:5px;
+
 }
 
-.nav-item small{
+/* =====================================
+   MELO AI
+===================================== */
 
-    font-size:12px;
-    font-weight:600;
-}
+.melo-card{
 
-.nav-item.active{
+    display:flex;
 
-    color:var(--primary);
-}
+    gap:16px;
 
-.nav-item.active span{
-
-    transform:translateY(-2px) scale(1.08);
-}
-
-.nav-item:hover{
-
-    color:var(--primary);
-}
-
-.bottom-nav a{
-
-    text-decoration:none;
-}
-
-/* Floating Plus */
-
-.fab{
-
-    width:68px;
-    height:68px;
-
-    border:none;
-
-    border-radius:50%;
+    align-items:flex-start;
 
     background:linear-gradient(
         135deg,
@@ -505,82 +322,113 @@ body.theme-midnight .fcfa-card{
 
     color:white;
 
-    font-size:34px;
+    padding:22px;
 
-    cursor:pointer;
+    border-radius:26px;
 
-    margin-top:-40px;
+    margin-bottom:28px;
 
-    box-shadow:
-        0 15px 30px rgba(var(--primary-rgb),.35);
+    box-shadow:var(--shadow);
 
-    transition:.3s;
 }
 
-.fab:hover{
+.melo-icon{
 
-    transform:scale(1.08);
-}
+    width:60px;
+    height:60px;
 
-/* Dark Mode */
-
-body.theme-midnight .bottom-nav{
-
-    background:rgba(24,18,40,.88);
-
-    border:1px solid rgba(255,255,255,.08);
-}
-/* =====================================
-   PREMIUM WALLET SLIDER
-===================================== */
-
-.wallet-slider{
+    border-radius:18px;
 
     display:flex;
 
-    overflow-x:auto;
+    justify-content:center;
+    align-items:center;
 
-    scroll-snap-type:x mandatory;
+    font-size:28px;
 
-    scroll-behavior:smooth;
-
-    gap:20px;
-
-    padding-bottom:12px;
-
-    -ms-overflow-style:none;
-
-    scrollbar-width:none;
+    background:rgba(255,255,255,.18);
 
 }
 
-.wallet-slider::-webkit-scrollbar{
+#meloSpeakBtn{
 
-    display:none;
+    margin-top:12px;
 
-}
+    padding:12px 18px;
 
-.wallet-card{
+    border:none;
 
-    min-width:100%;
+    border-radius:18px;
 
-    scroll-snap-align:center;
+    background:rgba(255,255,255,.18);
 
-    flex-shrink:0;
+    color:white;
 
-    transition:
-        transform .35s ease,
-        box-shadow .35s ease;
+    cursor:pointer;
 
 }
 
-.wallet-card:hover{
+/* =====================================
+   QUICK ACTIONS
+===================================== */
 
-    transform:translateY(-4px);
+.quick-actions{
+
+    margin-bottom:120px;
 
 }
 
-.wallet-dots{
+.section-title{
+
+    font-size:22px;
+
+    margin-bottom:18px;
+
+}
+
+.action-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:18px;
+
+}
+
+.action-card{
+
+    border:none;
+
+    background:var(--glass);
+
+    backdrop-filter:blur(20px);
+
+    padding:22px;
+
+    border-radius:24px;
+
+    cursor:pointer;
+
+    box-shadow:var(--shadow);
+
+    transition:.35s;
+
+}
+
+.action-card:hover{
+
+    transform:translateY(-5px);
+
+}
+
+.action-icon{
+
+    width:60px;
+
+    height:60px;
+
+    border-radius:18px;
 
     display:flex;
 
@@ -588,90 +436,128 @@ body.theme-midnight .bottom-nav{
 
     align-items:center;
 
-    gap:8px;
+    font-size:28px;
 
-    margin:10px 0 28px;
+    margin-bottom:15px;
 
-}
+    color:white;
 
-.wallet-dots span{
-
-    width:10px;
-
-    height:10px;
-
-    border-radius:50%;
-
-    background:#d9d9d9;
-
-    transition:.35s;
+    background:linear-gradient(
+        135deg,
+        var(--primary),
+        var(--secondary)
+    );
 
 }
 
-.wallet-dots span.active{
+.action-card h3{
 
-    width:30px;
+    margin-bottom:6px;
 
-    border-radius:30px;
+    color:var(--text);
 
-    background:var(--primary);
+}
+
+.action-card p{
+
+    color:var(--text-light);
+
+    font-size:13px;
 
 }
 /* =====================================
-   WALLET COLORS
+   MODALS
 ===================================== */
 
-.ngn-card{
-    background:linear-gradient(135deg,#6C3EF4,#9D6BFF);
+.modal{
+
+    display:none;
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(0,0,0,.45);
+
+    justify-content:center;
+
+    align-items:center;
+
+    z-index:2000;
+
+    padding:20px;
+
 }
 
-.usd-card{
-    background:linear-gradient(135deg,#10B981,#34D399);
+.modal-content{
+
+    width:100%;
+
+    max-width:420px;
+
+    background:var(--card);
+
+    border-radius:28px;
+
+    padding:25px;
+
+    box-shadow:0 20px 40px rgba(0,0,0,.18);
+
 }
 
-.eur-card{
-    background:linear-gradient(135deg,#2563EB,#60A5FA);
+.modal-content h2{
+
+    margin-bottom:20px;
+
+    color:var(--primary);
+
 }
 
-.gbp-card{
-    background:linear-gradient(135deg,#1F2937,#111827);
+.modal-content input,
+.modal-content select{
+
+    width:100%;
+
+    padding:15px;
+
+    margin-bottom:15px;
+
+    border-radius:15px;
+
+    border:1px solid #ddd;
+
+    background:transparent;
+
+    color:var(--text);
+
 }
 
-.fcfa-card{
+.modal-content button{
+
+    width:100%;
+
+    border:none;
+
+    padding:15px;
+
+    border-radius:18px;
 
     background:linear-gradient(
         135deg,
-        #D4AF37,
-        #F4D03F
+        var(--primary),
+        var(--secondary)
     );
 
-    color:#222;
+    color:white;
+
+    font-weight:700;
+
+    cursor:pointer;
 
 }
-body.theme-midnight .ngn-card{
-    background:linear-gradient(135deg,#6C3EF4,#9D6BFF)!important;
-}
 
-body.theme-midnight .usd-card{
-    background:linear-gradient(135deg,#10B981,#34D399)!important;
-}
+.success-box{
 
-body.theme-midnight .eur-card{
-    background:linear-gradient(135deg,#2563EB,#60A5FA)!important;
-}
-
-body.theme-midnight .gbp-card{
-    background:linear-gradient(135deg,#1F2937,#111827)!important;
-}
-
-body.theme-midnight .fcfa-card{
-
-    background:linear-gradient(
-        135deg,
-        #D4AF37,
-        #F4D03F
-    )!important;
-
-    color:#222!important;
+    text-align:center;
 
 }
