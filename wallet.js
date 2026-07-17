@@ -65,8 +65,12 @@ function initWallet() {
 
     slider.addEventListener("scroll", () => {
 
+        const cards = slider.querySelectorAll(".wallet-card");
+
+        const cardWidth = cards[0].offsetWidth + 20; // 20px gap
+
         currentWallet = Math.round(
-            slider.scrollLeft / slider.clientWidth
+            slider.scrollLeft / cardWidth
         );
 
         updateWalletDots();
