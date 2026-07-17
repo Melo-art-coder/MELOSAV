@@ -38,6 +38,11 @@ function applyTheme(theme = "purple") {
 
     // Save
     localStorage.setItem("meloTheme", theme);
+document.dispatchEvent(
+    new CustomEvent("themeChanged", {
+        detail: { theme }
+    })
+);
 
     // Update active theme button
     document.querySelectorAll(".theme-option").forEach(btn => {
